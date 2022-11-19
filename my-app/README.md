@@ -1,3 +1,20 @@
+# inventory Manager 
+
+## project goal
+
+I started this project with the purpose of learning Angular and java Spring boot in my free time
+
+## is it ok to use the code ?
+
+yeah this code is available to use , feel free to !
+
+## Learning journey 
+
+I documented the new notions I learn in a notion page :
+https://romantic-stamp-7fe.notion.site/Angular-JS-cf5e4199642c4ca285baadea38fb3c17
+
+
+
 # MyApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
