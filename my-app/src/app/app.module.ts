@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloWorldNgIfComponent } from './mon-premier-component/hello-world-ngif.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloWorldNgIfComponent
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
