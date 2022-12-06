@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
-import { Product} from '../products';
-import { ProductListComponent } from '../product-list/product-list.component';
+import { Product,products} from '../products';
 
 @Component({
   selector: 'app-product-details',
@@ -11,8 +10,11 @@ import { ProductListComponent } from '../product-list/product-list.component';
 })
 export class ProductDetailsComponent {
   product: Product |undefined ;
+  products = products;
   constructor(private route: ActivatedRoute,private cartService: CartService ){
+    this.product = products[0];
   }
+  
   addToCart(product: Product){
     this.cartService.addToCart(product);
     window.alert('Your product have been added to the cart !');
