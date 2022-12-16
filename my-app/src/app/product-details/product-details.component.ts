@@ -10,6 +10,8 @@ import { Product,products} from '../products';
 })
 export class ProductDetailsComponent {
   product: Product |undefined ;
+  product2: Product |undefined ;
+  product3: Product |undefined ;
   products = products;
   constructor(private route: ActivatedRoute,private cartService: CartService ){
     this.product = products[0];
