@@ -17,8 +17,28 @@ or you can directly read this ReadMe :
 --------------------------------------------------------------------------------------------------------
 # TypeScript
 ## Basics
+### Compiled
+Typescript will be transformed to js so it can be runed , when we run tsc command , js files will be genreated 
 
 ### Types
+
+in pure JavaScript we can have something like :
+```tsx
+function fn(x) {
+  return x.flip();
+}
+```
+the same sample in typescript will print :
+```tsx
+const message = "hello!";
+ 
+message();
+This expression is not callable.
+  Type 'String' has no call signatures.
+```
+
+
+
 
 we can declare a variable to be etiher String or number by : 
 
