@@ -1,4 +1,7 @@
 div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
     background-color: red;
@@ -14,4 +17,8 @@ html{
 
 div:hover{
     cursor: pointer;
+}
+a{
+    height: 100%;
+    width: 100%;
 }
