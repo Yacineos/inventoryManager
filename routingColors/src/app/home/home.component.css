@@ -1,0 +1,26 @@
+#container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+#g{
+    text-decoration: none;
+    color: black;
+    background-color: green;
+    width: 100%;
+    height: 100%;
+}
+#r{
+    text-decoration: none;
+    color: black;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+}
+#g:hover{
+    cursor: pointer;
+}
+#r:hover{
+    cursor: pointer;
+}
