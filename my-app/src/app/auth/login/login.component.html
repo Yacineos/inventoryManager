@@ -2,25 +2,12 @@
   <div class="content">
     <img src="../../assets/images/Graph.png" alt="inventory manager" />
   </div>
-  <div class="content">Welcome back!</div>
-  <div class="content">Login to your account</div>
+  <div class="content head" >Welcome back!</div>
+  <div class="content gray">Login to your account</div>
   <div class="content"><input type="email" placeholder="Email Address" /></div>
   <div class="content">
-    <input
-      type="text"
-      *ngIf="showPassword"
-      [(ngModel)]="password"
-      name="password"
-      placeholder="Password"
-    />
-    <input
-      type="password"
-      *ngIf="!showPassword"
-      [(ngModel)]="password"
-      name="password"
-      placeholder="Password"
-    />
-
+    <input type="text" *ngIf="showPassword" [(ngModel)]="password" name="password" placeholder="Password" />
+    <input type="password" *ngIf="!showPassword" [(ngModel)]="password" name="password" placeholder="Password" />
     <button (click)="showPassword = !showPassword">
       <img src="../../../assets/images/showHidePassword.png" alt="" />
     </button>

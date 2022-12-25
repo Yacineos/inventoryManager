@@ -1,0 +1,15 @@
+#container{
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    padding: 1rem;
+}
+.head{
+    font-family: var(--Head);
+    font-size: 20px;
+}
+.gray{
+    font-size: 14px;
+    color: var(--grey);
+}

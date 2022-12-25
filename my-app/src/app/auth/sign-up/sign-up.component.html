@@ -1,17 +1,28 @@
 <div id="container">
-    <div class="content"><img src="../../assets/images/Graph.png" alt="inventory manager">
-    </div>
-    <div class="content" >Get Started with <span style="color: #5570F1;">Metrix</span></div>
-    <div class="content">Create your free account</div>
-    <div class="content"><input type="text" name="userName" placeholder="Your Full Name"></div>
-    <div class="content"><input type="email" placeholder="Your Email Address"></div>
     <div class="content">
-        <input type="text" *ngIf="showPassword" [(ngModel)]="password" name="password" placeholder="Password"  autocomplete="off">
-        <input type="password" *ngIf="!showPassword" [(ngModel)]="password" name="password" placeholder="Password"  autocomplete="off">
-        <button (click)="showPassword = !showPassword"> <img src="../../../assets/images/showHidePassword.png" alt=""></button></div>
-    <div class="content">Recover Password</div>
-    <div class="content">Don’t have an account?<a (click)="toggleLogin.emit()">login</a></div>
+        <img src="../../assets/images/Graph.png" alt="inventory manager" />
+    </div>
+    <div class="content head">
+        Get Started with <span style="color: #5570f1">Metrix</span>
+    </div>
+    <div class="content gray">Create your free account</div>
+    <div class="content">
+        <input type="text" name="userName" placeholder="Your Full Name" />
+    </div>
+    <div class="content">
+        <input type="email" placeholder="Your Email Address" />
+    </div>
+    <div class="content">
+        <input type="text" *ngIf="showPassword" [(ngModel)]="password" name="password"
+            placeholder="Create a Strong Password" />
+        <input type="password" *ngIf="!showPassword" [(ngModel)]="password" name="password"
+            placeholder="Create a Strong Password" />
+        <button (click)="showPassword = !showPassword">
+            <img src="../../../assets/images/showHidePassword.png" alt="" />
+        </button>
+    </div>
+    <div class="content">
+        Already have an account?<a (click)="toggleLogin.emit()">login</a>
+    </div>
     <div class="content"><button>Login</button></div>
 </div>
-
-
