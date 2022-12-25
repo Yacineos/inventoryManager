@@ -1,14 +1,33 @@
 <div id="container">
-    <div class="content"><img src="../../assets/images/Graph.png" alt="inventory manager">
-    </div>
-    <div class="content" >Welcome back!</div>
-    <div class="content">Login to your account</div>
-    <div class="content"><input type="email" placeholder="Email Address"></div>
-    <div class="content">
-        <input type="text" *ngIf="showPassword" [(ngModel)]="password" name="password" placeholder="Password">
-        <input type="password" *ngIf="!showPassword" [(ngModel)]="password" name="password" placeholder="Password">
-        <button (click)="showPassword = !showPassword"> <img src="../../../assets/images/showHidePassword.png" alt=""></button></div>
-    <div class="content">Recover Password</div>
-    <div class="content">Don’t have an account?<a routerLink="auth/signUp"> Sign Up</a></div>
-    <div class="content"><button>Login</button></div>
+  <div class="content">
+    <img src="../../assets/images/Graph.png" alt="inventory manager" />
+  </div>
+  <div class="content">Welcome back!</div>
+  <div class="content">Login to your account</div>
+  <div class="content"><input type="email" placeholder="Email Address" /></div>
+  <div class="content">
+    <input
+      type="text"
+      *ngIf="showPassword"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+    />
+    <input
+      type="password"
+      *ngIf="!showPassword"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+    />
+
+    <button (click)="showPassword = !showPassword">
+      <img src="../../../assets/images/showHidePassword.png" alt="" />
+    </button>
+  </div>
+  <div class="content">Recover Password</div>
+  <div class="content">
+    Don’t have an account?<a (click)="toggleSignup.emit()"> Sign Up</a>
+  </div>
+  <div class="content"><button>Login</button></div>
 </div>
