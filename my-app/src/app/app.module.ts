@@ -7,6 +7,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from "./auth/login/login.component";
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
+import { EmployeeComponent } from './employee/employee.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
         AuthComponent,
         LoginComponent,
         SignUpComponent,
+        EmployeeComponent,
     
     ],
     providers: [],
