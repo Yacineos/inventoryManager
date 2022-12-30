@@ -17,7 +17,6 @@ import { EmployeeComponent } from './employee/employee.component';
         LoginComponent,
         SignUpComponent,
         EmployeeComponent,
-    
     ],
     providers: [],
     bootstrap: [AppComponent],

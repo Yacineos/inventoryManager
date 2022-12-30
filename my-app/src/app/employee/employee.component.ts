@@ -10,16 +10,17 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit{
+  /*
   public employees: Employee[] =[];
 
   constructor(private employeeService: EmployeeService){
 
   }
-
+  */
   ngOnInit(): void {
-      this.getEmployees();
+      //this.getEmployees();
   }
-
+  /*
   public getEmployees(): void{
     this.employeeService.getEmployees().subscribe(
       (Response: Employee[])=> {
@@ -30,4 +31,5 @@ export class EmployeeComponent implements OnInit{
       }
     );
   }
+  */ 
 }

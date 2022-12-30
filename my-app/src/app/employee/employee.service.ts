@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
@@ -6,8 +7,10 @@ import { Employee } from './employee';
 @Injectable({
   providedIn: 'root'
 })
+// there is an error on this class 
 export class EmployeeService {
-  private apiServerUrl= ''; 
+  
+  private apiServerUrl= 'http://localhost:8080'; 
 
   constructor(private http: HttpClient) { }
   
@@ -23,4 +26,6 @@ export class EmployeeService {
   public deleteEmployees(employeeId: number): Observable<void>{
     return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
   }
+
 }
+
