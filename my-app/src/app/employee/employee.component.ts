@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './employee';
 import { EmployeeService } from './employee.service';
-// why this component isn't visible in the browser?
+
 
 @Component({
   selector: 'app-employee',
@@ -10,17 +10,17 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit{
-  /*
+  
   public employees: Employee[] =[];
 
   constructor(private employeeService: EmployeeService){
 
   }
-  */
+  
   ngOnInit(): void {
-      //this.getEmployees();
+      this.getEmployees();
   }
-  /*
+  
   public getEmployees(): void{
     this.employeeService.getEmployees().subscribe(
       (Response: Employee[])=> {
@@ -31,5 +31,5 @@ export class EmployeeComponent implements OnInit{
       }
     );
   }
-  */ 
+   
 }
