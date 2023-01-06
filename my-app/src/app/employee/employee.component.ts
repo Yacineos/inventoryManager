@@ -9,8 +9,9 @@ import { EmployeeService } from './employee.service';
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
+ 
 export class EmployeeComponent implements OnInit{
-  
+ 
   public employees: Employee[] =[];
 
   constructor(private employeeService: EmployeeService){
@@ -22,6 +23,7 @@ export class EmployeeComponent implements OnInit{
       
       
   }
+  log(employee:Employee) { console.log(employee); }
   
   public getEmployees(): void{
     this.employeeService.getEmployees().subscribe(
