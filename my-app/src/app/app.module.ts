@@ -9,6 +9,8 @@ import { LoginComponent } from "./auth/login/login.component";
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee/employee.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { EmployeeComponent } from './employee/employee.component';
         LoginComponent,
         SignUpComponent,
         EmployeeComponent,
+        DashboardComponent,
+        SideBarComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

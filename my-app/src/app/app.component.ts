@@ -9,5 +9,7 @@ import { EmployeeService } from './employee/employee.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  loggedIn=false;
   title = 'my-app'; 
 }
+ 
