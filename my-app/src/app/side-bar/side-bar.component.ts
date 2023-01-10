@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import 'tailwindcss';
 
 @Component({
   selector: 'app-side-bar',
