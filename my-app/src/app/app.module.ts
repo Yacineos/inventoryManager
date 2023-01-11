@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeComponent } from './employee/employee.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
         EmployeeComponent,
         DashboardComponent,
         SideBarComponent,
+        ErrorComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
