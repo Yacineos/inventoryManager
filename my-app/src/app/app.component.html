@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="overflow-x-hidden">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
   </head>
-
-  <body class="flex flex-row">
-    <app-side-bar class="static w-16" *ngIf="!loggedIn"></app-side-bar>
-    <router-outlet class="block"></router-outlet>
+  <body class="flex bg-mainbg w-full h-full ">
+    <app-side-bar class="w-16" *ngIf="!loggedIn"></app-side-bar>
+    <div class="grow float-right"><router-outlet class="w-0"></router-outlet></div>
+    
   </body>
 </html>

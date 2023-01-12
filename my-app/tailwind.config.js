@@ -9,6 +9,7 @@ module.exports = {
       colors:{
         'mainpurple':'#5570f1',
         'mainwhite': '#ffffff',
+        'mainbg': '#EEF0FA',
         'maingrey': '#8B8D97',
         'mainblack': '#53545C',
       },
