@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/app/side-bar/side-bar.component.html','./src/app/error/error.component.html'],
+  content: ['./src/app/side-bar/side-bar.component.html',
+  './src/app/error/error.component.html',
+  './src/app/dashboard/dashboard.component.html',
+  './src/app/app.component.html',], 
   theme: {
     extend: {
       colors:{
@@ -11,6 +14,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
  
