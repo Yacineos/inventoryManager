@@ -20,6 +20,7 @@ export class LoginComponent {
   ngOnInit() {
     // Clear the password field when the component is initialized
     this.password = '';
+    this.rootComponent.loggedIn = false;
   }
   onLogin() {
     this.rootComponent.loggedIn = true;

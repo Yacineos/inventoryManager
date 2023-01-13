@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { AppComponent } from '../app.component';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-inventory',
+  templateUrl: './inventory.component.html',
+  styleUrls: ['./inventory.component.css']
 })
-export class DashboardComponent {
+export class InventoryComponent {
   constructor(private rootComponent:AppComponent) { }
   ngOnInit() {
     this.rootComponent.loggedIn = true;

@@ -3,7 +3,10 @@ module.exports = {
   content: ['./src/app/side-bar/side-bar.component.html',
   './src/app/error/error.component.html',
   './src/app/dashboard/dashboard.component.html',
-  './src/app/app.component.html',], 
+  './src/app/app.component.html',
+  './src/app/customers/customers.component.html', 
+  './src/app/inventory/inventory.component.html', 
+  './src/app/settings/settings.component.html',], 
   theme: {
     extend: {
       colors:{
@@ -13,6 +16,10 @@ module.exports = {
         'maingrey': '#8B8D97',
         'mainblack': '#53545C',
       },
+      spacing: {
+        '20/21': '95.238095%',
+        '1/21': '4.761904%',
+      }, 
     },
   },
   plugins: [require('@tailwindcss/forms')],

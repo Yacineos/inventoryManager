@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
+import { CustomersComponent } from './customers/customers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { ErrorComponent } from './error/error.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -11,6 +14,9 @@ const routes: Routes = [
   {path:"employees",component:EmployeeComponent},
   {path:"dashboard",component:DashboardComponent},
   {path:"error",component:ErrorComponent},
+  {path:"customers",component:CustomersComponent},
+  {path:"inventory",component:InventoryComponent},
+  {path:"settings",component:SettingsComponent},
 ];
 
 

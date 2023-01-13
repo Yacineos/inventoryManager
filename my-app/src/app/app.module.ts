@@ -12,6 +12,9 @@ import { EmployeeComponent } from './employee/employee.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ErrorComponent } from './error/error.component';
+import { CustomersComponent } from './customers/customers.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { ErrorComponent } from './error/error.component';
         DashboardComponent,
         SideBarComponent,
         ErrorComponent,
+        CustomersComponent,
+        InventoryComponent,
+        SettingsComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
