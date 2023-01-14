@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
   </head>
-  <body class="flex bg-mainbg w-full h-full ">
-    <app-side-bar class="w-1/21" *ngIf="loggedIn"></app-side-bar>
+  <body class="flex bg-mainbg w-full h-full overflow-hidden">
+    <app-side-bar class="w-1/21 min-w-max" *ngIf="loggedIn"></app-side-bar>
     <div class="grow float-right"><router-outlet class="w-0"></router-outlet></div>
     
   </body>
