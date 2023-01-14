@@ -1,28 +1,103 @@
 <div id="container">
-    <div class="content">
-        <img src="../../assets/images/Graph.png" alt="inventory manager" />
-    </div>
-    <div class="content head">
-        Get Started with <span style="color: #5570f1">Metrix</span>
-    </div>
-    <div class="content gray">Create your free account</div>
-    <div class="content">
-        <input type="text" name="userName" placeholder="Your Full Name" />
-    </div>
-    <div class="content">
-        <input type="email" placeholder="Your Email Address" />
-    </div>
-    <div class="content">
-        <input type="text" *ngIf="showPassword" [(ngModel)]="password" name="password"
-            placeholder="Create a Strong Password" />
-        <input type="password" *ngIf="!showPassword" [(ngModel)]="password" name="password"
-            placeholder="Create a Strong Password" />
-        <button (click)="showPassword = !showPassword">
-            <img src="../../../assets/images/showHidePassword.png" alt="" />
-        </button>
-    </div>
-    <div class="content">
-        Already have an account?<a (click)="toggleLogin.emit()" style="color:#5570f1;"> Login</a>
-    </div>
-    <div class="content"><button routerLink="/">Sign Up</button></div>
+  <div class="flex justify-center py-10">
+    <img src="../../assets/images/Graph.png" alt="inventory manager" />
+  </div>
+  <div class="font-mainFont font-medium text-2xl pb-4">
+    Get Started with <span class="text-mainpurple">Metrix</span>
+  </div>
+  <div class="font-secondaryFont font-meduim text-maingrey pb-16">
+    Create your free account
+  </div>
+  <div class="flex justify-center pb-10">
+    <label
+      for="UserName"
+      class="w-[90%] relative block overflow-hidden rounded-md border bg-maingrey/10 border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+    >
+      <input
+        type="text"
+        id="UserName"
+        placeholder="Your Full Name"
+        class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+      />
+
+      <span
+        class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+      >
+        Your Full Name
+      </span>
+    </label>
+  </div>
+  <div class="flex justify-center pb-10">
+    <label
+      for="UserEmail"
+      class="w-[90%] relative block overflow-hidden rounded-md border bg-maingrey/10 border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+    >
+      <input
+        type="email"
+        id="UserEmail"
+        placeholder="Email"
+        class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+      />
+
+      <span
+        class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+      >
+        Email
+      </span>
+    </label>
+  </div>
+
+  <div class="flex justify-center pb-10">
+    <label
+      for="UserPassword"
+      class="w-[90%] relative block overflow-hidden rounded-md border bg-maingrey/10 border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+    >
+      <input
+        class="peer h-8 w-[90%] border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        type="text"
+        *ngIf="showPassword"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Password"
+      />
+      <input
+        class="peer h-8 w-[90%] border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        type="password"
+        *ngIf="!showPassword"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Password"
+      />
+      <span
+        class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+      >
+        Password
+      </span>
+      <button class="float-right" (click)="showPassword = !showPassword">
+        <img src="../../../assets/images/showHidePassword.png" alt="" />
+      </button>
+    </label>
+  </div>
+  <div class="font-secondaryFont font-medium text-maingrey pb-10">
+    Already have an account?<a
+      (click)="toggleLogin.emit()"
+      style="color: #5570f1"
+      class="hover:underline cursor-pointer"
+    >
+      Login</a
+    >
+  </div>
+  <div class="pb-10">
+    <a
+      class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+      href="/download"
+      routerLink="/"
+    >
+      <span
+        class="block rounded-sm bg-white px-8 py-3 text-sm font-medium hover:bg-transparent"
+      >
+        Sign Up
+      </span>
+    </a>
+  </div>
 </div>
