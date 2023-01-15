@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:"customers",component:CustomersComponent},
   {path:"inventory",component:InventoryComponent},
   {path:"settings",component:SettingsComponent},
+  {path:"**",redirectTo:'error', pathMatch:"full"},
 ];
 
 
