@@ -15,6 +15,7 @@ import { ErrorComponent } from './error/error.component';
 import { CustomersComponent } from './customers/customers.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AddCostumerComponent } from './add-costumer/add-costumer.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { SettingsComponent } from './settings/settings.component';
         CustomersComponent,
         InventoryComponent,
         SettingsComponent,
+        AddCostumerComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

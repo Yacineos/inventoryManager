@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCostumerComponent } from './add-costumer/add-costumer.component';
 import { AuthComponent } from './auth/auth.component';
 import { CustomersComponent } from './customers/customers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:"customers",component:CustomersComponent},
   {path:"inventory",component:InventoryComponent},
   {path:"settings",component:SettingsComponent},
+  {path:"test",component:AddCostumerComponent},
   {path:"**",redirectTo:'error', pathMatch:"full"},
 ];
 

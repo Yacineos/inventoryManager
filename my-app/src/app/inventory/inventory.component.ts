@@ -7,8 +7,11 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent {
+  
   constructor(private rootComponent:AppComponent) { }
   ngOnInit() {
     this.rootComponent.loggedIn = true;
+    
   }
+ 
 }

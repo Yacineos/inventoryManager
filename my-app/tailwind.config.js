@@ -9,6 +9,7 @@ module.exports = {
   './src/app/inventory/inventory.component.html', 
   './src/app/auth/login/login.component.html', 
   './src/app/auth/sign-up/sign-up.component.html', 
+  './src/app/add-costumer/add-costumer.component.html', 
   './src/app/settings/settings.component.html',], 
   theme: {
     extend: {

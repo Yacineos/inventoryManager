@@ -59,8 +59,8 @@
     <div class="ml-12 font-secondaryFont text-xl">Customers Summary</div>
     <div class="mr-10">
       <a
-        class="group relative inline-flex items-center overflow-hidden rounded bg-mainpurple px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
-        href="/download"
+        class="group hover:cursor-pointer relative inline-flex items-center overflow-hidden rounded bg-mainpurple px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
+        (click)="onAddCostumer()"
       >
         <span
           class="absolute left-0 -translate-x-full transition-transform group-hover:translate-x-4"
@@ -507,4 +507,5 @@
       </table>
     </div>
   </div>
+  <app-add-costumer *ngIf="showAddCostumer"></app-add-costumer>
 </div>

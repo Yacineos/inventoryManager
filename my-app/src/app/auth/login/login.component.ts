@@ -24,6 +24,6 @@ export class LoginComponent {
   }
   onLogin() {
     this.rootComponent.loggedIn = true;
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/customers']);
   }
 }
