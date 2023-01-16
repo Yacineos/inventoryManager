@@ -1,5 +1,5 @@
 <div class="flex flex-col w-full h-full">
-  <div class="w-full">
+  <div [style.filter]="showAddProduct?'blur(4px)':null" class="w-full">
     <header aria-label="Page Header" class="bg-gray-50 w-full">
       <div
         class="mx-auto px-4 py-5 sm:px-6 lg:px-8 flex flex-row justify-between"
@@ -55,12 +55,12 @@
       </div>
     </header>
   </div>
-  <div class="w-full py-8 flex justify-between">
+  <div [style.filter]="showAddProduct?'blur(4px)':null" class="w-full py-8 flex justify-between">
     <div class="ml-12 font-secondaryFont text-xl">Inventory Summary</div>
     <div class="mr-10">
       <a
         class="group relative inline-flex items-center overflow-hidden rounded bg-mainpurple px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
-        href="/download"
+        (click)="AddProduct()"
       >
         <span
           class="absolute left-0 -translate-x-full transition-transform group-hover:translate-x-4"
@@ -84,7 +84,7 @@
       </a>
     </div>
   </div>
-  <div class="w-full flex justify-between">
+  <div [style.filter]="showAddProduct?'blur(4px)':null" class="w-full flex justify-between">
     <div class="w-[45%] flex flex-col ml-12 bg-mainpurple rounded-md">
       <div class="w-full mt-1 pb-2 flex flex-row justify-between">
         <div class="bg-black/20 rounded py-0 px-2 ml-5">
@@ -142,7 +142,7 @@
       </div>
     </div>
   </div>
-  <div class="py-5 w-full flex justify-center">
+  <div [style.filter]="showAddProduct?'blur(4px)':null" class="py-5 w-full flex justify-center">
     <div
       class="w-20/21 overflow-hidden overflow-x-auto rounded-lg border bg-white border-gray-200"
     >
@@ -550,5 +550,6 @@
       </table>
     </div>
   </div>
-  
+  <div *ngIf="showAddProduct" class="absolute w-[95%] h-full z-20 bg-black/50"></div>
+  <app-add-product *ngIf="showAddProduct"></app-add-product>
 </div>

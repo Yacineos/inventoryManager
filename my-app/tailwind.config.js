@@ -10,6 +10,7 @@ module.exports = {
   './src/app/auth/login/login.component.html', 
   './src/app/auth/sign-up/sign-up.component.html', 
   './src/app/add-costumer/add-costumer.component.html', 
+  './src/app/add-product/add-product.component.html', 
   './src/app/settings/settings.component.html',], 
   theme: {
     extend: {

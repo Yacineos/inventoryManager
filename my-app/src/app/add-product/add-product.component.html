@@ -1,0 +1,227 @@
+<div class="absolute inset-x-[39%] inset-y-[10%] z-50">
+  <div class="bg-white flex flex-col rounded-lg ">
+    <div class="flex flex-row justify-between p-5">
+      <div class="font-mainFont text-2xl">Add a New Product</div>
+      <div
+        (click)="hideAddProduct()"
+        class="bg-mainyellow/20 rounded-md hover:cursor-pointer"
+      >
+        <svg
+          class="fill-mainpurple w-7 h-7"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+        >
+          <path
+            d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="text-maingrey font-secondaryFont p-5">Product information</div>
+    <div class="p-5">
+      <label
+        for="UserEmail"
+        class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="text"
+          id="ProductName"
+          placeholder="Product Name"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey/75 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Product Name
+        </span>
+      </label>
+    </div>
+    <div class="p-5 flex flex-row justify-between">
+      <label
+        for="UserEmail"
+        class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="text"
+          id="Selling Price"
+          placeholder="Selling Price"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey/75 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Selling Price
+        </span>
+      </label>
+      <label
+        for="UserEmail"
+        class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="text"
+          id="Cost Price"
+          placeholder="Cost Price"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey/75 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Cost Price
+        </span>
+      </label>
+    </div>
+    <div class="p-5">
+      <label
+        for="UserEmail"
+        class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="email"
+          id="UserEmail"
+          placeholder="Email"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey/75 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Quantity in Stock
+        </span>
+      </label>
+    </div>
+    <div class="flex flex-row justify-between px-7 p-5">
+      <div class="text-maingrey text-sm font-secondaryFont">Discount</div>
+      <div>
+        <label
+          for="AcceptConditions"
+          class="relative px-7 py-1 h-6 cursor-pointer w-10"
+        >
+          <input
+            (change)="toggleDiscount()"
+            type="checkbox"
+            id="AcceptConditions"
+            class="sr-only peer"
+          />
+
+          <span
+            class="absolute inset-0 transition bg-gray-300 rounded-full peer-checked:bg-mainpurple"
+          ></span>
+
+          <span
+            class="absolute inset-0.5 m-1 h-4 w-4 rounded-full bg-gray-300 ring-[6px] ring-inset ring-white transition-all peer-checked:w-2 peer-checked:translate-x-8 peer-checked:bg-white peer-checked:ring-transparent"
+          >
+          </span>
+        </label>
+      </div>
+    </div>
+    <div *ngIf="showDiscount" class="px-5 py-1 flex flex-row justify-between">
+      <label
+        for="UserEmail"
+        class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="text"
+          id="Selling Price"
+          placeholder="Selling Price"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey/75 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Selling Price
+        </span>
+      </label>
+      <label
+        for="UserEmail"
+        class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="text"
+          id="Cost Price"
+          placeholder="Cost Price"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey/75 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Cost Price
+        </span>
+      </label>
+    </div>
+    <div class="flex flex-row justify-between px-7 p-5">
+      <div class="text-maingrey text-sm font-secondaryFont">Expiry Date</div>
+      <div>
+        <label
+          for="toggleExpiryDate"
+          class="relative px-7 py-1 h-6 cursor-pointer w-10"
+        >
+          <input
+            (change)="toggleExpiryDate()"
+            type="checkbox"
+            id="toggleExpiryDate"
+            class="sr-only peer"
+          />
+
+          <span
+            class="absolute inset-0 transition bg-gray-300 rounded-full peer-checked:bg-mainpurple"
+          ></span>
+
+          <span
+            class="absolute inset-0.5 m-1 h-4 w-4 rounded-full bg-gray-300 ring-[6px] ring-inset ring-white transition-all peer-checked:w-2 peer-checked:translate-x-8 peer-checked:bg-white peer-checked:ring-transparent"
+          >
+          </span>
+        </label>
+      </div>
+    </div>
+    <div *ngIf="showExpiryDate" class="px-5 py-1">
+      <label
+        for="UserEmail"
+        class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="text"
+          id="Selling Price"
+          placeholder="Selling Price"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey/75 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          dd/mm/yyyy
+        </span>
+      </label>
+    </div>
+    <div class="flex flex-row justify-between">
+      <div class="p-10">
+        <a
+          class="hover:cursor-pointer inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+          (click)="hideAddProduct()"
+        >
+          <span
+            class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"
+          >
+            Cancel
+          </span>
+        </a>
+      </div>
+      <div class="p-10">
+        <a
+          class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+          routerLink="/dashboard"
+        >
+          <span
+            class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"
+          >
+            Add
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
