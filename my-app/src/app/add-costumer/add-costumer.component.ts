@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { CustomersComponent } from '../customers/customers.component';
 @Component({
   selector: 'app-add-costumer',
   templateUrl: './add-costumer.component.html',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AddCostumerComponent {
 
+  constructor(private customersComponent: CustomersComponent) { }
+
+  ngOnInit() {
+  }
+
+  hideAddCustomer() {
+    this.customersComponent.hideAddCustomer();
+  }
 }

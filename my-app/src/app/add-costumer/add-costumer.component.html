@@ -1,7 +1,7 @@
 <div class="bg-white absolute inset-52 inset-x-[38%] flex flex-col rounded-lg z-50">
   <div class="flex flex-row justify-between p-5">
     <div class="font-mainFont text-2xl">Add a New Costumer</div>
-    <div class="bg-mainyellow/20 rounded-md"><svg class="fill-mainpurple w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg></div>
+    <div (click)="hideAddCustomer()" class="bg-mainyellow/20 rounded-md hover:cursor-pointer"><svg class="fill-mainpurple w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg></div>
   </div>
   <div class="text-maingrey font-secondaryFont p-5">Costumer information</div>
   <div class="p-5">
@@ -64,9 +64,9 @@
   <div class="flex flex-row justify-between">
     <div class="p-10">
       <a
-        class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
-        routerLink="/dashboard"
-      >
+        class="hover:cursor-pointer inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+        (click)="hideAddCustomer()"
+        >
         <span
           class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"
         >

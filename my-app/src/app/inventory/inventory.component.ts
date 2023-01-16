@@ -11,7 +11,6 @@ export class InventoryComponent {
   constructor(private rootComponent:AppComponent) { }
   ngOnInit() {
     this.rootComponent.loggedIn = true;
-    
   }
  
 }
