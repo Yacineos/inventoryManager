@@ -1,5 +1,5 @@
 <div class="flex flex-col w-full h-full">
-  <div [style.filter]="showAddProduct?'blur(4px)':null" class="w-full">
+  <div [style.filter]="showAddProduct || showDeleteConfirmation ?'blur(4px)':null" class="w-full">
     <header aria-label="Page Header" class="bg-gray-50 w-full">
       <div
         class="mx-auto px-4 py-5 sm:px-6 lg:px-8 flex flex-row justify-between"
@@ -50,7 +50,7 @@
       </div>
     </header>
   </div>
-  <div [style.filter]="showAddProduct?'blur(4px)':null" class="w-full py-8 flex justify-between">
+  <div [style.filter]="showAddProduct || showDeleteConfirmation ?'blur(4px)':null" class="w-full py-8 flex justify-between">
     <div class="ml-12 font-secondaryFont text-xl">Inventory Summary</div>
     <div class="mr-10">
       <a
@@ -79,7 +79,7 @@
       </a>
     </div>
   </div>
-  <div [style.filter]="showAddProduct?'blur(4px)':null" class="w-full flex justify-between">
+  <div [style.filter]="showAddProduct || showDeleteConfirmation ?'blur(4px)':null" class="w-full flex justify-between">
     <div class="w-[45%] flex flex-col ml-12 bg-mainpurple rounded-md">
       <div class="w-full mt-1 pb-2 flex flex-row justify-between">
         <div class="bg-black/20 rounded py-0 px-2 ml-5">
@@ -100,9 +100,9 @@
           <div class="w-1/3 font-secondaryFont">In-Active</div>
         </div>
         <div class="ml-6 w-full flex flex-row font-mainFont">
-          <div class="w-1/3">{{allProductsQuantity}}</div>
-          <div class="w-1/3">1200</div>
-          <div class="w-1/3">70</div>
+          <div class="w-1/3">{{allProducts}}</div>
+          <div class="w-1/3">{{activeProducts}}</div>
+          <div class="w-1/3">{{inActiveProducts}}</div>
         </div>
       </div>
     </div>
@@ -130,14 +130,14 @@
           <div class="w-1/3 font-secondaryFont">returned</div>
         </div>
         <div class="ml-6 w-full flex flex-row font-mainFont">
-          <div class="w-1/3">30</div>
-          <div class="w-1/3">600</div>
+          <div class="w-1/3">{{lowStockProducts}}</div>
+          <div class="w-1/3">{{expireSoonProducts}}</div>
           <div class="w-1/3">6</div>
         </div>
       </div>
     </div>
   </div>
-  <div [style.filter]="showAddProduct?'blur(4px)':null" class="py-5 w-full flex justify-center">
+  <div [style.filter]="showAddProduct || showDeleteConfirmation ?'blur(4px)':null" class="py-5 w-full flex justify-center">
     <div
       class="w-20/21 overflow-hidden overflow-x-auto rounded-lg border bg-white border-gray-200"
     >
@@ -171,6 +171,8 @@
                 class="h-5 w-5 rounded border-gray-200"
                 type="checkbox"
                 id="SelectAll"
+                [(ngModel)]="isChecked"
+                (change)="updateIsChecked()"
               />
             </th>
             <th
@@ -292,6 +294,7 @@
                 class="h-5 w-5 rounded border-gray-200"
                 type="checkbox"
                 id="Row1"
+                [checked]="isChecked"
               />
             </td>
             <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
@@ -334,6 +337,7 @@
                 <button
                   class="inline-block p-3 text-gray-700 hover:bg-red-100 focus:relative"
                   title="Delete Product"
+                  (click)="deleteProduct()"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -369,6 +373,9 @@
       </pagination-controls>
     </div>
   </div>
-  <div *ngIf="showAddProduct" class="absolute w-[95%] h-full z-20 bg-black/50"></div>
-  <app-add-product *ngIf="showAddProduct"></app-add-product>
+  <div *ngIf="showAddProduct || showDeleteConfirmation" class="absolute w-[95%] h-full z-20 bg-black/50 flex justify-center items-center">
+    <app-add-product *ngIf="showAddProduct"></app-add-product>
+    <app-delete-confirmation *ngIf="showDeleteConfirmation"></app-delete-confirmation>
+  </div>
+  
 </div>

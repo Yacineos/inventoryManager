@@ -18,6 +18,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { AddCostumerComponent } from './add-costumer/add-costumer.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
         SettingsComponent,
         AddCostumerComponent,
         AddProductComponent,
+        DeleteConfirmationComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

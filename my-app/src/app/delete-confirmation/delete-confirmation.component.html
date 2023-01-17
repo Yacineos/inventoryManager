@@ -1,0 +1,25 @@
+<div class="bg-white flex flex-col rounded-lg z-50">
+  <div class="rounded-lg bg-white shadow-2xl ">
+    <h2 class="text-xl font-bold p-2.5">
+      Are you sure you want to do delete this product ?
+    </h2>
+
+    <p class="mt-2 text-md text-gray-500 p-2.5">are you 100% sure it's OK?</p>
+
+    <div class="mt-8 flex items-center justify-end text-xs ">
+      <button
+        type="button"
+        class="rounded z-auto px-4 py-2 font-medium text-mainred"
+      >
+        Yes, I'm sure
+      </button>
+      <button
+        type="button"
+        class="ml-2 rounded bg-gray-50 px-4 py pb-6 font-medium text-gray-600"
+        (click)="cancelDelete()"
+      >
+        No, go back
+      </button>
+    </div>
+  </div>
+</div>
