@@ -11,6 +11,7 @@ export class InventoryComponent {
   showAddProduct: boolean = false;
   products:Product[] = [];
   p: number = 1;
+  allProductsQuantity: number = 0;
   constructor(private rootComponent:AppComponent) {
     let i:number = 0 ;
     while(i<100){
@@ -24,10 +25,19 @@ export class InventoryComponent {
       });
       i++;  
     }
+    this.allProductsQuantityCalculator();
    }
   ngOnInit() {
     this.rootComponent.loggedIn = true;
     this.showAddProduct = false;
+  }
+  public allProductsQuantityCalculator() {
+    let i:number = 0;
+    this.allProductsQuantity = 0;
+    while(i<this.products.length){
+      this.allProductsQuantity += this.products[i].quantity;
+      i++;
+    }
   }
   AddProduct() {
     this.showAddProduct = true;
