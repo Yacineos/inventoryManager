@@ -1,5 +1,5 @@
 <div class="flex flex-col w-full h-full">
-  <div [style.filter]="showAddCostumer?'blur(4px)':null" class="w-full">
+  <div [style.filter]="showAddCostumer ? 'blur(4px)' : null" class="w-full">
     <header aria-label="Page Header" class="bg-gray-50 w-full">
       <div
         class="mx-auto px-4 py-5 sm:px-6 lg:px-8 flex flex-row justify-between"
@@ -55,7 +55,10 @@
       </div>
     </header>
   </div>
-  <div [style.filter]="showAddCostumer?'blur(4px)':null" class="w-full py-8 flex justify-between">
+  <div
+    [style.filter]="showAddCostumer ? 'blur(4px)' : null"
+    class="w-full py-8 flex justify-between"
+  >
     <div class="ml-12 font-secondaryFont text-xl">Customers Summary</div>
     <div class="mr-10">
       <a
@@ -65,32 +68,53 @@
         <span
           class="absolute left-0 -translate-x-full transition-transform group-hover:translate-x-4"
         >
-        <svg class="h-5 w-5 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+          <svg
+            class="h-5 w-5 fill-white"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+            />
+          </svg>
         </span>
 
-        <span class="font-secondaryFont text-base font-medium transition-all group-hover:ml-4">
+        <span
+          class="font-secondaryFont text-base font-medium transition-all group-hover:ml-4"
+        >
           Add a New Customer
         </span>
       </a>
     </div>
   </div>
-  <div [style.filter]="showAddCostumer?'blur(4px)':null" class="w-full flex justify-between ">
+  <div
+    [style.filter]="showAddCostumer ? 'blur(4px)' : null"
+    class="w-full flex justify-between"
+  >
     <div class="w-[45%] flex flex-col ml-12 bg-white rounded-md">
       <div class="w-full mt-1 pb-2 flex flex-row justify-between">
-        <div class="bg-mainyellow/20 rounded py-0 px-2 ml-5"><svg class="h-10 w-5 fill-inherit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-          <path
-            d="M144 160c-44.2 0-80-35.8-80-80S99.8 0 144 0s80 35.8 80 80s-35.8 80-80 80zm368 0c-44.2 0-80-35.8-80-80s35.8-80 80-80s80 35.8 80 80s-35.8 80-80 80zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM416 224c0 53-43 96-96 96s-96-43-96-96s43-96 96-96s96 43 96 96zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"
-          />
-        </svg></div>
-        <div class="mr-5 py-1 font-secondaryFont text-sm text-maingrey ">This week</div>
+        <div class="bg-mainyellow/20 rounded py-0 px-2 ml-5">
+          <svg
+            class="h-10 w-5 fill-inherit"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 512"
+          >
+            <path
+              d="M144 160c-44.2 0-80-35.8-80-80S99.8 0 144 0s80 35.8 80 80s-35.8 80-80 80zm368 0c-44.2 0-80-35.8-80-80s35.8-80 80-80s80 35.8 80 80s-35.8 80-80 80zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3H405.3zM416 224c0 53-43 96-96 96s-96-43-96-96s43-96 96-96s96 43 96 96zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"
+            />
+          </svg>
+        </div>
+        <div class="mr-5 py-1 font-secondaryFont text-sm text-maingrey">
+          This week
+        </div>
       </div>
-      <div class=" w-full pt-3 pb-3 flex flex-col">
+      <div class="w-full pt-3 pb-3 flex flex-col">
         <div class="ml-6 mt-0 w-full flex flex-row text-maingrey">
           <div class="w-1/3 font-secondaryFont">All Costumers</div>
           <div class="w-1/3 font-secondaryFont">Active</div>
           <div class="w-1/3 font-secondaryFont">In-Active</div>
         </div>
-        <div class=" ml-6 w-full flex flex-row font-mainFont">
+        <div class="ml-6 w-full flex flex-row font-mainFont">
           <div class="w-1/3">1250</div>
           <div class="w-1/3">1200</div>
           <div class="w-1/3">70</div>
@@ -99,20 +123,28 @@
     </div>
     <div class="w-[45%] flex flex-col mr-14 bg-white rounded-md">
       <div class="w-full mt-1 pb-2 flex flex-row justify-between">
-        <div class="bg-mainyellow/20 rounded py-0 pl-1 pr-2 ml-5"><svg class="h-10 w-5 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-          <path
-            d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
-          />
-        </svg></div>
-        <div class="mr-5 py-1 font-secondaryFont text-sm text-maingrey ">This week</div>
+        <div class="bg-mainyellow/20 rounded py-0 pl-1 pr-2 ml-5">
+          <svg
+            class="h-10 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"
+          >
+            <path
+              d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
+            />
+          </svg>
+        </div>
+        <div class="mr-5 py-1 font-secondaryFont text-sm text-maingrey">
+          This week
+        </div>
       </div>
-      <div class=" w-full pt-3 pb-3 flex flex-col">
+      <div class="w-full pt-3 pb-3 flex flex-col">
         <div class="ml-6 mt-0 w-full flex flex-row text-maingrey">
           <div class="w-1/3 font-secondaryFont">New Costumers</div>
           <div class="w-1/3 font-secondaryFont">Purchasing</div>
           <div class="w-1/3 font-secondaryFont">Abandoned Carts</div>
         </div>
-        <div class=" ml-6 w-full flex flex-row font-mainFont">
+        <div class="ml-6 w-full flex flex-row font-mainFont">
           <div class="w-1/3">30</div>
           <div class="w-1/3">600</div>
           <div class="w-1/3">6</div>
@@ -120,10 +152,33 @@
       </div>
     </div>
   </div>
-  <div [style.filter]="showAddCostumer?'blur(4px)':null" class="py-5 w-full flex justify-center">
+  <div
+    [style.filter]="showAddCostumer ? 'blur(4px)' : null"
+    class="py-5 w-full flex justify-center"
+  >
     <div
       class="w-20/21 overflow-hidden overflow-x-auto rounded-lg border bg-white border-gray-200"
     >
+    <div class="flex justify-between mx-2 flex-row">
+      <div class="font-secondaryFont my-2 p-3 text-mainblack font-meduim">Costumers informations</div>
+      <div><label
+        for="Search"
+        class="relative block overflow-hidden rounded-md border border-gray-200 my-2 mr-10 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="text"
+          id="search"
+          placeholder="Search"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+      
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Search
+        </span>
+      </label></div>
+    </div>
       <table class="min-w-full divide-y divide-gray-200 text-sm">
         <thead class="bg-gray-100">
           <tr>
@@ -219,51 +274,57 @@
             <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
-            <div class="flex items-center gap-2">
-              Orders Total
+              <div class="flex items-center gap-2">
+                Orders Total
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-700"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-gray-700"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
             </th>
             <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
-            ><div class="flex items-center gap-2">
-              Costumer Since
+            >
+              <div class="flex items-center gap-2">
+                Costumer Since
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-700"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </th>
-          
-          <th
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-gray-700"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </th>
+
+            <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             ></th>
           </tr>
         </thead>
 
         <tbody class="divide-y divide-gray-200">
-          <tr>
+          <tr
+            *ngFor="
+              let costumer of Costumers
+                | paginate : { itemsPerPage: 7, currentPage: p }
+            "
+          >
             <td class="sticky inset-y-0 left-0 bg-white px-4 py-2">
               <label class="sr-only" for="Row1">Row 1</label>
 
@@ -274,188 +335,22 @@
               />
             </td>
             <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              #00001
+              {{ costumer.id }}
             </td>
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-              John Frusciante
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-              john@rhcp.com
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 text-gray-700">$783.23</td>
-            <td class="whitespace-nowrap px-4 py-2">
-              <strong
-                class="rounded bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700"
-              >
-                Cancelled
-              </strong>
-            </td>
-            <td class="whitespace-nowrap px-4 py-2">
-              <strong
-                class="rounded bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700"
-              >
-                Cancelled
-              </strong>
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              <span
-                class="inline-flex divide-x overflow-hidden rounded-md border bg-white shadow-sm"
-              >
-                <button
-                  class="inline-block p-3 text-gray-700 hover:bg-gray-100 focus:relative"
-                  title="Edit Product"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-4 w-4"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
-                    />
-                  </svg>
-                </button>
-
-                <button
-                  class="inline-block p-3 text-gray-700 hover:bg-red-100 focus:relative"
-                  title="Delete Product"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-4 w-4"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                    />
-                  </svg>
-                </button>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td class="sticky inset-y-0 left-0 bg-white px-4 py-2">
-              <label class="sr-only" for="Row1">Row 1</label>
-
-              <input
-                class="h-5 w-5 rounded border-gray-200"
-                type="checkbox"
-                id="Row1"
-              />
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              #00001
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-              John Frusciante
+              {{ costumer.name }}
             </td>
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">
               john@rhcp.com
             </td>
-            <td class="whitespace-nowrap px-4 py-2 text-gray-700">$783.23</td>
-            <td class="whitespace-nowrap px-4 py-2">
-              <strong
-                class="rounded bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700"
-              >
-                Cancelled
-              </strong>
-            </td>
-            <td class="whitespace-nowrap px-4 py-2">
-              <strong
-                class="rounded bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700"
-              >
-                Cancelled
-              </strong>
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              <span
-                class="inline-flex divide-x overflow-hidden rounded-md border bg-white shadow-sm"
-              >
-                <button
-                  class="inline-block p-3 text-gray-700 hover:bg-gray-100 focus:relative"
-                  title="Edit Product"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-4 w-4"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
-                    />
-                  </svg>
-                </button>
-
-                <button
-                  class="inline-block p-3 text-gray-700 hover:bg-red-100 focus:relative"
-                  title="Delete Product"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-4 w-4"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                    />
-                  </svg>
-                </button>
-              </span>
-            </td>
-          </tr>
-          <tr>
-            <td class="sticky inset-y-0 left-0 bg-white px-4 py-2">
-              <label class="sr-only" for="Row1">Row 1</label>
-
-              <input
-                class="h-5 w-5 rounded border-gray-200"
-                type="checkbox"
-                id="Row1"
-              />
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-              #00001
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              {{ costumer.orders }}
             </td>
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-              John Frusciante
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-              john@rhcp.com
-            </td>
-            <td class="whitespace-nowrap px-4 py-2 text-gray-700">$783.23</td>
-            <td class="whitespace-nowrap px-4 py-2">
-              <strong
-                class="rounded bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700"
-              >
-                Cancelled
-              </strong>
+              {{ costumer.ordersTotal }}
             </td>
             <td class="whitespace-nowrap px-4 py-2">
-              <strong
-                class="rounded bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700"
-              >
-                Cancelled
-              </strong>
+              {{ costumer.costumerSince }}
             </td>
             <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
               <span
@@ -505,8 +400,22 @@
           </tr>
         </tbody>
       </table>
+      <pagination-controls
+      class="flex justify-center mt-4"
+        (pageChange)="p = $event"
+        [maxSize]="4"
+        [directionLinks]="true"
+        [autoHide]="false"
+        [responsive]="true"
+        previousLabel="Previous"
+        nextLabel="Next"
+      >
+      </pagination-controls>
     </div>
   </div>
-  <div *ngIf="showAddCostumer" class="absolute w-[95%] h-full z-20 bg-black/50"></div>
-  <app-add-costumer *ngIf="showAddCostumer" ></app-add-costumer>
+  <div
+    *ngIf="showAddCostumer"
+    class="absolute w-[95%] h-full z-20 bg-black/50"
+  ></div>
+  <app-add-costumer *ngIf="showAddCostumer"></app-add-costumer>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { Product } from './product';
 
 @Component({
   selector: 'app-inventory',
@@ -8,7 +9,22 @@ import { AppComponent } from '../app.component';
 })
 export class InventoryComponent {
   showAddProduct: boolean = false;
-  constructor(private rootComponent:AppComponent) { }
+  products:Product[] = [];
+  p: number = 1;
+  constructor(private rootComponent:AppComponent) {
+    let i:number = 0 ;
+    while(i<100){
+      this.products.push({
+        id: i,
+        name: 'Product '+i,
+        price: i,
+        quantity: i,
+        discount: i,
+        totalValue: i
+      });
+      i++;  
+    }
+   }
   ngOnInit() {
     this.rootComponent.loggedIn = true;
     this.showAddProduct = false;

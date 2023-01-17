@@ -17,6 +17,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AddCostumerComponent } from './add-costumer/add-costumer.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { AddProductComponent } from './add-product/add-product.component';
         AppRoutingModule,
         FormsModule,
         HttpClientModule,
+        NgxPaginationModule,
     ]
 })
 export class AppModule { }
