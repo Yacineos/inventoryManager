@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Renderer2,Inject, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
 import { Customer } from './customer';
 
@@ -17,21 +19,21 @@ export class CustomersComponent {
   isChecked: boolean = false;
   newCostumersNumber: number = 0;
   totalOrders: number = 0;
-  constructor(private rootComponent:AppComponent,private renderer: Renderer2, private el: ElementRef) { 
-    let i:number = 0 ;
-    while(i<100){
-      this.costumers.push({
-        id: i,
-        name: 'Costumer '+i,
-        email: 'test@gmail.com',
-        phone: '123456789',
-        orders: i,
-        ordersTotal: i,
-        costumerSince: '2018-01-01',
-        isChecked: false
-      });
-      i++;  
-    }
+  customer: Customer = {
+    id: 0,
+    name: '',
+    email: '',
+    phone: '',
+    orders: 0,
+    ordersTotal: 0,
+    costumerSince: '',
+    isChecked: false
+  };
+
+  constructor(private rootComponent:AppComponent,private http: HttpClient) { 
+    this.getCustomers().subscribe(data => {
+      this.costumers = data;
+    });
     this.costumersNumber = this.costumers.length;
     this.activeCostumersNumber = this.activeCostumersCalc();
     this.inActiveCostumersNumber = this.costumersNumber - this.activeCostumersNumber;
@@ -41,6 +43,19 @@ export class CustomersComponent {
     this.rootComponent.loggedIn = true;
     this.isChecked = false;
   }
+  getCustomers(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/costumer/all');
+  }
+  addCostumer(){
+  //this.customer={costumerSince: new Date().toISOString()};
+    this.http.post<Customer>('http://localhost:8080/costumer/add',this.customer).subscribe(data => {
+        console.log('Employee added successfully');
+      },
+      error => {
+        console.log('Error adding employee');
+      }
+    ); 
+  }
   showAddCustomer() {
     this.showAddCostumer = true;
   }
@@ -48,14 +63,10 @@ export class CustomersComponent {
     this.showAddCostumer = false;
   }
   updateIsChecked() {
-    if(this.isChecked) {
-      this.costumers.forEach(row => {
-        row.isChecked = true;
-      });
-    } else {
-      this.costumers.forEach(row => {
-        row.isChecked = false;
-      });
+    let i = 0;
+    while (i < this.costumers.length) {
+      this.costumers[i].isChecked = this.isChecked;
+      i++;
     }
   }
   isActive(costumer:Customer) {

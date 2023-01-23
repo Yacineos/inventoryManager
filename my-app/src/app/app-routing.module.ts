@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { ErrorComponent } from './error/error.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { SellComponent } from './sell/sell.component';
 import { SettingsComponent } from './settings/settings.component';
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"inventory",component:InventoryComponent},
   {path:"settings",component:SettingsComponent},
   {path:"test",component:AddProductComponent},
+  {path:"sell",component:SellComponent},
   {path:"**",redirectTo:'error', pathMatch:"full"},
 ];
 

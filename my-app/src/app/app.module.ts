@@ -19,6 +19,8 @@ import { AddCostumerComponent } from './add-costumer/add-costumer.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
+import { SellComponent } from './sell/sell.component';
+import { CartComponent } from './sell/cart/cart.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { DeleteConfirmationComponent } from './delete-confirmation/delete-confir
         AddCostumerComponent,
         AddProductComponent,
         DeleteConfirmationComponent,
+        SellComponent,
+        CartComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],
