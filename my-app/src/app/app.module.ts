@@ -8,7 +8,6 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from "./auth/login/login.component";
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
-import { EmployeeComponent } from './employee/employee.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { ErrorComponent } from './error/error.component';
@@ -29,7 +28,6 @@ import { CartComponent } from './sell/cart/cart.component';
         AuthComponent,
         LoginComponent,
         SignUpComponent,
-        EmployeeComponent,
         DashboardComponent,
         SideBarComponent,
         ErrorComponent,

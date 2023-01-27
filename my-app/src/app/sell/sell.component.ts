@@ -12,4 +12,5 @@ export class SellComponent {
     this.rootComponent.loggedIn = true;
   }
 
+
 }

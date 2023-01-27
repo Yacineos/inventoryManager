@@ -1,7 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Renderer2 } from '@angular/core';
-import { Employee } from './employee/employee';
-import { EmployeeService } from './employee/employee.service';
 
 @Component({
   selector: 'app-root',

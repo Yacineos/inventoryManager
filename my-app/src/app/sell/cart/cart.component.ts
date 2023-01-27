@@ -9,8 +9,56 @@ import { Product } from 'src/app/inventory/product';
 export class CartComponent {
   p: number = 0 ;
   isChecked: boolean = false ;
-  products: Product[];
+  products:Product[] = [];
   constructor() { 
+    this.isChecked = false;
+  }
+  ngOnInit() {
+    let i:number = 0 ;
+    while(i<100){
+      this.products.push({
+        id: i,
+        name: 'Product '+i,
+        price: i,
+        quantity: i,
+        discount: i>10?i-10:0,
+        totalValue: i,
+        listed: true,
+        expiryDate: new Date('01/01/2019'),
+        isChecked: false
+      });
+      i++;  
+    }
+    this.isChecked = false;
+  }
+  deleteProduct() {
+    let i:number = 0;
+    while(i<this.products.length){
+      if(this.products[i].isChecked){
+        this.products.splice(i,1);
+      }
+      i++;
+    }
+  }
+  selectAll() {
+    let i:number = 0;
+    while(i<this.products.length){
+      this.products[i].isChecked = this.isChecked;
+      i++;
+    }
+  }
+  selectProduct() {
+    let i:number = 0;
+    while(i<this.products.length){
+      if(this.products[i].isChecked){
+        this.isChecked = true;
+        break;
+      }
+      this.isChecked = false;
+      i++;
+    }
   }
 
+
+  
 }

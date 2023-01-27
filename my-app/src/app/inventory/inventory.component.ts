@@ -105,14 +105,5 @@ export class InventoryComponent {
     }
   }
   
-  deleteSelectedProducts() {
-    this.products = this.products.filter(row => !row.isChecked);
-    this.showDeleteConfirmation = false;
-    this.allProducts = this.products.length;
-    this.activeProducts = this.activeProductCount();
-    this.inActiveProducts = this.allProducts - this.activeProducts;
-    this.lowStockProducts = this.lowStock();
-    this.expireSoonProducts = this.expireSoon();
-  }
 
 }
