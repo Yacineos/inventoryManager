@@ -25,20 +25,16 @@ export class InventoryComponent {
         id: i,
         name: 'Product '+i,
         price: i,
+        category: 'Category '+i,
         quantity: i,
-        discount: i>10?i-10:0,
-        totalValue: i,
-        listed: true,
-        expiryDate: new Date('01/01/2019'),
-        isChecked: false
       });
       i++;  
     }
     this.allProducts = this.products.length;
-    this.activeProducts = this.activeProductCount();
+    //this.activeProducts = this.activeProductCount();
     this.inActiveProducts = this.allProducts - this.activeProducts;
     this.lowStockProducts = this.lowStock();
-    this.expireSoonProducts = this.expireSoon();
+   // this.expireSoonProducts = this.expireSoon();
    }
   ngOnInit() {
     this.rootComponent.loggedIn = true;
@@ -46,6 +42,8 @@ export class InventoryComponent {
     this.showDeleteConfirmation = false;
     this.isChecked = false;
   }
+  // to impelement if we have time to do so
+  /*
   activeProductCount() {
     let count = 0;
     let i = 0;
@@ -57,6 +55,7 @@ export class InventoryComponent {
     }
     return count;
   }
+  */
   AddProduct() {
     this.showAddProduct = true;
     const elements = document.querySelectorAll(".main-container");
@@ -79,6 +78,8 @@ export class InventoryComponent {
     }
     return count;
   } 
+  // to implement when university project is done 
+  /*
   expireSoon() {
     let count = 0;
     let i = 0;
@@ -90,9 +91,11 @@ export class InventoryComponent {
     }
     return count;
   }
+  */
   deleteProduct() {
     this.showDeleteConfirmation = true;
   }
+  /*
   updateIsChecked() {
     if(this.isChecked) {
       this.products.forEach(row => {
@@ -104,6 +107,7 @@ export class InventoryComponent {
       });
     }
   }
+  */
   
 
 }

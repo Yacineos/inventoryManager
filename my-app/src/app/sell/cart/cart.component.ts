@@ -21,11 +21,7 @@ export class CartComponent {
         name: 'Product '+i,
         price: i,
         quantity: i,
-        discount: i>10?i-10:0,
-        totalValue: i,
-        listed: true,
-        expiryDate: new Date('01/01/2019'),
-        isChecked: false
+        category: 'Category '+i,
       });
       i++;  
     }
