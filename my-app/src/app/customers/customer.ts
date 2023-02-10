@@ -1,10 +1,11 @@
 export interface Customer {
     id: number;
-    name: string;
+    nom: string;
+    prenom: string;
     email: string;
     phone: string;
-    orders: number;
-    ordersTotal: number;
-    costumerSince: string;
-    isChecked: boolean;
+    numRue: number;
+    nomRue: string;
+    codePostal: number;
+    ville: string;
 }

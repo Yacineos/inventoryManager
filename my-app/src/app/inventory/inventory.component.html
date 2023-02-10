@@ -179,7 +179,7 @@
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
               <div class="flex items-center gap-2">
-                Product Name
+                Nom
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -199,7 +199,7 @@
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
               <div class="flex items-center gap-2">
-                Unit Price
+                Catégorie
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -219,7 +219,7 @@
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
               <div class="flex items-center gap-2">
-                In-Stock
+                Prix Unitaire
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -239,7 +239,7 @@
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
               <div class="flex items-center gap-2">
-                Discount
+                En-Stock
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -255,12 +255,12 @@
                 </svg>
               </div>
             </th>
+            
             <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
               <div class="flex items-center gap-2">
-                Total Value
-
+                Valeur total 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4 w-4 text-gray-700"
@@ -301,14 +301,14 @@
               {{product.name}}
             </td> 
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-              {{product.price}}
+              {{product.category}}
             </td>
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{product.quantity}}</td>
             <td class="whitespace-nowrap px-4 py-2  text-gray-700">
-              {{product.discount}}
+              {{product.quantity}}
             </td>
             <td class="whitespace-nowrap px-4 py-2">
-              {{(product.price - product.discount) * product.quantity}}
+              {{product.price * product.quantity}}
             </td>
             <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
               <span

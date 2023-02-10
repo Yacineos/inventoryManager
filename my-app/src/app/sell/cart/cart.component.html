@@ -143,10 +143,12 @@
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{product.quantity}}</td>
           <td class="whitespace-nowrap px-4 py-2  text-gray-700">
-            {{product.discount}}
+            <!--{{product.discount}}-->
           </td>
           <td class="whitespace-nowrap px-4 py-2">
+            <!--
             {{(product.price - product.discount) * product.quantity}}
+          -->
           </td>
           <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
             <span
@@ -175,7 +177,7 @@
               <button
                 class="inline-block p-3 text-gray-700 hover:bg-red-100 focus:relative"
                 title="Delete Product"
-                (click)="deleteProduct()"
+                
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

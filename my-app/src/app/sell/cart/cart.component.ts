@@ -27,6 +27,7 @@ export class CartComponent {
     }
     this.isChecked = false;
   }
+  /*
   deleteProduct() {
     let i:number = 0;
     while(i<this.products.length){
@@ -36,6 +37,8 @@ export class CartComponent {
       i++;
     }
   }
+  */
+ /*
   selectAll() {
     let i:number = 0;
     while(i<this.products.length){
@@ -43,6 +46,8 @@ export class CartComponent {
       i++;
     }
   }
+  */
+ /*
   selectProduct() {
     let i:number = 0;
     while(i<this.products.length){
@@ -54,6 +59,7 @@ export class CartComponent {
       i++;
     }
   }
+  */
 
 
   

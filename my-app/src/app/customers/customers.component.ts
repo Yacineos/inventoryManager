@@ -21,13 +21,14 @@ export class CustomersComponent {
   totalOrders: number = 0;
   customer: Customer = {
     id: 0,
-    name: '',
+    nom: '',
+    prenom: '',
     email: '',
     phone: '',
-    orders: 0,
-    ordersTotal: 0,
-    costumerSince: '',
-    isChecked: false
+    numRue: 0,
+    nomRue: '',
+    codePostal: 0,
+    ville: '',
   };
 
   constructor(private rootComponent:AppComponent,private http: HttpClient) { 
@@ -62,6 +63,7 @@ export class CustomersComponent {
   hideAddCustomer() {
     this.showAddCostumer = false;
   }
+  /*
   updateIsChecked() {
     let i = 0;
     while (i < this.costumers.length) {
@@ -69,8 +71,11 @@ export class CustomersComponent {
       i++;
     }
   }
+  */
+  // I have to check it later 
   isActive(costumer:Customer) {
-      return costumer.orders>0;
+      //return costumer.orders>0;
+      return true;
   }
   activeCostumersCalc() {
     let count = 0;
@@ -83,14 +88,19 @@ export class CustomersComponent {
     }
     return count;
   }
+  // to change because it isn't updated yet
   isNew(costumer:Customer) {
+    /*
     let today = new Date();
     let costumerSince = new Date(costumer.costumerSince);
     let diff = Math.abs(today.getTime() - costumerSince.getTime());
     let diffDays = Math.ceil(diff / (1000 * 3600 * 24)); 
     return diffDays<30;
+    */
+    return true;
   }
   newCostumersCalc() {
+    /*
     let count = 0;
     let i = 0;
     while (i < this.costumers.length) {
@@ -101,5 +111,8 @@ export class CustomersComponent {
       i++;
     }
     return count;
+  */
+    return 0;
   }
+
 }

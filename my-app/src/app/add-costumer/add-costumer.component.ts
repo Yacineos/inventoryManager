@@ -10,13 +10,14 @@ import { CustomersComponent } from '../customers/customers.component';
 export class AddCostumerComponent {
   customer: Customer= {
     id: 0,
-    name: '',
+    nom: '',
+    prenom: '',
     email: '',
     phone: '',
-    orders: 0,
-    ordersTotal: 0,
-    costumerSince: '',
-    isChecked: false
+    numRue: 0,
+    nomRue: '', 
+    codePostal: 0,
+    ville: '',      
   };
   constructor(private customersComponent: CustomersComponent) { }
 
