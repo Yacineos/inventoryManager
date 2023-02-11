@@ -13,7 +13,7 @@ export class AddCostumerComponent {
     nom: '',
     prenom: '',
     email: '',
-    phone: '',
+    nTel: '',
     numRue: 0,
     nomRue: '', 
     codePostal: 0,

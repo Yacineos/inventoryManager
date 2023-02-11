@@ -224,6 +224,7 @@
                   class="h-4 w-4 text-gray-700"
                   viewBox="0 0 20 20"
                   fill="currentColor"
+                  (click)="nameOnClick()"
                 >
                   <path
                     fill-rule="evenodd"
@@ -387,7 +388,7 @@
               {{ costumer.email }}
             </td>
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-              {{ costumer.phone }}
+              {{ costumer.nTel }}
             </td>
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">
               {{ costumer.numRue }} {{ costumer.nomRue }} {{ costumer.codePostal }}

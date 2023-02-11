@@ -24,7 +24,7 @@ export class CustomersComponent {
     nom: '',
     prenom: '',
     email: '',
-    phone: '',
+    nTel: '',
     numRue: 0,
     nomRue: '',
     codePostal: 0,
@@ -46,6 +46,14 @@ export class CustomersComponent {
   }
   getCustomers(): Observable<any> {
     return this.http.get<any>('http://localhost:8080/costumer/all');
+  }
+  getCustomerOrderedByName(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/costumer/all/name');
+  }
+  nameOnClick() {
+    this.getCustomerOrderedByName().subscribe(data => {
+      this.costumers = data;
+    });
   }
   addCostumer(){
   //this.customer={costumerSince: new Date().toISOString()};
