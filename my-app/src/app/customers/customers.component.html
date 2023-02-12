@@ -170,7 +170,9 @@
               id="search"
               placeholder="Search"
               class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-            />
+              (ngModelChange)="findCostumersByInput()"
+              [(ngModel)]="searchInput"
+              />
 
             <span
               class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
@@ -221,7 +223,7 @@
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-700"
+                  class="h-4 w-4 text-gray-700 hover:cursor-pointer"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   (click)="nameOnClick()"
@@ -242,9 +244,10 @@
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-700"
+                  class="h-4 w-4 text-gray-700 hover:cursor-pointer"
                   viewBox="0 0 20 20"
                   fill="currentColor"
+                  (click)="emailOnClick()"
                 >
                   <path
                     fill-rule="evenodd"
@@ -429,6 +432,7 @@
                 <button
                   class="inline-block p-3 text-gray-700 hover:bg-red-100 focus:relative"
                   title="Delete Product"
+                  (click)="deleteCostumer(costumer.id)"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

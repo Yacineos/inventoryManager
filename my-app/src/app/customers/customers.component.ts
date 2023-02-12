@@ -10,6 +10,8 @@ import { Customer } from './customer';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent {
+  orderStatus:boolean = false;
+  searchInput: string = '';
   costumersNumber: number = 0;
   activeCostumersNumber : number = 0;
   inActiveCostumersNumber : number = 0;
@@ -47,14 +49,57 @@ export class CustomersComponent {
   getCustomers(): Observable<any> {
     return this.http.get<any>('http://localhost:8080/costumer/all');
   }
-  getCustomerOrderedByName(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/costumer/all/name');
+  getCustomerOrderedByNameAsc(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/costumer/all/nameAsc');
   }
-  nameOnClick() {
-    this.getCustomerOrderedByName().subscribe(data => {
+  getCustomerOrderedByNameDesc(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/costumer/all/nameDesc');
+  }
+  getCostumerOrderedByEmailAsc(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/costumer/all/emailAsc');
+  }
+  getCostumerOrderedByEmailDesc(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/costumer/all/emailDesc');
+  }
+  findCostumersByInput() {
+    console.log(this.searchInput);
+    this.http.get<Customer[]>('http://localhost:8080/costumer/findCostumers/' + this.searchInput).subscribe(data => {
       this.costumers = data;
     });
   }
+  deleteCostumer( id: number) {
+    this.http.delete('http://localhost:8080/costumer/delete/' + id).subscribe(data => {
+      console.log('Costumer deleted successfully');
+    },
+    error => {
+      console.log('Error deleting costumer');
+    }
+    );
+  }
+  nameOnClick() {
+    this.orderStatus = !this.orderStatus;
+    if (this.orderStatus) {
+    this.getCustomerOrderedByNameAsc().subscribe(data => {
+      this.costumers = data;
+    });}
+    else {
+    this.getCustomerOrderedByNameDesc().subscribe(data => {
+      this.costumers = data;
+    });}
+  }
+  emailOnClick() {
+    this.orderStatus = !this.orderStatus;
+    if (this.orderStatus) {
+    this.getCostumerOrderedByEmailAsc().subscribe(data => {
+      this.costumers = data;
+    });}
+    else {
+    this.getCostumerOrderedByEmailDesc().subscribe(data => {
+      this.costumers = data;
+    });}
+  }
+
+
   addCostumer(){
   //this.customer={costumerSince: new Date().toISOString()};
     this.http.post<Customer>('http://localhost:8080/costumer/add',this.customer).subscribe(data => {
