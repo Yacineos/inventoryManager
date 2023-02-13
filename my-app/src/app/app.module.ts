@@ -20,6 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 import { SellComponent } from './sell/sell.component';
 import { CartComponent } from './sell/cart/cart.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CartComponent } from './sell/cart/cart.component';
         DeleteConfirmationComponent,
         SellComponent,
         CartComponent,
+        EmployeesComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

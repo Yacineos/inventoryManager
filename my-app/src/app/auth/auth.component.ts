@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
 export class AuthComponent {
   showLogin = true;
   showSignUp = false;
-
+  constructor() {
+    localStorage.removeItem('currentUser');
+   }
+   onInit(){
+    localStorage.removeItem('currentUser');
+    }
   toggleSignup() {
     this.showLogin = false;
     this.showSignUp = true;

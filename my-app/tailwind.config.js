@@ -12,7 +12,8 @@ module.exports = {
   './src/app/add-costumer/add-costumer.component.html', 
   './src/app/add-product/add-product.component.html', 
   './src/app/sell/cart/cart.component.html', 
-  './src/app/settings/settings.component.html',], 
+  './src/app/settings/settings.component.html',
+'./src/app/employees/employees.component.html'], 
   theme: {
     extend: {
       colors:{

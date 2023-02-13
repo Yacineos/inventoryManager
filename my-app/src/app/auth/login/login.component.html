@@ -1,4 +1,4 @@
-<div id="container">
+<form (ngSubmit)="onLogin()" id="container">
   <div class="flex justify-center py-10">
     <img src="../../assets/images/Graph.png" alt="inventory manager" />
   </div>
@@ -12,16 +12,18 @@
       class="w-[90%] relative block overflow-hidden rounded-md border bg-maingrey/10 border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
     >
       <input
-        type="email"
+        type="text"
         id="UserEmail"
-        placeholder="Email"
+        name="username"
+        placeholder="username"
+        [(ngModel)]="username"
         class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
       />
 
       <span
         class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
       >
-        Email
+        Nom utilisateur
       </span>
     </label>
   </div>
@@ -49,13 +51,14 @@
       <span
         class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
       >
-        Password
+        Mot de passe
       </span>
       <button class="float-right" (click)="showPassword = !showPassword">
         <img src="../../../assets/images/showHidePassword.png" alt="" />
       </button>
     </label>
   </div>
+  <!--
   <div class="text-right pr-8 text-mainpurple font-secondaryFont pb-8">
     Recover Password
   </div>
@@ -68,17 +71,17 @@
       Sign Up</a
     >
   </div>
+  -->
   <div class="p-10">
-    <a
+    <button
       class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
-      routerLink="/customers"
-      (click)="onLogin()"
+      type="submit"
     >
       <span
         class="block rounded-sm bg-white px-8 py-3 text-sm font-medium hover:bg-transparent"
       >
         Login
       </span>
-    </a>
+    </button>
   </div>
-</div>
+</form>
