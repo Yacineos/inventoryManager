@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:"customers",component:CustomersComponent,canActivate:[AuthGuard]},
   {path:"inventory",component:InventoryComponent,canActivate:[AuthGuard]},
   {path:"settings",component:SettingsComponent,canActivate:[AuthGuard]},
-  {path:"test",component:AddProductComponent},
+  {path:"test",component:AddCostumerComponent},
   {path:"sell",component:SellComponent,canActivate:[AuthGuard]},
   {path:"employees",component:EmployeesComponent, canActivate:[AuthGuard]},
   {path:"**",redirectTo:'error', pathMatch:"full"},

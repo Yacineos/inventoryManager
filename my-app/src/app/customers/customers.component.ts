@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Renderer2,Inject, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AddCostumerComponent } from '../add-costumer/add-costumer.component';
 import { AppComponent } from '../app.component';
 import { Customer } from './customer';
 
@@ -33,7 +34,7 @@ export class CustomersComponent {
     ville: '',
   };
 
-  constructor(private rootComponent:AppComponent,private http: HttpClient) { 
+  constructor(private rootComponent:AppComponent,private addPanel:AddCostumerComponent,private http: HttpClient) { 
     this.getCustomers().subscribe(data => {
       this.costumers = data;
     });
@@ -99,15 +100,18 @@ export class CustomersComponent {
   }
 
 
-  addCostumer(){
+  addCostumer(customer:Customer){
   //this.customer={costumerSince: new Date().toISOString()};
-    this.http.post<Customer>('http://localhost:8080/costumer/add',this.customer).subscribe(data => {
+    this.http.post<Customer>('http://localhost:8080/costumer/add',customer).subscribe(data => {
         console.log('Employee added successfully');
       },
       error => {
         console.log('Error adding employee');
       }
     ); 
+  }
+  editCostumer(customer:Customer){
+    this.addPanel.editCostumer(customer);
   }
   showAddCustomer() {
     this.showAddCostumer = true;

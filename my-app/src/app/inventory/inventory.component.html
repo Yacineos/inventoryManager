@@ -151,6 +151,8 @@
           type="text"
           id="search"
           placeholder="Search"
+          (ngModelChange)="findProductsByInput()"
+          [(ngModel)]="searchInput"
           class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
         />
       
@@ -198,14 +200,15 @@
             <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 hover:cursor-pointer" (click)="onClickName()">
                 Nom
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-700"
+                  class="h-4 w-4 text-gray-700 "
                   viewBox="0 0 20 20"
                   fill="currentColor"
+
                 >
                   <path
                     fill-rule="evenodd"
@@ -218,7 +221,7 @@
             <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 hover:cursor-pointer" (click)="onClickCategory()">
                 Catégorie
 
                 <svg
@@ -238,9 +241,8 @@
             <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 hover:cursor-pointer" (click)="onClickPrice()">
                 Prix Unitaire
-
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4 w-4 text-gray-700"
@@ -258,7 +260,7 @@
             <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 hover:cursor-pointer" (click)="onClickQuantity()">
                 En-Stock
 
                 <svg

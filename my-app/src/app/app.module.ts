@@ -22,6 +22,7 @@ import { SellComponent } from './sell/sell.component';
 import { CartComponent } from './sell/cart/cart.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
+import { AddFournisseurComponent } from './add-fournisseur/add-fournisseur.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
         CartComponent,
         EmployeesComponent,
         FournisseursComponent,
+        AddFournisseurComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -10,6 +10,8 @@ import { Product } from './product';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent {
+  searchInput: string = "";
+  orderStatus: boolean = false;
   showDeleteConfirmation: boolean = false;
   showAddProduct: boolean = false;
   products:Product[] = [];
@@ -24,7 +26,7 @@ export class InventoryComponent {
     this.allProducts = this.products.length;
     //this.activeProducts = this.activeProductCount();
     this.inActiveProducts = this.allProducts - this.activeProducts;
-    this.lowStockProducts = this.lowStock();
+    //this.lowStockProducts = this.lowStock();
    // this.expireSoonProducts = this.expireSoon();
    }
   ngOnInit() {
@@ -38,6 +40,90 @@ export class InventoryComponent {
   }
   getAllProducts(): Observable<any> {
     return this.http.get<any>('http://localhost:8080/product/all');
+  }
+  findProductsByInput() {
+    if(this.searchInput == "" || this.searchInput == null) {
+      this.getAllProducts().subscribe(data => {
+        this.products = data;
+      });
+    }else {
+    this.http.get<any>('http://localhost:8080/product/find/' + this.searchInput).subscribe(data => {
+      this.products = data;
+    });
+    }
+  }
+  getAllProductsOrderByName() {
+    this.http.get<any>('http://localhost:8080/product/all/nameAsc').subscribe(data => {
+      this.products = data;
+    });
+  }
+  getAllProductsOrderByNameDesc() {
+    this.http.get<any>('http://localhost:8080/product/all/nameDesc').subscribe(data => {
+      this.products = data;
+    });
+  }
+  onClickName() {
+    this.orderStatus = !this.orderStatus;
+    if(this.orderStatus) {
+      this.getAllProductsOrderByName();
+    } else {
+      this.getAllProductsOrderByNameDesc();
+    }
+  }
+  getAllProductsOrderByPrice() {
+    this.http.get<any>('http://localhost:8080/product/all/priceAsc').subscribe(data => {
+      this.products = data;
+    });
+  }
+  getAllProductsOrderByPriceDesc() {
+    this.http.get<any>('http://localhost:8080/product/all/priceDesc').subscribe(data => {
+      this.products = data;
+    });
+  }
+  onClickPrice() {
+    this.orderStatus = !this.orderStatus;
+    if(this.orderStatus) {
+      this.getAllProductsOrderByPrice();
+    } else {
+      this.getAllProductsOrderByPriceDesc();
+    }
+  }
+  getAllProductsOrderByQuantity() {
+    this.http.get<any>('http://localhost:8080/product/all/quantityAsc').subscribe(data => {
+      this.products = data;
+    });
+  }
+  getAllProductsOrderByQuantityDesc() {
+    this.http.get<any>('http://localhost:8080/product/all/quantityDesc').subscribe(data => {
+      this.products = data;
+    });
+  }
+  onClickQuantity() {
+    this.orderStatus = !this.orderStatus;
+    if(this.orderStatus) {
+      this.getAllProductsOrderByQuantity();
+    } else {
+      this.getAllProductsOrderByQuantityDesc();
+    }
+  }
+
+  getAllProductsOrderByCategory() {
+    this.http.get<any>('http://localhost:8080/product/all/categoryAsc').subscribe(data => {
+      this.products = data;
+    });
+  }
+  getAllProductsOrderByCategoryDesc() {
+    this.http.get<any>('http://localhost:8080/product/all/categoryDesc').subscribe(data => {
+      this.products = data;
+    });
+  }
+  onClickCategory() {
+    this.orderStatus = !this.orderStatus;
+    if(this.orderStatus) {
+      this.getAllProductsOrderByCategory();
+    } else {
+      this.getAllProductsOrderByCategoryDesc();
+    }
   }
   // to impelement if we have time to do so
   /*

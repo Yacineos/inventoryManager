@@ -8,6 +8,7 @@ import { CustomersComponent } from '../customers/customers.component';
   styleUrls: ['./add-costumer.component.css']
 })
 export class AddCostumerComponent {
+  
   customer: Customer= {
     id: 0,
     nom: '',
@@ -19,17 +20,25 @@ export class AddCostumerComponent {
     codePostal: 0,
     ville: '',      
   };
-  constructor(private customersComponent: CustomersComponent) { }
-
+  constructor(private customersComponent: CustomersComponent,private http:HttpClient) {
+    
+   }
+  
   ngOnInit() {
+    this.customer= this.customersComponent.customer;
   }
-
+  editCostumer(customer: Customer) {
+    this.http.put('http://localhost:8080/costumer/update', customer).subscribe(data => {
+      console.log(data);
+    }
+    );
+  }
   hideAddCustomer() {
     this.customersComponent.hideAddCustomer();
   }
   addCustomer() {
     //this.customersComponent.customer = this.customer;
-    this.customersComponent.addCostumer();
+    this.customersComponent.addCostumer(this.customer);
     this.customersComponent.hideAddCustomer();
   }
 }
