@@ -21,6 +21,7 @@ import { DeleteConfirmationComponent } from './delete-confirmation/delete-confir
 import { SellComponent } from './sell/sell.component';
 import { CartComponent } from './sell/cart/cart.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { EmployeesComponent } from './employees/employees.component';
         SellComponent,
         CartComponent,
         EmployeesComponent,
+        FournisseursComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

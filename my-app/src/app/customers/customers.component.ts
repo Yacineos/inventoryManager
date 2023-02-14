@@ -62,7 +62,6 @@ export class CustomersComponent {
     return this.http.get<any>('http://localhost:8080/costumer/all/emailDesc');
   }
   findCostumersByInput() {
-    console.log(this.searchInput);
     this.http.get<Customer[]>('http://localhost:8080/costumer/findCostumers/' + this.searchInput).subscribe(data => {
       this.costumers = data;
     });

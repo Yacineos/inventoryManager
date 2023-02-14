@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
 import { Product } from './product';
 
@@ -18,18 +20,7 @@ export class InventoryComponent {
   lowStockProducts: number = 0;
   expireSoonProducts: number = 0;
   isChecked: boolean = false;
-  constructor(private rootComponent:AppComponent) {
-    let i:number = 0 ;
-    while(i<100){
-      this.products.push({
-        id: i,
-        name: 'Product '+i,
-        price: i,
-        category: 'Category '+i,
-        quantity: i,
-      });
-      i++;  
-    }
+  constructor(private rootComponent:AppComponent , private http: HttpClient) {
     this.allProducts = this.products.length;
     //this.activeProducts = this.activeProductCount();
     this.inActiveProducts = this.allProducts - this.activeProducts;
@@ -37,10 +28,16 @@ export class InventoryComponent {
    // this.expireSoonProducts = this.expireSoon();
    }
   ngOnInit() {
+    this.getAllProducts().subscribe(data => {
+      this.products = data;
+    });
     this.rootComponent.loggedIn = true;
     this.showAddProduct = false;
     this.showDeleteConfirmation = false;
     this.isChecked = false;
+  }
+  getAllProducts(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/product/all');
   }
   // to impelement if we have time to do so
   /*

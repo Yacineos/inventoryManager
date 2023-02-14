@@ -59,8 +59,11 @@ export class EmployeesComponent {
   getEmployeeOrderedByEmailDesc(): Observable<any> {
     return this.http.get<any>('http://localhost:8080/employee/all/emailDesc');
   }
-  findEmployeesByInput(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/employee/findEmployees/'+this.searchInput);
+  findEmployeesByInput(): void {
+     this.http.get<any>('http://localhost:8080/employee/findEmployees/'+this.searchInput).subscribe(data => {
+      this.employees = data;
+      });
+
   } 
   nameOnClick() {
     this.orderStatus = !this.orderStatus;
