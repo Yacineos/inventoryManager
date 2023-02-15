@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Fournisseur } from '../fournisseurs/Fournisseur';
-import { FournisseursComponent } from '../fournisseurs/fournisseurs.component';
+import { Fournisseur } from '../Fournisseur';
+import { FournisseursComponent } from '../fournisseurs.component';
 
 @Component({
   selector: 'app-add-fournisseur',

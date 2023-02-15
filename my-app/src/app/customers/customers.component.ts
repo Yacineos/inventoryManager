@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, Renderer2,Inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, Renderer2,Inject, ViewChild, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AddCostumerComponent } from '../add-costumer/add-costumer.component';
+import { AddCostumerComponent } from './add-costumer/add-costumer.component';
 import { AppComponent } from '../app.component';
 import { Customer } from './customer';
+import { CustomerService } from './customer.service';
 
 @Component({
   selector: 'app-customers',
@@ -17,6 +18,7 @@ export class CustomersComponent {
   activeCostumersNumber : number = 0;
   inActiveCostumersNumber : number = 0;
   showAddCostumer: boolean = false;
+  showModifyCostumer: boolean = false;
   costumers:Customer[] = [];
   p: number = 1;
   isChecked: boolean = false;
@@ -28,16 +30,13 @@ export class CustomersComponent {
     prenom: '',
     email: '',
     nTel: '',
-    numRue: 0,
+    numRue: null,
     nomRue: '',
-    codePostal: 0,
+    codePostal: null,
     ville: '',
   };
 
-  constructor(private rootComponent:AppComponent,private addPanel:AddCostumerComponent,private http: HttpClient) { 
-    this.getCustomers().subscribe(data => {
-      this.costumers = data;
-    });
+  constructor(private rootComponent:AppComponent,private http: HttpClient,private customerService: CustomerService) { 
     this.costumersNumber = this.costumers.length;
     this.activeCostumersNumber = this.activeCostumersCalc();
     this.inActiveCostumersNumber = this.costumersNumber - this.activeCostumersNumber;
@@ -46,27 +45,23 @@ export class CustomersComponent {
   ngOnInit() {
     this.rootComponent.loggedIn = true;
     this.isChecked = false;
-  }
-  getCustomers(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/costumer/all');
-  }
-  getCustomerOrderedByNameAsc(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/costumer/all/nameAsc');
-  }
-  getCustomerOrderedByNameDesc(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/costumer/all/nameDesc');
-  }
-  getCostumerOrderedByEmailAsc(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/costumer/all/emailAsc');
-  }
-  getCostumerOrderedByEmailDesc(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/costumer/all/emailDesc');
-  }
-  findCostumersByInput() {
-    this.http.get<Customer[]>('http://localhost:8080/costumer/findCostumers/' + this.searchInput).subscribe(data => {
+    this.customerService.getCustomers().subscribe(data => {
       this.costumers = data;
     });
   }
+  findCostumersByInput() {
+    if(this.searchInput == '' || this.searchInput == null) {
+      this.customerService.getCustomers().subscribe(data => {
+        this.costumers = data;
+      });
+    } 
+    else {
+    this.customerService.findCustomersByInput(this.searchInput).subscribe(data => {
+      this.costumers = data;
+    });
+  }
+  }
+  
   deleteCostumer( id: number) {
     this.http.delete('http://localhost:8080/costumer/delete/' + id).subscribe(data => {
       console.log('Costumer deleted successfully');
@@ -79,45 +74,50 @@ export class CustomersComponent {
   nameOnClick() {
     this.orderStatus = !this.orderStatus;
     if (this.orderStatus) {
-    this.getCustomerOrderedByNameAsc().subscribe(data => {
+    this.customerService.getCustomerOrderedByNameAsc().subscribe(data => {
       this.costumers = data;
     });}
     else {
-    this.getCustomerOrderedByNameDesc().subscribe(data => {
+    this.customerService.getCustomerOrderedByNameDesc().subscribe(data => {
       this.costumers = data;
     });}
   }
   emailOnClick() {
     this.orderStatus = !this.orderStatus;
     if (this.orderStatus) {
-    this.getCostumerOrderedByEmailAsc().subscribe(data => {
+    this.customerService.getCustomerOrderedByEmailAsc().subscribe(data => {
       this.costumers = data;
     });}
     else {
-    this.getCostumerOrderedByEmailDesc().subscribe(data => {
+    this.customerService.getCustomerOrderedByEmailDesc().subscribe(data => {
       this.costumers = data;
     });}
   }
+  onClickEdit(){
+    this.showAddCostumer = true;
 
+  }
 
   addCostumer(customer:Customer){
-  //this.customer={costumerSince: new Date().toISOString()};
-    this.http.post<Customer>('http://localhost:8080/costumer/add',customer).subscribe(data => {
-        console.log('Employee added successfully');
-      },
-      error => {
-        console.log('Error adding employee');
-      }
-    ); 
+     this.customerService.addCustomer(customer);
   }
+  /*
   editCostumer(customer:Customer){
     this.addPanel.editCostumer(customer);
   }
+  */
   showAddCustomer() {
     this.showAddCostumer = true;
   }
   hideAddCustomer() {
     this.showAddCostumer = false;
+  }
+  showModifyCustomer(costumer:Customer) {
+    this.showModifyCostumer = true;
+    this.customer = costumer;
+  }
+  hideModifyCustomer() {
+    this.showModifyCostumer = false;
   }
   /*
   updateIsChecked() {

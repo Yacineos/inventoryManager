@@ -1,7 +1,8 @@
 import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Customer } from '../customers/customer';
-import { CustomersComponent } from '../customers/customers.component';
+import { Customer } from '../customer';
+import { CustomerService } from '../customer.service';
+import { CustomersComponent } from '../customers.component';
 @Component({
   selector: 'app-add-costumer',
   templateUrl: './add-costumer.component.html',
@@ -15,12 +16,12 @@ export class AddCostumerComponent {
     prenom: '',
     email: '',
     nTel: '',
-    numRue: 0,
+    numRue: null,
     nomRue: '', 
-    codePostal: 0,
+    codePostal: null,
     ville: '',      
   };
-  constructor(private customersComponent: CustomersComponent,private http:HttpClient) {
+  constructor(private customersComponent: CustomersComponent,private http:HttpClient,private costumerService: CustomerService) {
     
    }
   
@@ -28,17 +29,20 @@ export class AddCostumerComponent {
     this.customer= this.customersComponent.customer;
   }
   editCostumer(customer: Customer) {
-    this.http.put('http://localhost:8080/costumer/update', customer).subscribe(data => {
-      console.log(data);
-    }
-    );
+    this.costumerService.updateCustomer(customer).subscribe(data => {
+      console.log('Costumer edited successfully');
+    },
+    error => {
+      console.log('Error while editing costumer');
+    });
   }
   hideAddCustomer() {
     this.customersComponent.hideAddCustomer();
   }
   addCustomer() {
+    console.log(this.customer);
     //this.customersComponent.customer = this.customer;
-    this.customersComponent.addCostumer(this.customer);
+    this.costumerService.addCustomer(this.customer);
     this.customersComponent.hideAddCustomer();
   }
 }

@@ -14,15 +14,16 @@ import { ErrorComponent } from './error/error.component';
 import { CustomersComponent } from './customers/customers.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { SettingsComponent } from './settings/settings.component';
-import { AddCostumerComponent } from './add-costumer/add-costumer.component';
-import { AddProductComponent } from './add-product/add-product.component';
+import { AddCostumerComponent } from './customers/add-costumer/add-costumer.component';
+import { AddProductComponent } from './inventory/add-product/add-product.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 import { SellComponent } from './sell/sell.component';
 import { CartComponent } from './sell/cart/cart.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
-import { AddFournisseurComponent } from './add-fournisseur/add-fournisseur.component';
+import { AddFournisseurComponent } from './fournisseurs/add-fournisseur/add-fournisseur.component';
+import { ModifyCostumerComponent } from './customers/modify-costumer/modify-costumer.component';
 
 
 @NgModule({
@@ -45,8 +46,9 @@ import { AddFournisseurComponent } from './add-fournisseur/add-fournisseur.compo
         EmployeesComponent,
         FournisseursComponent,
         AddFournisseurComponent,
+        ModifyCostumerComponent,
     ],
-    providers: [],
+    providers: [AddCostumerComponent],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddCostumerComponent } from './add-costumer/add-costumer.component';
-import { AddProductComponent } from './add-product/add-product.component';
+import { AddCostumerComponent } from './customers/add-costumer/add-costumer.component';
+import { AddProductComponent } from './inventory/add-product/add-product.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CustomersComponent } from './customers/customers.component';

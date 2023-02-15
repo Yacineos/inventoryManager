@@ -4,8 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor() { }
+  public currentUser : any;
+  public currentUserName: string= '';
 
+  constructor() {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}'); 
+      this.currentUserName = this.currentUser.username;
+   }
+
+    onInit() {
+    }
+    
   isLoggedIn(): boolean {
     console.log(localStorage.getItem('currentUser'));
     return !!localStorage.getItem('currentUser');

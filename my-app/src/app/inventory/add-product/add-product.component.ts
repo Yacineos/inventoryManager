@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InventoryComponent } from '../inventory/inventory.component';
+import { InventoryComponent } from '../inventory.component';
 
 @Component({
   selector: 'app-add-product',

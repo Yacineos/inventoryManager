@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
+import { AuthService } from '../auth/auth.service';
 import { Employee } from './employee';
 
 @Component({
@@ -10,6 +11,7 @@ import { Employee } from './employee';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent {
+  currentUserName: string = '';
   employee: Employee= {
     idE: 0,
     nom: '',
@@ -32,7 +34,7 @@ export class EmployeesComponent {
   isChecked: boolean = false;
   p: number = 1;
   orderStatus: boolean = false;
-  constructor(private rootComponent:AppComponent ,private http: HttpClient) { 
+  constructor(private rootComponent:AppComponent ,private http: HttpClient,private authService: AuthService) { 
     this.getAllEmployees().subscribe(data => {
       this.employees = data;
     });
@@ -40,6 +42,7 @@ export class EmployeesComponent {
 
   ngOnInit(): void {
     this.rootComponent.loggedIn = true;
+    this.currentUserName = this.authService.currentUserName;
   }
   showAddEmployeeForm() {
     this.showAddEmployee = true;

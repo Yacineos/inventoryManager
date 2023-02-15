@@ -4,8 +4,8 @@ export interface Customer {
     prenom: string;
     email: string;
     nTel: string;
-    numRue: number;
+    numRue: number|null;
     nomRue: string;
-    codePostal: number;
+    codePostal: number|null;
     ville: string;
 }

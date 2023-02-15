@@ -1,0 +1,230 @@
+<form (ngSubmit)="addCustomer()">
+    <div
+      class="bg-white absolute inset-32 inset-x-[38%] flex flex-col rounded-lg z-50"
+    >
+      <div class="flex flex-row justify-between p-5">
+        <div class="font-mainFont text-2xl">Ajouter un nouveau client</div>
+        <div
+          (click)="hideModifyCustomer()"
+          class="bg-mainyellow/20 rounded-md hover:cursor-pointer"
+        >
+          <svg
+            class="fill-mainpurple w-7 h-7"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="text-maingrey font-secondaryFont p-5">
+        informations du client
+      </div>
+      <div class="p-5 flex flex-row">
+        <div class="pl-0 p-5 py-0">
+          <label
+            for="UserName"
+            class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+          >
+            <input
+              [(ngModel)]="customer.nom"
+              [ngModelOptions]="{ standalone: true }"
+              type="text"
+              id="UserName"
+              name="Nom"
+              placeholder="Email"
+              [defaultValue]="customer.nom"
+              class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+            />
+  
+            <span
+              class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+            >
+              Nom
+            </span>
+          </label>
+        </div>
+        <div class="pr-0 p-5 py-0">
+          <label
+            for="UserName"
+            class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+          >
+            <input
+              [(ngModel)]="customer.prenom"
+              [ngModelOptions]="{ standalone: true }"
+              type="text"
+              id="UserName"
+              name="Prenom"
+              placeholder="Email"
+              [defaultValue]="customer.prenom"
+              class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+            />
+  
+            <span
+              class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+            >
+              Prénom
+            </span>
+          </label>
+        </div>
+      </div>
+  
+      <div class="p-5">
+        <label
+          for="UserEmail"
+          class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+        >
+          <input
+            [(ngModel)]="customer.email"
+            [ngModelOptions]="{ standalone: true }"
+            type="email"
+            id="UserEmail"
+            placeholder="Email"
+            [defaultValue]="customer.email"
+            name="Email"
+            class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          />
+  
+          <span
+            class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+          >
+            Email
+          </span>
+        </label>
+      </div>
+      <div class="p-5">
+        <label
+          for="UserPhone"
+          class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+        >
+          <input
+            [(ngModel)]="customer.nTel"
+            type="text"
+            placeholder="Phone"
+            [defaultValue]="customer.nTel"
+            name="Phone"
+            class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          />
+  
+          <span
+            class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+          >
+            Téléphone
+          </span>
+        </label>
+      </div>
+      <div class="p-5 flex flex-row">
+        <div class="pl-0 py-0 p-5">
+          <label
+            for="UserPhone"
+            class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+          >
+            <input
+              [(ngModel)]="customer.numRue"
+              type="text"
+              placeholder="Phone"
+              [defaultValue]="customer.numRue"
+                name="numRue"
+              class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+            />
+  
+            <span
+              class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+            >
+              N° rue
+            </span>
+          </label>
+        </div>
+        <div class="p-5 py-0">
+          <label
+            for="UserPhone"
+            class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+          >
+            <input
+              [(ngModel)]="customer.nomRue"
+              type="text"
+              placeholder="Phone"
+              name="NomRue"
+              class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+            />
+  
+            <span
+              class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+            >
+              Nom rue
+            </span>
+          </label>
+        </div>
+        <div class="pr-0 py-0 p-5">
+          <label
+            for="UserPhone"
+            class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+          >
+            <input
+              [(ngModel)]="customer.codePostal"
+              type="text"
+              placeholder="Phone"
+                name="CodePostal"
+              class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+            />
+  
+            <span
+              class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+            >
+              Code postal
+            </span>
+          </label>
+        </div>
+      </div>
+  
+      <div class="p-5">
+        <label
+          for="UserPhone"
+          class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+        >
+          <input
+            [(ngModel)]="customer.ville"
+            type="text"
+            placeholder="Phone"
+            name="Ville"
+            class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          />
+  
+          <span
+            class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+          >
+            Ville
+          </span>
+        </label>
+      </div>
+      <div class="flex flex-row justify-between">
+        <div class="p-10">
+          <button
+            class="hover:cursor-pointer inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+            (click)="hideModifyCustomer()"
+          >
+            <span
+              class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"
+            >
+              Cancel
+            </span>
+          </button>
+        </div>
+        <div class="p-10">
+          <button
+            class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+            type="submit"
+          >
+            <span
+              class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"
+            >
+              Add
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  

@@ -34,6 +34,7 @@
             type="text"
             id="UserName"
             placeholder="Email"
+            name="nom"
             class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
           />
 
@@ -55,6 +56,7 @@
             type="text"
             id="UserName"
             placeholder="Email"
+            name="prenom"
             class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
           />
 
@@ -78,6 +80,7 @@
           type="email"
           id="UserEmail"
           placeholder="Email"
+          name="email"
           class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
         />
 
@@ -97,6 +100,7 @@
           [(ngModel)]="customer.nTel"
           type="text"
           placeholder="Phone"
+          name="nTel"
           class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
         />
 
@@ -115,8 +119,10 @@
         >
           <input
             [(ngModel)]="customer.numRue"
+            [defaultValue]=""
             type="text"
             placeholder="Phone"
+            name="numRue"
             class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
           />
 
@@ -136,6 +142,7 @@
             [(ngModel)]="customer.nomRue"
             type="text"
             placeholder="Phone"
+            name="nomRue"
             class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
           />
 
@@ -152,9 +159,12 @@
           class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
         >
           <input
+            [defaultValue]=" "
             [(ngModel)]="customer.codePostal"
             type="text"
             placeholder="Phone"
+            name="codePostal"
+            
             class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
           />
 
@@ -176,6 +186,7 @@
           [(ngModel)]="customer.ville"
           type="text"
           placeholder="Phone"
+          name="ville"
           class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
         />
 

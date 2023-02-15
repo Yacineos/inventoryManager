@@ -6,7 +6,7 @@
         >
           <div class="">
             <h1 class="text-2xl font-mainFont text-gray-900 sm:text-3xl">
-              Welcome Back, Barry!
+              Content de te revoir {{currentUserName}}
             </h1>
           </div>
           <div class="flex items-center justify-end gap-4">
@@ -51,7 +51,7 @@
       </header>
     </div>
     <div [style.filter]="showAddFournisseur || showDeleteConfirmation ?'blur(4px)':null" class="w-full py-8 flex justify-between">
-      <div class="ml-12 font-secondaryFont text-xl">Inventory Summary</div>
+      <div class="ml-12 font-secondaryFont text-xl">Résumé fournisseurs</div>
       <div class="mr-10">
         <a
           class="group relative inline-flex items-center overflow-hidden rounded bg-mainpurple px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
@@ -221,28 +221,8 @@
               <th
                 class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
               >
-                <div class="flex items-center gap-2 hover:cursor-pointer" (click)="onClickCategory()">
-                  Catégorie
-  
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-gray-700"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </th>
-              <th
-                class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
-              >
                 <div class="flex items-center gap-2 hover:cursor-pointer" (click)="onClickPrice()">
-                  Prix Unitaire
+                  email
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-4 w-4 text-gray-700"
@@ -261,7 +241,7 @@
                 class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
               >
                 <div class="flex items-center gap-2 hover:cursor-pointer" (click)="onClickQuantity()">
-                  En-Stock
+                  téléphone
   
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +262,7 @@
                 class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
               >
                 <div class="flex items-center gap-2">
-                  Valeur total 
+                  ? 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-4 w-4 text-gray-700"
@@ -329,9 +309,7 @@
                 {{fournisseur.email}}
               </td>
               <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{fournisseur.n_tel}}</td>
-              <td class="whitespace-nowrap px-4 py-2  text-gray-700">
-                
-              </td>
+              
               <td class="whitespace-nowrap px-4 py-2">
                 
               </td>

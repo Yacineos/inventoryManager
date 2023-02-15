@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
+import { AuthService } from '../auth/auth.service';
 import { Product } from './product';
 
 @Component({
@@ -10,6 +11,7 @@ import { Product } from './product';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent {
+  currentUserName: string = '';
   searchInput: string = "";
   orderStatus: boolean = false;
   showDeleteConfirmation: boolean = false;
@@ -22,7 +24,7 @@ export class InventoryComponent {
   lowStockProducts: number = 0;
   expireSoonProducts: number = 0;
   isChecked: boolean = false;
-  constructor(private rootComponent:AppComponent , private http: HttpClient) {
+  constructor(private rootComponent:AppComponent , private http: HttpClient,private authService:AuthService) {
     this.allProducts = this.products.length;
     //this.activeProducts = this.activeProductCount();
     this.inActiveProducts = this.allProducts - this.activeProducts;
@@ -37,6 +39,7 @@ export class InventoryComponent {
     this.showAddProduct = false;
     this.showDeleteConfirmation = false;
     this.isChecked = false;
+    this.currentUserName = this.authService.currentUserName;
   }
   getAllProducts(): Observable<any> {
     return this.http.get<any>('http://localhost:8080/product/all');

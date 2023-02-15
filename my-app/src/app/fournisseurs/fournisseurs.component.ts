@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
+import { AuthService } from '../auth/auth.service';
 import { Fournisseur } from './Fournisseur';
 
 @Component({
@@ -9,7 +11,7 @@ import { Fournisseur } from './Fournisseur';
   styleUrls: ['./fournisseurs.component.css']
 })
 export class FournisseursComponent {
-
+  currentUserName: string = '';
   orderStatus:boolean = false ;
   searchInput: string ='';
   isChecked: boolean = false ;
@@ -27,16 +29,23 @@ export class FournisseursComponent {
     n_tel:0
   };
 
-  constructor(private rootComponent:AppComponent , private http:HttpClient) { }
+  constructor(private authService:AuthService,private rootComponent:AppComponent , private http:HttpClient) {
+    
+   }
   
   ngOnInit(): void {
     this.rootComponent.loggedIn = true;
+    this.getAllFournisseur().subscribe(data => {
+      this.fournisseurs = data;
+    }
+    );
+    this.currentUserName = this.authService.currentUserName;
   }
   addFournisseur(){
 
   }
-  getAllFournisseur(){
-    this.http
+  getAllFournisseur(): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/fournisseur/all');
   }
   onClickName(){
 

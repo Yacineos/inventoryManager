@@ -1,5 +1,5 @@
 <div class="flex flex-col w-full h-full">
-  <div [style.filter]="showAddCostumer ? 'blur(4px)' : null" class="w-full">
+  <div [style.filter]="showAddCostumer || showModifyCostumer ? 'blur(4px)' : null" class="w-full">
     <header aria-label="Page Header" class="bg-gray-50 w-full">
       <div
         class="mx-auto px-4 py-5 sm:px-6 lg:px-8 flex flex-row justify-between"
@@ -51,7 +51,7 @@
     </header>
   </div>
   <div
-    [style.filter]="showAddCostumer ? 'blur(4px)' : null"
+    [style.filter]="showAddCostumer || showModifyCostumer ? 'blur(4px)' : null"
     class="w-full py-8 flex justify-between"
   >
     <div class="ml-12 font-secondaryFont text-xl">Customers Summary</div>
@@ -83,7 +83,7 @@
     </div>
   </div>
   <div
-    [style.filter]="showAddCostumer ? 'blur(4px)' : null"
+    [style.filter]="showAddCostumer || showModifyCostumer ? 'blur(4px)' : null"
     class="w-full flex justify-between flex-col lg:flex-row"
   >
     <div class="lg:w-[45%] flex flex-col ml-12 bg-white rounded-md">
@@ -150,7 +150,7 @@
     </div>
   </div>
   <div
-    [style.filter]="showAddCostumer ? 'blur(4px)' : null"
+    [style.filter]="showAddCostumer || showModifyCostumer  ? 'blur(4px)' : null"
     class="py-5 w-full flex justify-center"
   >
     <div
@@ -165,14 +165,13 @@
             for="Search"
             class="relative block overflow-hidden rounded-md border border-gray-200 my-2 mr-10 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
           >
-            <input
-              type="text"
-              id="search"
-              placeholder="Search"
-              class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-              (ngModelChange)="findCostumersByInput()"
-              [(ngModel)]="searchInput"
-              />
+          <input type="text"
+          id="search"
+          placeholder="Search"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          (input)="findCostumersByInput()"
+          [(ngModel)]="searchInput" />
+   
 
             <span
               class="absolute left-3 top-2 -translate-y-1/2 text-xs text-maingrey transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
@@ -389,6 +388,7 @@
                 <button
                   class="inline-block p-3 text-gray-700 hover:bg-gray-100 focus:relative"
                   title="Edit Product"
+                  (click)="showModifyCustomer(this.costumer)"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -445,8 +445,10 @@
     </div>
   </div>
   <div
-    *ngIf="showAddCostumer"
+    *ngIf="showAddCostumer || showModifyCostumer "
     class="absolute w-[95%] h-full z-20 bg-black/50"
   ></div>
   <app-add-costumer *ngIf="showAddCostumer"></app-add-costumer>
+  
+  <app-modify-costumer *ngIf="showModifyCostumer"></app-modify-costumer>
 </div>

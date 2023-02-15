@@ -6,7 +6,7 @@
       >
         <div class="">
           <h1 class="text-2xl font-mainFont text-gray-900 sm:text-3xl">
-            Welcome Back, Barry!
+            Content de te revoir {{currentUserName}}
           </h1>
         </div>
         <div class="flex items-center justify-end gap-4">
@@ -151,7 +151,7 @@
           type="text"
           id="search"
           placeholder="Search"
-          (ngModelChange)="findProductsByInput()"
+          (input)="findProductsByInput()"
           [(ngModel)]="searchInput"
           class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
         />
