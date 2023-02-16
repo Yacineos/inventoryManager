@@ -1,9 +1,9 @@
-<form (ngSubmit)="addCustomer()">
+<form (ngSubmit)="modifyCustomer()">
     <div
       class="bg-white absolute inset-32 inset-x-[38%] flex flex-col rounded-lg z-50"
     >
       <div class="flex flex-row justify-between p-5">
-        <div class="font-mainFont text-2xl">Ajouter un nouveau client</div>
+        <div class="font-mainFont text-2xl">Modifier le client</div>
         <div
           (click)="hideModifyCustomer()"
           class="bg-mainyellow/20 rounded-md hover:cursor-pointer"
@@ -208,7 +208,7 @@
             <span
               class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"
             >
-              Cancel
+              annuler
             </span>
           </button>
         </div>
@@ -220,7 +220,7 @@
             <span
               class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"
             >
-              Add
+              Modifier
             </span>
           </button>
         </div>

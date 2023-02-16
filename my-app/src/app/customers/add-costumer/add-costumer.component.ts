@@ -21,27 +21,26 @@ export class AddCostumerComponent {
     codePostal: null,
     ville: '',      
   };
-  constructor(private customersComponent: CustomersComponent,private http:HttpClient,private costumerService: CustomerService) {
-    
-   }
+  customerTemp: Customer= {
+    id: 0,
+    nom: '',
+    prenom: '',
+    email: '',
+    nTel: '',
+    numRue: null,
+    nomRue: '',
+    codePostal: null,
+    ville: '',
+  };
+  constructor(private customersComponent: CustomersComponent,private http:HttpClient,private costumerService: CustomerService) {  
+  }
   
   ngOnInit() {
-    this.customer= this.customersComponent.customer;
-  }
-  editCostumer(customer: Customer) {
-    this.costumerService.updateCustomer(customer).subscribe(data => {
-      console.log('Costumer edited successfully');
-    },
-    error => {
-      console.log('Error while editing costumer');
-    });
   }
   hideAddCustomer() {
     this.customersComponent.hideAddCustomer();
   }
   addCustomer() {
-    console.log(this.customer);
-    //this.customersComponent.customer = this.customer;
     this.costumerService.addCustomer(this.customer);
     this.customersComponent.hideAddCustomer();
   }

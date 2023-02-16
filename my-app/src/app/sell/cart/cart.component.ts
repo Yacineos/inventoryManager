@@ -20,6 +20,7 @@ export class CartComponent {
         id: i,
         name: 'Product '+i,
         price: i,
+        prix_de_revient: i,
         quantity: i,
         category: 'Category '+i,
       });

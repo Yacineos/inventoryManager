@@ -35,12 +35,23 @@ export class CustomerService {
     });  
   }
 
-  updateCustomer(customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(`${this.customersUrl}/update`, customer);
+  updateCustomer(customer: Customer): Observable<any>|null {
+     this.http.post<Customer>(`${this.customersUrl}/update`, customer).subscribe(data => {
+      console.log(data);
+    },
+    error => {
+      console.log('Error while editing costumer');
+    }
+    );
+    return null;
   }
 
-  deleteCustomer(id: number): Observable<any> {
-    return this.http.delete(`${this.customersUrl}/delete/${id}`);
+  deleteCustomer(id: number): void {
+    console.log(id +"in service");
+    this.http.delete(`${this.customersUrl}/delete/${id}`).subscribe(data => {
+      console.log(data);
+    }
+    );
   }
 
   findCustomersByInput(searchInput: string): Observable<Customer[]> {

@@ -24,6 +24,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 import { AddFournisseurComponent } from './fournisseurs/add-fournisseur/add-fournisseur.component';
 import { ModifyCostumerComponent } from './customers/modify-costumer/modify-costumer.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { ModifyCostumerComponent } from './customers/modify-costumer/modify-cost
         FournisseursComponent,
         AddFournisseurComponent,
         ModifyCostumerComponent,
+        HeaderComponent,
     ],
     providers: [AddCostumerComponent],
     bootstrap: [AppComponent],

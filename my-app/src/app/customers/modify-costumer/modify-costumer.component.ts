@@ -27,14 +27,6 @@ export class ModifyCostumerComponent {
   ngOnInit() {
     this.customer= this.customersComponent.customer;
   }
-  editCostumer(customer: Customer) {
-    this.costumerService.updateCustomer(customer).subscribe(data => {
-      console.log('Costumer edited successfully');
-    },
-    error => {
-      console.log('Error while editing costumer');
-    });
-  }
   hideAddCustomer() {
     this.customersComponent.hideAddCustomer();
   }
@@ -45,6 +37,11 @@ export class ModifyCostumerComponent {
     //this.customersComponent.customer = this.customer;
     this.customersComponent.addCostumer(this.customer);
     this.customersComponent.hideAddCustomer();
+  }
+  modifyCustomer() {
+    console.log(this.customer);
+    this.costumerService.updateCustomer(this.customer);
+    this.customersComponent.hideModifyCustomer();
   }
 }
 

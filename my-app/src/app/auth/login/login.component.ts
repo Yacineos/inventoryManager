@@ -3,6 +3,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   public router1: Router;
   @Output() toggleSignup = new EventEmitter();
 
-  constructor(private router: Router, private rootComponent: AppComponent , private http: HttpClient) {
+  constructor(private router: Router, private rootComponent: AppComponent , private http: HttpClient , private authService:AuthService) {
     this.router1=router;
   }
   ngOnInit() {
@@ -31,7 +32,9 @@ export class LoginComponent {
       console.log(data);
       if (data && data.success) {
         this.rootComponent.loggedIn = true;
-        localStorage.setItem('currentUser', JSON.stringify({ username: this.username }));
+        this.authService.currentUser = body;
+        this.authService.currentUserName = body.username;
+        localStorage.setItem('currentUser', JSON.stringify(body.username));
         this.router.navigate(['/dashboard']);
       } else {
         alert('Wrong username or password');

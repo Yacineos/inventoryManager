@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
 import { AuthService } from '../auth/auth.service';
+import { InventoryService } from './inventory.service';
 import { Product } from './product';
 
 @Component({
@@ -24,7 +25,7 @@ export class InventoryComponent {
   lowStockProducts: number = 0;
   expireSoonProducts: number = 0;
   isChecked: boolean = false;
-  constructor(private rootComponent:AppComponent , private http: HttpClient,private authService:AuthService) {
+  constructor(private rootComponent:AppComponent , private http: HttpClient,private authService:AuthService,private inventoryService: InventoryService) {
     this.allProducts = this.products.length;
     //this.activeProducts = this.activeProductCount();
     this.inActiveProducts = this.allProducts - this.activeProducts;
@@ -42,7 +43,7 @@ export class InventoryComponent {
     this.currentUserName = this.authService.currentUserName;
   }
   getAllProducts(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/product/all');
+    return this.inventoryService.getProducts();
   }
   findProductsByInput() {
     if(this.searchInput == "" || this.searchInput == null) {
@@ -50,8 +51,8 @@ export class InventoryComponent {
         this.products = data;
       });
     }else {
-    this.http.get<any>('http://localhost:8080/product/find/' + this.searchInput).subscribe(data => {
-      this.products = data;
+      this.inventoryService.findProductsByInput(this.searchInput).subscribe(data => {
+      this.products = data; 
     });
     }
   }

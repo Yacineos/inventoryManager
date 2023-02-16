@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent {
+  constructor(private authService:AuthService,private router :Router ) { }
+  logout() {
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
+    this.authService.currentUser = null;
+    this.authService.currentUserName = '';
+    console.log(this.authService.currentUser);
+    this.router.navigate(['/']);
+  }
 
 }

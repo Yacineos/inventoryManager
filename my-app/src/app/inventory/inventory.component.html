@@ -1,57 +1,7 @@
 <div class="flex flex-col w-full h-full">
-  <div [style.filter]="showAddProduct || showDeleteConfirmation ?'blur(4px)':null" class="w-full">
-    <header aria-label="Page Header" class="bg-gray-50 w-full">
-      <div
-        class="mx-auto px-4 py-5 sm:px-6 lg:px-8 flex flex-row justify-between"
-      >
-        <div class="">
-          <h1 class="text-2xl font-mainFont text-gray-900 sm:text-3xl">
-            Content de te revoir {{currentUserName}}
-          </h1>
-        </div>
-        <div class="flex items-center justify-end gap-4">
-          <div class="flex items-center gap-4">
-            <a
-              href="#"
-              class="block shrink-0 rounded-full bg-white p-2.5 text-gray-600 shadow-sm hover:text-gray-700"
-            >
-              <span class="sr-only">Notifications</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                />
-              </svg>
-            </a>
-          </div>
-
-          <span
-            aria-hidden="true"
-            class="block h-6 w-px rounded-full bg-gray-200"
-          ></span>
-
-          <a href="#" class="block shrink-0">
-            <span class="sr-only">Profile</span>
-            <img
-              alt="Man"
-              src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-              class="h-10 w-10 rounded-full object-cover"
-            />
-          </a>
-        </div>
-      </div>
-    </header>
-  </div>
+  <app-header [style.filter]="showAddProduct || showDeleteConfirmation ?'blur(4px)':null" class="w-full"></app-header>
   <div [style.filter]="showAddProduct || showDeleteConfirmation ?'blur(4px)':null" class="w-full py-8 flex justify-between">
-    <div class="ml-12 font-secondaryFont text-xl">Inventory Summary</div>
+    <div class="ml-12 font-secondaryFont text-xl">Résumé des Produits</div>
     <div class="mr-10">
       <a
         class="group relative inline-flex items-center overflow-hidden rounded bg-mainpurple px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
@@ -74,7 +24,7 @@
         <span
           class="font-secondaryFont text-base font-medium transition-all group-hover:ml-4"
         >
-          Add a New Product
+          ajouter un produit
         </span>
       </a>
     </div>
@@ -241,6 +191,26 @@
             <th
               class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
             >
+              <div class="flex items-center gap-2 hover:cursor-pointer" >
+                prix de revient
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-gray-700"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </th>
+            <th
+              class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
+            >
               <div class="flex items-center gap-2 hover:cursor-pointer" (click)="onClickPrice()">
                 Prix Unitaire
                 <svg
@@ -327,6 +297,9 @@
             </td> 
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">
               {{product.category}}
+            </td>
+            <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+              {{product.prix_de_revient}}
             </td>
             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{product.price}}</td>
             <td class="whitespace-nowrap px-4 py-2  text-gray-700">

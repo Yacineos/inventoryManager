@@ -63,13 +63,9 @@ export class CustomersComponent {
   }
   
   deleteCostumer( id: number) {
-    this.http.delete('http://localhost:8080/costumer/delete/' + id).subscribe(data => {
-      console.log('Costumer deleted successfully');
-    },
-    error => {
-      console.log('Error deleting costumer');
-    }
-    );
+    console.log(id);
+    this.customerService.deleteCustomer(id);
+    console.log(id+" deleted");
   }
   nameOnClick() {
     this.orderStatus = !this.orderStatus;
