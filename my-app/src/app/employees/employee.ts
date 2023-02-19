@@ -1,9 +1,9 @@
 export interface Employee {
     idE: number;
-    nom: string;
+    name: string;
     prenom: string;
     email: string;
-    nTel: string;
+    nTel: number;
     nomUtilisateur: string;
     motDePasse: string;
     numRue: number;

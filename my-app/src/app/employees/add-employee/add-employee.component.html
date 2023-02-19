@@ -1,0 +1,107 @@
+<form (ngSubmit)="addEmployeeAuth()" id="container">
+  <div class=" absolute inset-x-[38%] inset-32 flex flex-col rounded-lg z-50">
+    
+    <div class="bg-white flex justify-center py-10">
+      <img src="../../assets/images/Graph.png" alt="inventory manager" />
+    </div>
+    <div class="bg-white flex flex-col justify-center pb-10">
+      <div class="font-mainFont font-medium text-2xl pb-4 text-center">Bienvenue </div>
+      <div class="font-secondaryFont font-meduim text-maingrey pb-10 text-center">
+        Créer un compte
+      </div>
+    </div>
+    
+    <div class="bg-white flex justify-center pb-10">
+      <label
+        for="UserEmail"
+        class="w-[90%] relative block overflow-hidden rounded-md border bg-maingrey/10 border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          type="text"
+          id="UserEmail"
+          name="username"
+          placeholder="username"
+          [(ngModel)]="username"
+          class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+        />
+  
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Nom utilisateur
+        </span>
+      </label>
+    </div>
+    <div class="bg-white flex justify-center flex-row pb-10">
+      <label
+        for="UserPassword"
+        class="w-[90%] relative block overflow-hidden rounded-md border bg-maingrey/10 border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+      >
+        <input
+          class="peer h-8 w-[90%] border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          type="text"
+          *ngIf="showPassword"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input
+          class="peer h-8 w-[90%] border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          type="password"
+          *ngIf="!showPassword"
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Password"
+        />
+        <span
+          class="absolute left-3 top-2 -translate-y-1/2 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+        >
+          Mot de passe
+        </span>
+        <button class="float-right" (click)="showPassword = !showPassword">
+          <img src="../../../assets/images/showHidePassword.png" alt="" />
+        </button>
+      </label>
+      
+      </div>
+      
+    
+    <!--
+    <div class="text-right pr-8 text-mainpurple font-secondaryFont pb-8">
+      Recover Password
+    </div>
+    <div class="text-maingrey text-lg">
+      Don’t have an account?<a
+        (click)="toggleSignup.emit()"
+        style="color: #5570f1"
+        class="hover:underline cursor-pointer"
+      >
+        Sign Up</a
+      >
+    </div>
+    -->
+    <div class="bg-white p-10 flex justify-between ">
+      <button
+        class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+        (click)="hideAddEmployee()"
+      >
+        <span
+          class="block rounded-sm bg-white px-8 py-3 text-sm font-medium hover:bg-transparent"
+        >
+          annuler
+        </span>
+      </button>
+      <button
+        class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+        type="submit"
+      >
+        <span
+          class="block rounded-sm bg-white px-8 py-3 text-sm font-medium hover:bg-transparent"
+        >
+          enregistrer
+        </span>
+      </button>
+    </div>
+  </div>
+  </form>
+  

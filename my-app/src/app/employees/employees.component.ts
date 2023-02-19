@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
 import { AuthService } from '../auth/auth.service';
 import { Employee } from './employee';
+import { EmployeeService } from './employee.service';
 
 @Component({
   selector: 'app-employees',
@@ -14,10 +15,10 @@ export class EmployeesComponent {
   currentUserName: string = '';
   employee: Employee= {
     idE: 0,
-    nom: '',
+    name: '',
     prenom: '',
     email: '',
-    nTel: '',
+    nTel: 0,
     nomUtilisateur: '',
     motDePasse: '',
     numRue: 0,
@@ -34,8 +35,8 @@ export class EmployeesComponent {
   isChecked: boolean = false;
   p: number = 1;
   orderStatus: boolean = false;
-  constructor(private rootComponent:AppComponent ,private http: HttpClient,private authService: AuthService) { 
-    this.getAllEmployees().subscribe(data => {
+  constructor(private rootComponent:AppComponent ,private http: HttpClient,private authService: AuthService, private employeeService: EmployeeService) { 
+    this.employeeService.getAllEmployees().subscribe(data => {
       this.employees = data;
     });
   }
@@ -47,35 +48,15 @@ export class EmployeesComponent {
   showAddEmployeeForm() {
     this.showAddEmployee = true;
   }
-  getAllEmployees(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/employee/all');
-  }
-  getEmployeeOrderedByNameAsc(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/employee/all/nameAsc');
-  }
-  getEmployeeOrderedByNameDesc(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/employee/all/nameDesc');
-  }
-  getEmployeeOrderedByEmailAsc(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/employee/all/emailAsc');
-  }
-  getEmployeeOrderedByEmailDesc(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/employee/all/emailDesc');
-  }
-  findEmployeesByInput(): void {
-     this.http.get<any>('http://localhost:8080/employee/findEmployees/'+this.searchInput).subscribe(data => {
-      this.employees = data;
-      });
-
-  } 
+  
   nameOnClick() {
     this.orderStatus = !this.orderStatus;
     if(this.orderStatus) {
-      this.getEmployeeOrderedByNameAsc().subscribe(data => {
+      this.employeeService.getEmployeeOrderedByNameAsc().subscribe(data => {
         this.employees = data;
       });
     } else {
-      this.getEmployeeOrderedByNameDesc().subscribe(data => {
+      this.employeeService.getEmployeeOrderedByNameDesc().subscribe(data => {
         this.employees = data;
       });
     }
@@ -83,21 +64,33 @@ export class EmployeesComponent {
   emailOnClick() {
     this.orderStatus = !this.orderStatus;
     if(this.orderStatus) {
-      this.getEmployeeOrderedByEmailAsc().subscribe(data => {
+      this.employeeService.getEmployeeOrderedByEmailAsc().subscribe(data => {
         this.employees = data;
       });
     } else {
-      this.getEmployeeOrderedByEmailDesc().subscribe(data => {
+      this.employeeService.getEmployeeOrderedByEmailDesc().subscribe(data => {
         this.employees = data;
       });
     }
   }
   deleteEmployee(id: number) {
     this.http.delete('http://localhost:8080/employee/delete/'+id).subscribe();
-    this.getAllEmployees().subscribe(data => {
+    this.employeeService.getAllEmployees().subscribe(data => {
       this.employees = data;
     });
   }
-
+  findEmployeesByInput() {
+    if(this.searchInput == '' || this.searchInput == null) {
+      this.employeeService.getAllEmployees().subscribe(data => {
+        this.employees = data;
+      });
+    } 
+    else {
+    this.employeeService.findEmployeesByInput(this.searchInput).subscribe(data => {
+      this.employees = data;
+    });
+  }
+  }
+  
 
 }

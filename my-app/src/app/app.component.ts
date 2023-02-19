@@ -10,7 +10,7 @@ export class AppComponent {
   loggedIn=false;
   title = 'my-app';
   constructor(private renderer: Renderer2, private el: ElementRef) { 
-    this.renderer = renderer;
+    this.renderer = renderer; 
     this.el = el;
   }
   getRenderer() {

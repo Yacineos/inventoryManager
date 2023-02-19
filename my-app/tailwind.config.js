@@ -5,6 +5,7 @@ module.exports = {
   './src/app/dashboard/dashboard.component.html',
   './src/app/app.component.html',
   './src/index.html',
+  '.src/app/employees/add-employee/add-employee.component.html',
   './src/app/header/header.component.html',
   './src/app/customers/modify-costumer/modify-costumer.component.html',
   './src/app/customers/customers.component.html', 
