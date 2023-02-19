@@ -46,4 +46,19 @@ import { Employee } from "./employee";
         this.employee.motDePasse = password;
             return this.http.post<Employee>(`${this.employeesUrl}/add`, this.employee);
         }
+     modifyEmployee(employee:Employee): void{
+         this.http.post<Employee>(`${this.employeesUrl}/update`, employee).subscribe(data => {
+            console.log(data);
+          },
+          error => {
+            console.log('Error while editing employee');
+          }
+          );
+        }
+      deleteEmployee(id:number): void{
+        this.http.delete(`${this.employeesUrl}/delete/${id}`).subscribe(data => {
+          console.log(data);
+        }
+        );
+      }   
     }

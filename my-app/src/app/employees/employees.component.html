@@ -1,7 +1,7 @@
 <div class="flex flex-col w-full h-full">
-  <app-header [style.filter]="showAddEmployee ?'blur(4px)':null" class="w-full"></app-header>
+  <app-header [style.filter]="showAddEmployee || showModifyEmployee ?'blur(4px)':null" class="w-full"></app-header>
     <div
-      [style.filter]="showAddEmployee ? 'blur(4px)' : null"
+      [style.filter]="showAddEmployee || showModifyEmployee ? 'blur(4px)' : null"
       class="w-full py-8 flex justify-between"
     >
       <div class="ml-12 font-secondaryFont text-xl">Résumé des Employées</div>
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div
-      [style.filter]="showAddEmployee ? 'blur(4px)' : null"
+      [style.filter]="showAddEmployee || showModifyEmployee ? 'blur(4px)' : null"
       class="w-full flex justify-between flex-col lg:flex-row"
     >
       <div class="lg:w-[45%] flex flex-col ml-12 bg-white rounded-md">
@@ -100,7 +100,7 @@
       </div>
     </div>
     <div
-      [style.filter]="showAddEmployee ? 'blur(4px)' : null"
+      [style.filter]="showAddEmployee || showModifyEmployee ? 'blur(4px)' : null"
       class="py-5 w-full flex justify-center"
     >
       <div
@@ -333,6 +333,7 @@
                   <button
                     class="inline-block p-3 text-gray-700 hover:bg-gray-100 focus:relative"
                     title="Edit Product"
+                    (click)="showModifyEmployeeForm(employee)"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -389,11 +390,11 @@
       </div>
     </div>
     <div
-      *ngIf="showAddEmployee"
+      *ngIf="showAddEmployee || showModifyEmployee"
       class="absolute w-[95%] h-full z-20 bg-black/50"
     ></div>
     
     <app-add-employee *ngIf="showAddEmployee"></app-add-employee>
-        
+    <app-modify-employee *ngIf="showModifyEmployee"></app-modify-employee>
 </div>
   

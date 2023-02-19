@@ -27,6 +27,7 @@ export class EmployeesComponent {
     ville: '',
   };
   employees: Employee[] = [];
+  showModifyEmployee: boolean = false;
   showAddEmployee: boolean = false;
   activeEmployeesNumber: number = 0;
   inactiveEmployeesNumber: number = 0;
@@ -48,7 +49,10 @@ export class EmployeesComponent {
   showAddEmployeeForm() {
     this.showAddEmployee = true;
   }
-  
+  showModifyEmployeeForm(employee: Employee) {
+    this.employee = employee;
+    this.showModifyEmployee = true;
+  }
   nameOnClick() {
     this.orderStatus = !this.orderStatus;
     if(this.orderStatus) {
@@ -73,12 +77,6 @@ export class EmployeesComponent {
       });
     }
   }
-  deleteEmployee(id: number) {
-    this.http.delete('http://localhost:8080/employee/delete/'+id).subscribe();
-    this.employeeService.getAllEmployees().subscribe(data => {
-      this.employees = data;
-    });
-  }
   findEmployeesByInput() {
     if(this.searchInput == '' || this.searchInput == null) {
       this.employeeService.getAllEmployees().subscribe(data => {
@@ -91,6 +89,13 @@ export class EmployeesComponent {
     });
   }
   }
-  
+  deleteEmployee(id: number) : void{
+    this.employeeService.deleteEmployee(id);
+    console.log("Employee "+id+" deleted");
+    this.employeeService.getAllEmployees().subscribe(data => {
+      this.employees = data;
+    }
+    );
+  }
 
 }
