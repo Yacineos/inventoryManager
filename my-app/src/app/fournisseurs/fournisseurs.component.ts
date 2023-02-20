@@ -16,6 +16,7 @@ export class FournisseursComponent {
   searchInput: string ='';
   isChecked: boolean = false ;
   showAddFournisseur:boolean= false ;
+  showModifyFournisseur:boolean= false ;
   showDeleteConfirmation:boolean= false ;
   allFournisseur:number =0 ;
   activeFournisseur:number=0;
@@ -42,10 +43,14 @@ export class FournisseursComponent {
     this.currentUserName = this.authService.currentUserName;
   }
   addFournisseur(){
-
+    this.showAddFournisseur = true;
   }
   getAllFournisseur(): Observable<any>{
     return this.http.get<any>('http://localhost:8080/fournisseur/all');
+  }
+  ModifyFournisseur(fournisseur: Fournisseur){
+    this.fournisseur = fournisseur;
+    this.showModifyFournisseur = true;
   }
   onClickName(){
 

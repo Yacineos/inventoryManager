@@ -1,11 +1,11 @@
-<form class="bg-white absolute inset-32 rounded-lg z-50 " (ngSubmit)="addFournisseur()">
+<form class="bg-white absolute inset-32 rounded-lg z-50 " (ngSubmit)="modifyFournisseur()">
     <div
       class="flex flex-col h-full w-full"
     >
       <div class="flex flex-row justify-between p-5">
         <div class="font-mainFont text-2xl">Ajouter un nouveau Fournisseur</div>
         <div
-          (click)="hideAddFournisseur()"
+          (click)="hideModifyFournisseur()"
           class="bg-mainyellow/20 rounded-md hover:cursor-pointer"
         >
           <svg
@@ -34,6 +34,7 @@
               type="text"
               id="UserName"
               placeholder="Email"
+              [defaultValue]="fournisseur.nomF"
               class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
             />
   
@@ -58,6 +59,7 @@
             type="email"
             id="UserEmail"
             placeholder="Email"
+            [defaultValue]="fournisseur.email"
             class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
           />
   
@@ -77,6 +79,7 @@
             [(ngModel)]="fournisseur.n_tel"
             type="text"
             placeholder="Phone"
+            [defaultValue]="fournisseur.n_tel"
             class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
           />
   
@@ -94,7 +97,7 @@
         <div class="p-10">
           <button
             class="hover:cursor-pointer inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
-            (click)="hideAddFournisseur()"
+            (click)="hideModifyFournisseur()"
           >
             <span
               class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"

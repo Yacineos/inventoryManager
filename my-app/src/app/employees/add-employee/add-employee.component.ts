@@ -19,6 +19,10 @@ export class AddEmployeeComponent {
 
         this.employeeService.addEmployee(this.username,this.password).subscribe();
         this.hideAddEmployee(); 
+        this.employeeService.getAllEmployees().subscribe(data => {
+          this.employeeComponent.employees = data;
+        }
+        );
     }
     hideAddEmployee() {
       //this.employeesComponent.hideAllEmployees();

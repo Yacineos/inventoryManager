@@ -1,8 +1,8 @@
 <div class="flex flex-col w-full h-full">
-  <app-header [style.filter]="showAddFournisseur || showDeleteConfirmation ?'blur(4px)':null" class="w-full"></app-header>
-    <div [style.filter]="showAddFournisseur || showDeleteConfirmation ?'blur(4px)':null" class="w-full py-8 flex justify-between">
+  <app-header [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur  ?'blur(4px)':null" class="w-full"></app-header>
+    <div [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur  ?'blur(4px)':null" class="w-full py-8 flex justify-between">
       <div class="ml-12 font-secondaryFont text-xl">Résumé fournisseurs</div>
-      <div class="mr-10">
+      <div class="mr-10 hover:cursor-pointer">
         <a
           class="group relative inline-flex items-center overflow-hidden rounded bg-mainpurple px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
           (click)="addFournisseur()"
@@ -24,12 +24,12 @@
           <span
             class="font-secondaryFont text-base font-medium transition-all group-hover:ml-4"
           >
-            Add a New fournisseur
+            Ajouter un fournisseur
           </span>
         </a>
       </div>
     </div>
-    <div [style.filter]="showAddFournisseur || showDeleteConfirmation ?'blur(4px)':null" class="w-full flex justify-between">
+    <div [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur  ?'blur(4px)':null" class="w-full flex justify-between">
       <div class="w-[45%] flex flex-col ml-12 bg-mainpurple rounded-md">
         <div class="w-full mt-1 pb-2 flex flex-row justify-between">
           <div class="bg-black/20 rounded py-0 px-2 ml-5">
@@ -87,12 +87,12 @@
         </div>
       </div>
     </div>
-    <div [style.filter]="showAddFournisseur || showDeleteConfirmation ?'blur(4px)':null" class="py-5 w-full flex justify-center">
+    <div [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur ?'blur(4px)':null" class="py-5 w-full flex justify-center">
       <div
         class="w-20/21 overflow-hidden overflow-x-auto rounded-lg border bg-white border-gray-200"
       >
       <div class="flex justify-between mx-2 flex-row">
-        <div class="font-secondaryFont my-2 p-3 text-mainblack font-meduim">Inventory items</div>
+        <div class="font-secondaryFont my-2 p-3 text-mainblack font-meduim">liste fournisseurs</div>
         <div><label
           for="Search"
           class="relative block overflow-hidden rounded-md border border-gray-200 my-2 mr-10 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
@@ -207,12 +207,12 @@
                   </svg>
                 </div>
               </th>
-              
+              <!--
               <th
                 class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
               >
                 <div class="flex items-center gap-2">
-                  ? 
+                  produits fournis
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-4 w-4 text-gray-700"
@@ -227,7 +227,7 @@
                   </svg>
                 </div>
               </th>
-  
+              -->
               <th
                 class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
               ></th>
@@ -259,10 +259,11 @@
                 {{fournisseur.email}}
               </td>
               <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{fournisseur.n_tel}}</td>
-              
+              <!--
               <td class="whitespace-nowrap px-4 py-2">
                 
               </td>
+              -->
               <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 <span
                   class="inline-flex divide-x overflow-hidden rounded-md border bg-white shadow-sm"
@@ -270,6 +271,7 @@
                   <button
                     class="inline-block p-3 text-gray-700 hover:bg-gray-100 focus:relative"
                     title="Edit fournisseur"
+                    (click)="ModifyFournisseur(fournisseur)"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -326,9 +328,10 @@
         </pagination-controls>
       </div>
     </div>
-    <div *ngIf="showAddFournisseur || showDeleteConfirmation" class="absolute w-[95%] h-full z-20 bg-black/50 flex justify-center items-center">
+    <div *ngIf="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur " class="absolute w-[95%] h-full z-20 bg-black/50 flex justify-center items-center">
       <app-add-fournisseur *ngIf="showAddFournisseur"></app-add-fournisseur>
       <app-delete-confirmation *ngIf="showDeleteConfirmation"></app-delete-confirmation>
+      <app-modify-fournisseur *ngIf="showModifyFournisseur"></app-modify-fournisseur>
     </div>
     
   </div>

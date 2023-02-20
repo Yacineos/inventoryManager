@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Fournisseur } from '../Fournisseur';
+import { FournisseurService } from '../fournisseur.service';
 import { FournisseursComponent } from '../fournisseurs.component';
 
 @Component({
@@ -18,16 +19,19 @@ export class AddFournisseurComponent {
   };
   
 
-  constructor(private fournisseurComponent : FournisseursComponent,private http:HttpClient){
+  constructor(private fournisseurComponent : FournisseursComponent,private http:HttpClient, private fournisseurService: FournisseurService) { }
 
-  }
-  OnInit(){
+  ngOnInit(){
     this.fournisseur=this.fournisseurComponent.fournisseur;
   }
   addFournisseur(){
-
+    this.fournisseurService.addFournisseur(this.fournisseur).subscribe(data => {
+      this.fournisseurComponent.fournisseurs.push(data);
+    }
+    );
   }
   hideAddFournisseur(){
-
+    this.fournisseurComponent.showAddFournisseur = false;
   }
 }
+

@@ -35,6 +35,10 @@ export class ModifyEmployeeComponent {
   modifyEmployee(){
     this.employeeService.modifyEmployee(this.employee);
     this.hideModifyEmployee();
+    this.employeeService.getAllEmployees().subscribe(data => {
+      this.employeeComponent.employees = data;
+    }
+    );
   }
 
 }
