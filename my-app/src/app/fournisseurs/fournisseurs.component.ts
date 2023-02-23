@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
 import { AuthService } from '../auth/auth.service';
 import { Fournisseur } from './Fournisseur';
+import { FournisseurService } from './fournisseur.service';
 
 @Component({
   selector: 'app-fournisseurs',
@@ -30,7 +31,7 @@ export class FournisseursComponent {
     n_tel:0
   };
 
-  constructor(private authService:AuthService,private rootComponent:AppComponent , private http:HttpClient) {
+  constructor(private authService:AuthService,private rootComponent:AppComponent , private http:HttpClient, private fournisseurService: FournisseurService) {
     
    }
   
@@ -53,21 +54,51 @@ export class FournisseursComponent {
     this.showModifyFournisseur = true;
   }
   onClickName(){
-
-  }
-  onClickCategory(){
-
-  }
-  onClickPrice(){
-
-  }
-  onClickQuantity(){
-
-  }
-  deletefournisseur(){
+    this.orderStatus = !this.orderStatus;
+    if(this.orderStatus){
+      this.fournisseurService.getAllFournisseurByNom().subscribe(data => {
+        this.fournisseurs = data;
+      }
+      );
+    }
+    else{
+      this.fournisseurService.getAllFournisseurByNomDesc().subscribe(data => {
+        this.fournisseurs = data;
+      }
+      );
+    }
     
   }
-  findFournisseurByInput(){
-
+  onClickEmail(){
+    this.orderStatus = !this.orderStatus;
+    if(this.orderStatus){
+      this.fournisseurService.getAllFournisseurByEmail().subscribe(data => {
+        this.fournisseurs = data;
+      }
+      );
+    }
+    else{
+      this.fournisseurService.getAllFournisseurByEmailDesc().subscribe(data => {
+        this.fournisseurs = data;
+      }
+      );
+    }
+    
   }
+  deletefournisseur(fournisseurId: number){
+    this.fournisseurService.deleteFournisseur(fournisseurId);
+  }
+  findFournisseurByInput(){
+    if(this.searchInput == "" || this.searchInput == null) {
+      this.getAllFournisseur().subscribe(data => {
+        this.fournisseurs = data;
+      }
+      );
+    }else {
+    this.fournisseurService.getFournisseursByInput(this.searchInput).subscribe(data => {
+      this.fournisseurs = data;
+    }
+    );
+  }
+}
 }

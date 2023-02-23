@@ -25,6 +25,7 @@ export class ModifyFournisseurComponent {
     this.fournisseurComponent.showModifyFournisseur = false;
   }
   modifyFournisseur(){
+    console.log(this.fournisseur);
     this.fournisseurService.modifyFournisseur(this.fournisseur);
     this.hideModifyFournisseur();
     this.fournisseurService.getAllFournisseur().subscribe(data => {

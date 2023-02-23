@@ -29,6 +29,7 @@ export class AddFournisseurComponent {
       this.fournisseurComponent.fournisseurs.push(data);
     }
     );
+    this.hideAddFournisseur();
   }
   hideAddFournisseur(){
     this.fournisseurComponent.showAddFournisseur = false;

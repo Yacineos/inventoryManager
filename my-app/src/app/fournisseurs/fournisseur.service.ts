@@ -19,6 +19,20 @@ export class FournisseurService {
     getAllFournisseur(): Observable<Fournisseur[]> {
         return this.http.get<any>(this.fournisseursUrl + '/all');
     }
+
+    getAllFournisseurByNom(): Observable<Fournisseur[]> {
+        return this.http.get<any>(this.fournisseursUrl + '/all/nameAsc');
+    }
+    getAllFournisseurByNomDesc(): Observable<Fournisseur[]> {
+        return this.http.get<any>(this.fournisseursUrl + '/all/nameDesc');
+    }
+    getAllFournisseurByEmail(): Observable<Fournisseur[]> {
+        return this.http.get<any>(this.fournisseursUrl + '/all/emailAsc');
+    }
+    getAllFournisseurByEmailDesc(): Observable<Fournisseur[]> {
+        return this.http.get<any>(this.fournisseursUrl + '/all/emailDesc');
+    }
+
     addFournisseur(fournisseur: Fournisseur): Observable<any>{
         return this.http.post(this.fournisseursUrl + '/add', fournisseur);
     }
@@ -27,6 +41,10 @@ export class FournisseurService {
             console.log(data);
         });
     }
+    getFournisseursByInput(input: string): Observable<Fournisseur[]>{
+        return this.http.get<any>(this.fournisseursUrl + '/find/' + input);
+    }
+
     modifyFournisseur(fournisseur: Fournisseur): void{
          this.http.post(this.fournisseursUrl + '/update', fournisseur).subscribe(data => {
             console.log(data);

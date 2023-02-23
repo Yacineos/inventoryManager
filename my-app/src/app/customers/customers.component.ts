@@ -61,7 +61,6 @@ export class CustomersComponent {
     });
   }
   }
-  
   deleteCostumer( id: number) {
     console.log(id);
     this.customerService.deleteCustomer(id);
