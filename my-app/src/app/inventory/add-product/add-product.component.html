@@ -1,5 +1,5 @@
 <div class="z-50">
-  <div class="bg-white flex flex-col rounded-lg ">
+  <div class="bg-white flex flex-col rounded-lg">
     <div class="flex flex-row justify-between p-5">
       <div class="font-mainFont text-2xl">Add a New Product</div>
       <div
@@ -55,6 +55,46 @@
           Product Name
         </span>
       </label>
+    </div>
+    <div class="p-5">
+      <button
+        type="button"
+        class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        (click)="showSuppliers = !showSuppliers"
+      >
+        Select a Supplier
+      </button>
+      <div *ngIf="showSuppliers"
+        class="origin-top-right absolute right-0 mt-2 w-16 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+      >
+        <div
+        
+          class="py-1  bg-white z-[100]"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="options-menu"
+        >
+          <label class="w-full" for="supplier-search" class="sr-only">Search suppliers</label>
+          <input
+            id="supplier-search"
+            type="text"
+            class="w-full px-2 py-2 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            placeholder="Search suppliers"
+            (input)="searchSupplier()"
+            [(ngModel)]="searchInput"
+          />
+          <div class="max-h-60 ">
+            <button
+              *ngFor="let supplier of fournisseurs"
+              type="button"
+              class="w-full text-left px-2 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900"
+              (click)="selectSupplier(supplier)"
+            >
+              {{ supplier.nomF }}
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="p-5 flex flex-row justify-between">
       <label
