@@ -28,6 +28,7 @@ import { HeaderComponent } from './header/header.component';
 import { AddEmployeeComponent } from './employees/add-employee/add-employee.component';
 import { ModifyEmployeeComponent } from './employees/modify-employee/modify-employee.component';
 import { ModifyFournisseurComponent } from './fournisseurs/modify-fournisseur/modify-fournisseur.component';
+import { FournitComponent } from './fournit/fournit.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { ModifyFournisseurComponent } from './fournisseurs/modify-fournisseur/mo
         AddEmployeeComponent,
         ModifyEmployeeComponent,
         ModifyFournisseurComponent,
+        FournitComponent,
     ],
     providers: [AddCostumerComponent],
     bootstrap: [AppComponent],

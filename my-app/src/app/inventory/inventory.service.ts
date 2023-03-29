@@ -30,7 +30,7 @@ export class InventoryService {
         });  
     }
 
-    updateProduct(product: Product): Observable<any>|null {
+    updateProduct(product: Product): Observable<any>|void {
         this.http.post<Product>(`${this.inventoryUrl}/update`, product).subscribe(data => {
             console.log(data);
         },
@@ -38,7 +38,6 @@ export class InventoryService {
             console.log('Error while editing product');
         }
         );
-        return null;
     }
 
     deleteProduct(id: number): Observable<any> {

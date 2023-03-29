@@ -1,4 +1,4 @@
-<div class="z-50">
+<form class="z-50" (ngSubmit)="addProduct()">
   <div class="bg-white flex flex-col rounded-lg">
     <div class="flex flex-row justify-between p-5">
       <div class="font-mainFont text-2xl">Add a New Product</div>
@@ -24,8 +24,11 @@
         class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
       >
         <input
+        [(ngModel)]="product.id"
+        [ngModelOptions]="{standalone: true}"
           type="text"
           id="Reference"
+          name="Reference"
           placeholder="Référence"
           class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
         />
@@ -43,6 +46,8 @@
         class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
       >
         <input
+        [(ngModel)]="product.name"
+        [ngModelOptions]="{standalone: true}"
           type="text"
           id="ProductName"
           placeholder="Product Name"
@@ -56,7 +61,7 @@
         </span>
       </label>
     </div>
-    <div class="p-5">
+    <div class="p-5 relative">
       <button
         type="button"
         class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -65,7 +70,7 @@
         Select a Supplier
       </button>
       <div *ngIf="showSuppliers"
-        class="origin-top-right absolute right-0 mt-2 w-16 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+        class=" z-[100] right-0 mt-2 w-16 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
       >
         <div
         
@@ -83,11 +88,11 @@
             (input)="searchSupplier()"
             [(ngModel)]="searchInput"
           />
-          <div class="max-h-60 ">
+          <div class="max-h-60 bg-white ">
             <button
               *ngFor="let supplier of fournisseurs"
               type="button"
-              class="w-full text-left px-2 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900"
+              class="w-full text-left px-2 py-2 bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900"
               (click)="selectSupplier(supplier)"
             >
               {{ supplier.nomF }}
@@ -102,6 +107,8 @@
         class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
       >
         <input
+          [(ngModel)]="product.price"
+          [ngModelOptions]="{standalone: true}"
           type="text"
           id="Selling Price"
           placeholder="Selling Price"
@@ -119,6 +126,8 @@
         class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
       >
         <input
+          [(ngModel)]="product.prix_de_revient"
+          [ngModelOptions]="{standalone: true}"
           type="text"
           id="Cost Price"
           placeholder="Cost Price"
@@ -138,6 +147,8 @@
         class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
       >
         <input
+          [(ngModel)]="product.quantity"
+          [ngModelOptions]="{standalone: true}"
           type="email"
           id="UserEmail"
           placeholder="Email"
@@ -229,17 +240,18 @@
         </a>
       </div>
       <div class="p-10">
-        <a
+        <button
           class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
           routerLink="/dashboard"
+          type="submit"
         >
           <span
             class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"
           >
             Add
           </span>
-        </a>
+        </button>
       </div>
     </div>
   </div>
-</div>
+</form>
