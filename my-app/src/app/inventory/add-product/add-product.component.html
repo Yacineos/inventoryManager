@@ -62,6 +62,7 @@
       </label>
     </div>
     <div class="p-5 relative">
+      <!--
       <button
         type="button"
         class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -69,7 +70,8 @@
       >
         Select a Supplier
       </button>
-      <div *ngIf="showSuppliers"
+     -->
+      <div
         class=" z-[100] right-0 mt-2 w-16 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
       >
         <div
@@ -83,20 +85,22 @@
           <input
             id="supplier-search"
             type="text"
+            name="search"
             class="w-full px-2 py-2 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
             placeholder="Search suppliers"
             (input)="searchSupplier()"
             [(ngModel)]="searchInput"
           />
           <div class="max-h-60 bg-white ">
-            <button
+            <select name="supplier" [(ngModel)]="selectedSupplierId" (change)="change()">
+              <option [value]="supplier.idF"
               *ngFor="let supplier of fournisseurs"
-              type="button"
               class="w-full text-left px-2 py-2 bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900"
-              (click)="selectSupplier(supplier)"
             >
               {{ supplier.nomF }}
-            </button>
+            </option>
+            </select>
+            
           </div>
         </div>
       </div>
@@ -242,7 +246,6 @@
       <div class="p-10">
         <button
           class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
-          routerLink="/dashboard"
           type="submit"
         >
           <span

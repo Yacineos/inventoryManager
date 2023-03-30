@@ -23,16 +23,15 @@ export class InventoryService {
     getProducts(): Observable<Product[]> {	
         return this.http.get<Product[]>(`${this.inventoryUrl}/all`);
     }
-    addProduct(product: Product): Observable<Product>|void {
-        console.log(product);
-        this.http.post<Product>(`${this.inventoryUrl}/add`, product).subscribe(data => {
-            console.log(data);
-        });  
+    addProduct(product: Product): Observable<Product> {
+        console.log("productService : \n "+product);
+        return this.http.post<Product>(`${this.inventoryUrl}/add`, product);
+
     }
 
     updateProduct(product: Product): Observable<any>|void {
         this.http.post<Product>(`${this.inventoryUrl}/update`, product).subscribe(data => {
-            console.log(data);
+            console.log("productService : \n"+data);
         },
         error => {
             console.log('Error while editing product');

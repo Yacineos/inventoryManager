@@ -19,12 +19,12 @@ export class AddProductComponent {
     category: '',
     prix_de_revient: 0,
     price : 0,
-    quantity: 0
+    quantity: 2
   };
   fournit:Fournit = {
     idF:0,
     idProduit:0,
-    qteProduit:0,
+    qte_produit:2,
     dateF: new Date()
   };
   name: String = "";
@@ -35,6 +35,7 @@ export class AddProductComponent {
   ];
   showDiscount: boolean = false;
   showExpiryDate: boolean = false;
+  selectedSupplierId: number = 0;
   constructor(private inventoryComponent: InventoryComponent , private fournisseurService : FournisseurService , private inventoryService : InventoryService , private fournitService:FournitService ) { }
 
   ngOnInit() {
@@ -60,22 +61,33 @@ export class AddProductComponent {
     this.name=supplier.nomF;
   }
   searchSupplier(){
-    if(this.searchInput == "")
+    if(this.searchInput == ""){
       this.ngOnInit();
+    }else{
     this.fournisseurService.getFournisseursByInput(this.searchInput).subscribe(
       (data) => {
         this.fournisseurs = data;
       }
     );
+    }
+    console.log(this.fournisseurs);
   }
   addProduct(){
+    console.log(this.product);
     this.fournit.idProduit = this.product.id;
-    this.fournit.qteProduit = this.product.quantity;
-    this.inventoryService.updateProduct(this.product);
-    console.log("product added/updated");
-    this.fournitService.addFournit(this.fournit);
-    console.log("fournit added");
-    this.hideAddProduct();
+    this.fournit.qte_produit = this.product.quantity;
+    this.fournit.idF = this.selectedSupplierId;
+    this.inventoryService.addProduct(this.product).subscribe((data) => {
+      console.log("addproductComponent:\n"+data);
+      console.log(this.fournit);
+      this.fournitService.addFournit(this.fournit).subscribe((data) => {
+        console.log("addproductComponent:\n"+data);
+        this.hideAddProduct();
+      });
+    });
   }
-
+  
+  change(){
+    console.log(this.selectedSupplierId);
+  }
 }
