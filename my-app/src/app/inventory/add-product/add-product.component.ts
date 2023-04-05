@@ -22,10 +22,13 @@ export class AddProductComponent {
     quantity: 2
   };
   fournit:Fournit = {
-    idF:0,
-    idProduit:0,
+    id:{
+      idF:0,
+      dateF: new Date(),
+      idProduit:0
+    },
     qte_produit:2,
-    dateF: new Date()
+    
   };
   name: String = "";
   showSuppliers: boolean = false;
@@ -56,7 +59,7 @@ export class AddProductComponent {
     this.showExpiryDate = !this.showExpiryDate;
   }
   selectSupplier(supplier:Fournisseur){
-    this.fournit.idF = supplier.idF;
+    this.fournit.id.idF = supplier.idF;
     this.showSuppliers = false;
     this.name=supplier.nomF;
   }
@@ -74,9 +77,9 @@ export class AddProductComponent {
   }
   addProduct(){
     console.log(this.product);
-    this.fournit.idProduit = this.product.id;
+    this.fournit.id.idProduit = this.product.id;
     this.fournit.qte_produit = this.product.quantity;
-    this.fournit.idF = this.selectedSupplierId;
+    this.fournit.id.idF = this.selectedSupplierId;
     this.inventoryService.addProduct(this.product).subscribe((data) => {
       console.log("addproductComponent:\n"+data);
       console.log(this.fournit);

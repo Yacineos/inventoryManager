@@ -1,6 +1,8 @@
 export interface Fournit{
-    idF:number;
-    idProduit:number;
+    id:{
+        idF:number;
+        dateF:Date ;
+        idProduit:number;
+    };
     qte_produit:number;
-    dateF:Date ;
 }

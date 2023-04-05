@@ -4,8 +4,8 @@ import { Observable } from "rxjs";
 import { Employee } from "./employee";
 
 @Injectable({
-    providedIn: 'root'
-  })
+  providedIn: 'root'
+})
   export class EmployeeService {
   
     private employeesUrl = 'http://localhost:8080/employee';

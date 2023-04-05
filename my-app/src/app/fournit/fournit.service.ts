@@ -8,10 +8,12 @@ import { Fournit } from "./fournit";
   })
 export class FournitService {
     fournit:Fournit = {
+      id:{
         idF:0,
-        idProduit:0,
+        dateF: new Date(),
+        idProduit:0
+      } , 
         qte_produit:0,
-        dateF: new Date()
     };
     fournitUrl = 'http://localhost:8080/fournit';
     constructor(private http: HttpClient) { }
