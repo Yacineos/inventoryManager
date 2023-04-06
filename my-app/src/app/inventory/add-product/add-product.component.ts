@@ -25,7 +25,7 @@ export class AddProductComponent {
     id:{
       idF:0,
       dateF: new Date(),
-      idProduit:0
+      id_produit:0
     },
     qte_produit:2,
     
@@ -77,7 +77,7 @@ export class AddProductComponent {
   }
   addProduct(){
     console.log(this.product);
-    this.fournit.id.idProduit = this.product.id;
+    this.fournit.id.id_produit = this.product.id;
     this.fournit.qte_produit = this.product.quantity;
     this.fournit.id.idF = this.selectedSupplierId;
     this.inventoryService.addProduct(this.product).subscribe((data) => {

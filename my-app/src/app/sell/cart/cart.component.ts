@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Product } from 'src/app/inventory/product';
+import { Contient } from '../contient/contient';
+import { ContientService } from '../contient/contient.service';
+import { CommandeService } from '../commande/commande.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,23 +12,21 @@ import { Product } from 'src/app/inventory/product';
 export class CartComponent {
   p: number = 0 ;
   isChecked: boolean = false ;
-  products:Product[] = [];
-  constructor() { 
-    this.isChecked = false;
-  }
+  contients: Contient[]= [];
+  currentCommandeId: number = 0;
+  constructor(private contientService: ContientService , private commandeService:CommandeService) { }
   ngOnInit() {
-    let i:number = 0 ;
-    while(i<100){
-      this.products.push({
-        id: i,
-        name: 'Product '+i,
-        price: i,
-        prix_de_revient: i,
-        quantity: i,
-        category: 'Category '+i,
+    this.commandeService.getLastId().subscribe(data => {
+      this.currentCommandeId = data;
+      console.log(this.currentCommandeId);
+      this.contientService.getContientByIdCommande(this.currentCommandeId).subscribe(data => {
+        this.contients = data;
+        console.log(this.contients);
       });
-      i++;  
-    }
+    });
+    
+    
+    
     this.isChecked = false;
   }
   /*
@@ -61,6 +62,8 @@ export class CartComponent {
     }
   }
   */
+
+
 
 
   

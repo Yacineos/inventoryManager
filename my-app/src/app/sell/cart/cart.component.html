@@ -122,7 +122,7 @@
 
       <tbody class="divide-y divide-gray-200">
         <tr *ngFor="
-        let product of products
+        let contient of contients
           | paginate : { itemsPerPage: 7, currentPage: p }
       ">
           <td class="sticky inset-y-0 left-0 bg-white px-4 py-2">
@@ -136,12 +136,12 @@
             />
           </td>
           <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-            {{product.name}}
+            {{contient.id.idProduit}}
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-            {{product.price}}
+            {{contient.id.idCommande}}
           </td>
-          <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{product.quantity}}</td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{contient.id.idCommande}}</td>
           <td class="whitespace-nowrap px-4 py-2  text-gray-700">
             <!--{{product.discount}}-->
           </td>

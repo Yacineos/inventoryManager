@@ -40,13 +40,18 @@ export class ContientService {
         }
         );
     }
+    findNbElementByIdCommande(id:number): Observable<any> {
+        return this.http.get<number>(`${this.contientUrl}/findNbElementByIdCommande/${id}`);
+    }
 
     deleteContientByIdCommande(id:number): void{
         this.http.delete(`${this.contientUrl}/deleteContientByIdCommande/${id}`).subscribe(data => {
           console.log(data);
+          window.location.reload();
         },
         error => {
           console.log('Error while deleting contient');
+          window.location.reload();
         }
         );
     }

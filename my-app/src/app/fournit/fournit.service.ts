@@ -11,7 +11,7 @@ export class FournitService {
       id:{
         idF:0,
         dateF: new Date(),
-        idProduit:0
+        id_produit:0
       } , 
         qte_produit:0,
     };
