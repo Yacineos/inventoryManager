@@ -12,7 +12,7 @@ import { FournisseurService } from './fournisseur.service';
   styleUrls: ['./fournisseurs.component.css']
 })
 export class FournisseursComponent {
-  currentUserName: string = '';
+  currentUserId: number = 0;
   orderStatus:boolean = false ;
   searchInput: string ='';
   isChecked: boolean = false ;
@@ -41,7 +41,7 @@ export class FournisseursComponent {
       this.fournisseurs = data;
     }
     );
-    this.currentUserName = this.authService.currentUserName;
+    this.currentUserId = this.authService.currentUserId;
   }
   addFournisseur(){
     this.showAddFournisseur = true;

@@ -12,7 +12,7 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent {
-  currentUserName: string = '';
+  currentUserId: number = 0;
   employee: Employee= {
     idE: 0,
     name: '',
@@ -36,6 +36,7 @@ export class EmployeesComponent {
   isChecked: boolean = false;
   p: number = 1;
   orderStatus: boolean = false;
+  
   constructor(private rootComponent:AppComponent ,private http: HttpClient,private authService: AuthService, private employeeService: EmployeeService) { 
     this.employeeService.getAllEmployees().subscribe(data => {
       this.employees = data;
@@ -44,7 +45,7 @@ export class EmployeesComponent {
 
   ngOnInit(): void {
     this.rootComponent.loggedIn = true;
-    this.currentUserName = this.authService.currentUserName;
+    this.currentUserId = this.authService.currentUserId;
   }
   showAddEmployeeForm() {
     this.showAddEmployee = true;

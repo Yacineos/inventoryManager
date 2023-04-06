@@ -7,13 +7,13 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  currentUserName: string = '';
+  currentUserId: number = 0;
   constructor(private authService:AuthService) {
-    this.currentUserName = this.authService.currentUserName;
+    this.currentUserId = this.authService.currentUserId;
    }
 
   ngOnInit(): void {
-    this.currentUserName = this.authService.currentUserName;
+    this.currentUserId = this.authService.currentUserId;
   }
 }
  

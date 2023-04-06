@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   public currentUser : any;
-  public currentUserName: string= '';
+  public currentUserId: number= 0;
 
   constructor() {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}'); 
-      this.currentUserName = this.currentUser.username;
+      this.currentUserId = this.currentUser.idEmployee;
    }
 
     onInit() {

@@ -12,7 +12,7 @@ import { Product } from './product';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent {
-  currentUserName: string = '';
+  currentUserId: number = 0;
   searchInput: string = "";
   orderStatus: boolean = false;
   showDeleteConfirmation: boolean = false;
@@ -40,7 +40,7 @@ export class InventoryComponent {
     this.showAddProduct = false;
     this.showDeleteConfirmation = false;
     this.isChecked = false;
-    this.currentUserName = this.authService.currentUserName;
+    this.currentUserId = this.authService.currentUserId;
   }
   getAllProducts(): Observable<any> {
     return this.inventoryService.getProducts();

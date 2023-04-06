@@ -13,7 +13,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
   showPassword: boolean = false;
   password: string = '';
-  username: string = '';
+  identifiant: number = 0;
   public router1: Router;
   @Output() toggleSignup = new EventEmitter();
 
@@ -26,15 +26,15 @@ export class LoginComponent {
     this.rootComponent.loggedIn = false;
   }
   onLogin() {
-    const body = { username: this.username, password: this.password };
+    const body = { idEmployee: this.identifiant, password: this.password };
     console.log(body);
     this.http.post('http://localhost:8080/login', body).subscribe((data :any) => {
       console.log(data);
       if (data && data.success) {
         this.rootComponent.loggedIn = true;
         this.authService.currentUser = body;
-        this.authService.currentUserName = body.username;
-        localStorage.setItem('currentUser', JSON.stringify(body.username));
+        this.authService.currentUserId = body.idEmployee;
+        localStorage.setItem('currentUser', JSON.stringify(body.idEmployee));
         this.router.navigate(['/dashboard']);
       } else {
         alert('Wrong username or password');

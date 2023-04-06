@@ -13,7 +13,7 @@ export class SideBarComponent {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token');
     this.authService.currentUser = null;
-    this.authService.currentUserName = '';
+    this.authService.currentUserId = 0;
     console.log(this.authService.currentUser);
     this.router.navigate(['/']);
   }
