@@ -8,7 +8,7 @@ import { EmployeesComponent } from '../employees.component';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent {
-    public username: string='';
+    public idE: number=0;
     public password: string='';
     public showPassword: boolean = false;
     constructor(private employeeComponent:EmployeesComponent, private employeeService:EmployeeService) { }
@@ -17,10 +17,11 @@ export class AddEmployeeComponent {
     }
     addEmployeeAuth() {
 
-        this.employeeService.addEmployee(this.username,this.password).subscribe();
+        this.employeeService.addEmployee(this.idE,this.password).subscribe();
         this.hideAddEmployee(); 
         this.employeeService.getAllEmployees().subscribe(data => {
           this.employeeComponent.employees = data;
+          window.location.reload();
         }
         );
     }

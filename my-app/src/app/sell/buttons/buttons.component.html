@@ -2,7 +2,40 @@
     <div> 
         <button class="bg-gray-600 text-white" (click)="abandonnerCommande()">abondonner</button>
     </div>
+    <div
+        class=" z-[100] right-0 mt-2 w-16 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+      >
+        <div
+        
+          class="py-1  bg-white z-[100]"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="options-menu"
+        >
+          <label class="w-full" for="supplier-search" class="sr-only">Search suppliers</label>
+          <input
+            id="supplier-search"
+            type="text"
+            name="search"
+            class="w-full px-2 py-2 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            placeholder="Search suppliers"
+            (input)="searchClient()"
+            [(ngModel)]="searchInput"
+          />
+          <div class="max-h-60 bg-white ">
+            <select name="supplier" [(ngModel)]="selectedClientId" (change)="change()">
+              <option [value]="client.id"
+              *ngFor="let client of clients"
+              class="w-full text-left px-2 py-2 bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900"
+            >
+              {{ client.nom }} {{ client.prenom }}
+            </option>
+            </select>
+            
+          </div>
+        </div>
+      </div>
+    </div>
     <div>
         <button class="bg-gray-600 text-white" (click)="validateCommande()">valider</button>
     </div>
-</div>

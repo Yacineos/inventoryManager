@@ -41,8 +41,8 @@ import { Employee } from "./employee";
       findEmployeesByInput(searchInput:string): Observable<any> {
          return this.http.get<any>('http://localhost:8080/employee/findEmployees/'+searchInput);
         } 
-    addEmployee(username:string , password: string): Observable<any> {
-        this.employee.nomUtilisateur = username;
+    addEmployee(idE:number , password: string): Observable<any> {
+        this.employee.idE = idE;
         this.employee.motDePasse = password;
             return this.http.post<Employee>(`${this.employeesUrl}/add`, this.employee);
         }

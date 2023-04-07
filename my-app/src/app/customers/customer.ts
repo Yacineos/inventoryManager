@@ -3,7 +3,7 @@ export interface Customer {
     nom: string;
     prenom: string;
     email: string;
-    nTel: string;
+    nTel: number;
     numRue: number|null;
     nomRue: string;
     codePostal: number|null;

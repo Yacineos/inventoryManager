@@ -37,6 +37,7 @@ export class ModifyEmployeeComponent {
     this.hideModifyEmployee();
     this.employeeService.getAllEmployees().subscribe(data => {
       this.employeeComponent.employees = data;
+      window.location.reload();
     }
     );
   }

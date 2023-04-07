@@ -16,7 +16,7 @@ export class CustomerService {
     nom: '',
     prenom: '',
     email: '',
-    nTel: '',
+    nTel: 0,
     numRue: 0,
     nomRue: '',
     codePostal: 0,

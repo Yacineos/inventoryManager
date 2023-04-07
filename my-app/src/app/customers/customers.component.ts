@@ -29,7 +29,7 @@ export class CustomersComponent {
     nom: '',
     prenom: '',
     email: '',
-    nTel: '',
+    nTel: 0,
     numRue: null,
     nomRue: '',
     codePostal: null,
