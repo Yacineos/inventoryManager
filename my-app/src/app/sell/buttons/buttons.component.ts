@@ -4,6 +4,7 @@ import { ContientService } from '../contient/contient.service';
 import { SellComponent } from '../sell.component';
 import { Commande } from '../commande/commande';
 import { Customer } from 'src/app/customers/customer';
+import { CustomerService } from 'src/app/customers/customer.service';
 
 @Component({
   selector: 'app-buttons',
@@ -33,7 +34,7 @@ export class ButtonsComponent {
 
   clients:Customer[]=[];
 
-  constructor(private sellComponent:SellComponent,private commandeService:CommandeService,private contientService:ContientService) { }
+  constructor(private customerService:CustomerService,private commandeService:CommandeService,private contientService:ContientService) { }
 
   ngOnInit() {
   }
@@ -46,6 +47,7 @@ export class ButtonsComponent {
   }
   validateCommande(){
     this.commandeService.getLastId().subscribe(data => {
+      this.commande.id_commande = data;
       this.contientService.findNbElementByIdCommande(data).subscribe(data => {
         if(data == 0){
           alert("Votre panier est vide");
@@ -58,7 +60,7 @@ export class ButtonsComponent {
             } else {
               console.error('currentUser is null or undefined');
               }
-          this.commandeService.addCommande(this.commande.idE).subscribe(data => {
+          this.commandeService.addCommande(this.commande.idE,this.commande.id_client).subscribe(data => {
             console.log(data);
             window.location.reload();
           });
@@ -71,8 +73,22 @@ export class ButtonsComponent {
 }
 
 searchClient(){
-
+  if(this.searchInput == "" || this.searchInput == null || 0){
+    this.customerService.getCustomers().subscribe(data => {
+      this.clients = data;
+    }
+    );
+  }else{
+    this.customerService.findCustomersByIdOrPhone(this.searchInput).subscribe(data => {
+      this.clients = data;
+    }
+    );
+  }
 }
 
-change(){}
+change(){
+  console.log(this.selectedClientId);
+  this.commande.id_client = this.selectedClientId;
+  console.log(this.commande);
+}
 }

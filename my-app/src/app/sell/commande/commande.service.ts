@@ -20,9 +20,10 @@ export class CommandeService {
     getLastId(): Observable<number> {
         return this.http.get<number>(`${this.commandeUrl}/lastId`);
     }
-    addCommande(idE: number): Observable<any> {
-        this.commande.id_client = 12; // id of anonym client
+    addCommande(idE: number,idClient: number): Observable<any> {
+         // id of anonym client
         this.commande.idE = idE;   
+        this.commande.id_client = idClient;
         return this.http.post<Commande>(`${this.commandeUrl}/add`,this.commande);
     }
 

@@ -30,6 +30,7 @@ import { ModifyEmployeeComponent } from './employees/modify-employee/modify-empl
 import { ModifyFournisseurComponent } from './fournisseurs/modify-fournisseur/modify-fournisseur.component';
 import { FournitComponent } from './fournit/fournit.component';
 import { ButtonsComponent } from './sell/buttons/buttons.component';
+import { AddSellComponent } from './sell/add-sell/add-sell.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { ButtonsComponent } from './sell/buttons/buttons.component';
         ModifyFournisseurComponent,
         FournitComponent,
         ButtonsComponent,
+        AddSellComponent,
     ],
     providers: [AddCostumerComponent],
     bootstrap: [AppComponent],

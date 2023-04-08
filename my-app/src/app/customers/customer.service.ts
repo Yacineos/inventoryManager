@@ -58,6 +58,10 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${this.customersUrl}/findCostumers/${searchInput}`);
   }
 
+  findCustomersByIdOrPhone(searchInput: string): Observable<Customer[]> {
+    const id = parseInt(searchInput);
+    return this.http.get<Customer[]>(`${this.customersUrl}/find/${id}`);
+  }
   getCustomerOrderedByNameAsc(): Observable<Customer[]> {
     return this.http.get<Customer[]>(`${this.customersUrl}/all/nameAsc`);
   }
