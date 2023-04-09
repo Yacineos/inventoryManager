@@ -91,4 +91,8 @@ change(){
   this.commande.id_client = this.selectedClientId;
   console.log(this.commande);
 }
+
+ajouterProduit(){
+  
+}
 }

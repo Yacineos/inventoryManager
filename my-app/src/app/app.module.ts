@@ -31,6 +31,7 @@ import { ModifyFournisseurComponent } from './fournisseurs/modify-fournisseur/mo
 import { FournitComponent } from './fournit/fournit.component';
 import { ButtonsComponent } from './sell/buttons/buttons.component';
 import { AddSellComponent } from './sell/add-sell/add-sell.component';
+import { AjouterProduitSellComponent } from './sell/ajouter-produit-sell/ajouter-produit-sell.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { AddSellComponent } from './sell/add-sell/add-sell.component';
         FournitComponent,
         ButtonsComponent,
         AddSellComponent,
+        AjouterProduitSellComponent,
     ],
     providers: [AddCostumerComponent],
     bootstrap: [AppComponent],
