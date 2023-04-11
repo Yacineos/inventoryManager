@@ -5,6 +5,8 @@ import { SellComponent } from '../sell.component';
 import { Commande } from '../commande/commande';
 import { Customer } from 'src/app/customers/customer';
 import { CustomerService } from 'src/app/customers/customer.service';
+import { Contient } from '../contient/contient';
+import { InventoryService } from 'src/app/inventory/inventory.service';
 
 @Component({
   selector: 'app-buttons',
@@ -12,7 +14,7 @@ import { CustomerService } from 'src/app/customers/customer.service';
   styleUrls: ['./buttons.component.css']
 })
 export class ButtonsComponent {
-  selectedClientId: number = 0;
+  selectedClientId: number = 12; // id of anonym client
   searchInput: string = '';
   commande: Commande = {
     id_commande: 0,
@@ -34,9 +36,19 @@ export class ButtonsComponent {
 
   clients:Customer[]=[];
 
-  constructor(private customerService:CustomerService,private commandeService:CommandeService,private contientService:ContientService) { }
+
+  constructor(private inventoryService:InventoryService,private customerService:CustomerService,private commandeService:CommandeService,private contientService:ContientService , private sellComponent:SellComponent) { }
 
   ngOnInit() {
+    this.commandeService.getLastId().subscribe(data => {
+      // récupération de l'id de la commande en cours
+      this.commande.id_commande = data;
+      this.commandeService.getIdClient(data).subscribe(data => {
+        this.selectedClientId = data;
+        console.log(this.selectedClientId);
+      });
+    });
+    
   }
   abandonnerCommande(){
     this.commandeService.getLastId().subscribe(data => {
@@ -46,30 +58,44 @@ export class ButtonsComponent {
     );
   }
   validateCommande(){
-    this.commandeService.getLastId().subscribe(data => {
-      this.commande.id_commande = data;
-      this.contientService.findNbElementByIdCommande(data).subscribe(data => {
+    
+      this.contientService.findNbElementByIdCommande(this.commande.id_commande).subscribe(data => {
+        // vérification si le panier est vide
         if(data == 0){
           alert("Votre panier est vide");
         }
         else{
-          const currentUserIdString = localStorage.getItem('currentUser');
+          const currentUserIdString = localStorage.getItem('currentUser'); // récupération de l'id de l'employé connecté
             if (currentUserIdString) {
-              this.commande.idE = parseInt(currentUserIdString.replace(/"/g, ''), 10);
-                  console.log(this.commande.idE);
+              this.commande.idE = parseInt(currentUserIdString.replace(/"/g, ''), 10); // conversion de l'id de l'employé connecté en int
+              console.log(this.commande.idE);
+              //récupération du client sélectionné
+              this.commande.id_client = this.selectedClientId;
+              this.commandeService.updateCommande(this.commande).subscribe(data => {
+                // mise à jour de la commande
+                console.log(data);
+                console.log("update stock :")
+                this.contientService.getContientByIdCommande(this.commande.id_commande).subscribe(data => {
+                  this.updateStock(data);
+                  console.log("update stock done")
+                this.commandeService.addCommande(this.commande.idE,this.commande.id_client).subscribe(data => {
+                  // création d'une nouvelle commande
+                  console.log(data);
+                  this.selectedClientId= 17; // id of anonym client
+                 //window.location.reload();
+                });
+                });
+                
+              });
+              
             } else {
               console.error('currentUser is null or undefined');
-              }
-          this.commandeService.addCommande(this.commande.idE,this.commande.id_client).subscribe(data => {
-            console.log(data);
-            window.location.reload();
-          });
+            }
+          
 
         }
       }
       );
-  }
-  );
 }
 
 searchClient(){
@@ -92,7 +118,16 @@ change(){
   console.log(this.commande);
 }
 
-ajouterProduit(){
-  
+showAjouterProduit(){
+  this.sellComponent.showAddProduit = true;
 }
+
+updateStock(contients:Contient[]){
+    let i = 0;
+    while(i<contients.length){
+      console.log("update stock : "+this)
+      this.inventoryService.updateQteProduct(contients[i].id.idProduit,contients[i].qte_produit);
+        i++;
+    }
+  }
 }

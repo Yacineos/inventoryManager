@@ -38,12 +38,24 @@ export class InventoryService {
         }
         );
     }
-
+    updateQteProduct(id:number , qte: number): Observable<any>|void {
+        this.product.id = id;
+        this.product.quantity = qte;
+       // /subtractQuantity/{id}/{qte}
+        this.http.post<Product>(`${this.inventoryUrl}/subtractQuantity`,this.product).subscribe(data => {
+            console.log("productService : \n"+data);
+        }
+        );
+    }
     deleteProduct(id: number): Observable<any> {
         return this.http.delete(`${this.inventoryUrl}/delete/${id}`);
     }
     findProductsByInput(searchInput: string): Observable<Product[]> {
         return this.http.get<Product[]>(`${this.inventoryUrl}/find/${searchInput}`);
+    }
+    findProductsById(searchInput: string): Observable<Product[]> {
+        const id = parseInt(searchInput);
+        return this.http.get<Product[]>(`${this.inventoryUrl}/find/id/${id}`);
     }
     getProductOrderedByNameAsc(): Observable<Product[]> {
         return this.http.get<Product[]>(`${this.inventoryUrl}/all/nameAsc`);

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Product } from 'src/app/inventory/product';
 import { Contient } from '../contient/contient';
 import { ContientService } from '../contient/contient.service';
 import { CommandeService } from '../commande/commande.service';
+import { InventoryService } from 'src/app/inventory/inventory.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,16 @@ export class CartComponent {
   isChecked: boolean = false ;
   contients: Contient[]= [];
   currentCommandeId: number = 0;
-  constructor(private contientService: ContientService , private commandeService:CommandeService) { }
+  product:Product = {
+    id: 0,
+    name: '',
+    category: '',
+    prix_de_revient: 0,
+    price: 0,
+    quantity: 0
+  };
+
+  constructor(private inventoryService: InventoryService,private contientService: ContientService , private commandeService:CommandeService) { }
   ngOnInit() {
     this.commandeService.getLastId().subscribe(data => {
       this.currentCommandeId = data;
@@ -22,6 +32,7 @@ export class CartComponent {
       this.contientService.getContientByIdCommande(this.currentCommandeId).subscribe(data => {
         this.contients = data;
         console.log(this.contients);
+       // this.inventoryService.findProductsByInput()
       });
     });
     
@@ -29,6 +40,12 @@ export class CartComponent {
     
     this.isChecked = false;
   }
+  editProduct() {
+    
+  }
+  deleteProduct() {
+  }
+  
   /*
   deleteProduct() {
     let i:number = 0;

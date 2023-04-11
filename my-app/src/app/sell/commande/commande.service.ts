@@ -26,5 +26,12 @@ export class CommandeService {
         this.commande.id_client = idClient;
         return this.http.post<Commande>(`${this.commandeUrl}/add`,this.commande);
     }
+    updateCommande(commande: Commande): Observable<any> {
+        return this.http.put<Commande>(`${this.commandeUrl}/modify`, commande);
+    }
+
+    getIdClient(idCommande: number): Observable<number> {
+        return this.http.get<number>(`${this.commandeUrl}/findIdClient/${idCommande}`);
+    }
 
 }

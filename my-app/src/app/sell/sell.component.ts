@@ -9,6 +9,7 @@ import { ContientService } from './contient/contient.service';
   styleUrls: ['./sell.component.css']
 })
 export class SellComponent {
+  showAddProduit = false;
   constructor(private rootComponent:AppComponent , private commandeService:CommandeService, private contientService:ContientService) { }
   ngOnInit() {
     this.rootComponent.loggedIn = true;

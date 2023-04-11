@@ -30,7 +30,6 @@ import { ModifyEmployeeComponent } from './employees/modify-employee/modify-empl
 import { ModifyFournisseurComponent } from './fournisseurs/modify-fournisseur/modify-fournisseur.component';
 import { FournitComponent } from './fournit/fournit.component';
 import { ButtonsComponent } from './sell/buttons/buttons.component';
-import { AddSellComponent } from './sell/add-sell/add-sell.component';
 import { AjouterProduitSellComponent } from './sell/ajouter-produit-sell/ajouter-produit-sell.component';
 
 
@@ -61,7 +60,6 @@ import { AjouterProduitSellComponent } from './sell/ajouter-produit-sell/ajouter
         ModifyFournisseurComponent,
         FournitComponent,
         ButtonsComponent,
-        AddSellComponent,
         AjouterProduitSellComponent,
     ],
     providers: [AddCostumerComponent],
