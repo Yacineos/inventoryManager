@@ -14,7 +14,9 @@ export class CartComponent {
   p: number = 0 ;
   isChecked: boolean = false ;
   contients: Contient[]= [];
+  commandeInfos: any[] = [];
   currentCommandeId: number = 0;
+  cartTotal: number=0;
   product:Product = {
     id: 0,
     name: '',
@@ -28,10 +30,16 @@ export class CartComponent {
   ngOnInit() {
     this.commandeService.getLastId().subscribe(data => {
       this.currentCommandeId = data;
-      console.log(this.currentCommandeId);
-      this.contientService.getContientByIdCommande(this.currentCommandeId).subscribe(data => {
-        this.contients = data;
-        console.log(this.contients);
+      this.commandeService.getCommandeInfo(this.currentCommandeId).subscribe(data => {
+        console.log("dto :" + data);
+        this.commandeInfos = data;
+        
+        let i =  0 ;
+        while (i < this.commandeInfos.length) {
+          this.cartTotal += this.commandeInfos[i][4] ;
+          i++;
+        }
+        
        // this.inventoryService.findProductsByInput()
       });
     });

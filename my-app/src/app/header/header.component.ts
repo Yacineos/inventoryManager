@@ -14,6 +14,7 @@ export class HeaderComponent {
 
   ngOnInit(): void {
     this.currentUserId = this.authService.currentUserId;
+    console.log(this.currentUserId);
   }
 }
  

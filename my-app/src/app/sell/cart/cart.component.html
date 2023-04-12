@@ -17,103 +17,41 @@
             class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
           >
             <div class="flex items-center gap-2">
-              Product Name
+              id produit
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-700"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+              
             </div>
           </th>
           <th
             class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
           >
             <div class="flex items-center gap-2">
-              Unit Price
+              nom Produit
 
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-700"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
             </div>
           </th>
           <th
             class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
           >
             <div class="flex items-center gap-2">
-              In-Stock
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-700"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+              prix unitaire
+            </div>
+          </th>
+          
+          <th
+            class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
+          >
+            <div class="flex items-center gap-2">
+              quantité
             </div>
           </th>
           <th
             class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
           >
             <div class="flex items-center gap-2">
-              Discount
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-700"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+              prix total
             </div>
           </th>
-          <th
-            class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
-          >
-            <div class="flex items-center gap-2">
-              Total Value
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-700"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </th>
-
           <th
             class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
           ></th>
@@ -122,8 +60,8 @@
 
       <tbody class="divide-y divide-gray-200">
         <tr *ngFor="
-        let contient of contients
-          | paginate : { itemsPerPage: 7, currentPage: p }
+        let commandeInfo of commandeInfos
+          | paginate : { itemsPerPage: 6, currentPage: p }
       ">
           <td class="sticky inset-y-0 left-0 bg-white px-4 py-2">
             <label class="sr-only" for="Row1">Row 1</label>
@@ -136,19 +74,19 @@
             />
           </td>
           <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-            {{contient.id.idProduit}}
+            {{commandeInfo[0]}}
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-            {{contient.id.idCommande}}
+            {{commandeInfo[1]}}
           </td>
-          <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{contient.id.idCommande}}</td>
+          <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+            {{commandeInfo[2]}}
+          </td>
           <td class="whitespace-nowrap px-4 py-2  text-gray-700">
-            <!--{{product.discount}}-->
+            {{commandeInfo[3]}}
           </td>
           <td class="whitespace-nowrap px-4 py-2">
-            <!--
-            {{(product.price - product.discount) * product.quantity}}
-          -->
+           {{commandeInfo[4]}}
           </td>
           <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
             <span
@@ -201,8 +139,10 @@
        
       </tbody>
     </table>
-    <pagination-controls
-    class="flex justify-center pt-2 bg-gray-100"
+    <div class="flex justify-between  bg-gray-100 w-full">
+      <div class="w-1/3"></div>
+      <pagination-controls
+    class="flex justify-center items-end pt-2 bg-gray-100"
       (pageChange)="p = $event"
       [maxSize]="4"
       [directionLinks]="true"
@@ -212,5 +152,13 @@
       nextLabel="Next"
     >
     </pagination-controls>
+    <div class="w-1/3">
+      <div class="bg-gray-100 p-4 rounded-lg shadow-lg flex justify-between items-center">
+        <p class="text-gray-600 text-lg font-semibold mb-0">Prix Total:</p>
+        <p class="text-3xl text-gray-800 font-bold">${{cartTotal}}</p>
+      </div>      
+    </div>
+    </div>
+    
   </div>
 </div>

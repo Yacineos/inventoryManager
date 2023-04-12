@@ -34,4 +34,8 @@ export class CommandeService {
         return this.http.get<number>(`${this.commandeUrl}/findIdClient/${idCommande}`);
     }
 
+    getCommandeInfo(idCommande: number): Observable<any> {
+        return this.http.get(`${this.commandeUrl}/getCommandeInfo/${idCommande}`);
+    }
+
 }
