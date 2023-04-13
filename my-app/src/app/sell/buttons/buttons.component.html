@@ -28,7 +28,7 @@
           />
           <div class="max-h-60 bg-white ">
             <select name="supplier" [(ngModel)]="selectedClientId" (change)="change()">
-              <option [value]="selectedClientId" selected>{{selectedClientId}}</option>
+              <option [value]="selectedClientId" selected>anonym</option>
               <option [value]="client.id"
               *ngFor="let client of clients"
               class="w-full text-left px-2 py-2 bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900"

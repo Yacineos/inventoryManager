@@ -82,7 +82,7 @@ export class ButtonsComponent {
                   // création d'une nouvelle commande
                   console.log(data);
                   this.selectedClientId= 17; // id of anonym client
-                 //window.location.reload();
+                 window.location.reload();
                 });
                 });
                 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { CommandeService } from '../sell/commande/commande.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +8,15 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  constructor(private rootComponent:AppComponent) { }
+  statistics: number[] = [];
+  constructor(private rootComponent:AppComponent , private commandeService: CommandeService) { }
   ngOnInit() {
     this.rootComponent.loggedIn = true;
+    this.commandeService.getStatistics().subscribe(
+      data => {
+        this.statistics = data;
+        this.statistics[1]= 999999999;
+      }
+    );
   }
 }

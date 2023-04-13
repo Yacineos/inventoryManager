@@ -38,4 +38,8 @@ export class CommandeService {
         return this.http.get(`${this.commandeUrl}/getCommandeInfo/${idCommande}`);
     }
 
+    getStatistics(): Observable<number[]> {
+        return this.http.get<number[]>(`${this.commandeUrl}/statistics`);
+    }
+
 }
