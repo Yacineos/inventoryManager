@@ -1,48 +1,48 @@
-<div class=" w-full flex flex-row justify-evenly">
-    <div> 
-        <button class="bg-gray-600 text-white" (click)="abandonnerCommande()">abondonner</button>
+<div class="pt-10 w-full flex flex-row justify-evenly">
+  <div>
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="abandonnerCommande()">Abandonner</button>
+  </div>
+
+  <div>
+    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4" (click)="validateCommande()">Valider</button>
+  </div>
+  <div class="rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+    <div class="py-1 bg-white" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+      <label class="sr-only" for="clients-search">Search clients</label>
+      <input id="clients-search" type="text" name="searchClient" class="w-full px-4 py-2 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="Search clients" (input)="searchClient()" [(ngModel)]="searchInput" />
+      <div class="max-h-60 bg-white mt-1">
+        <select name="client" [(ngModel)]="selectedClientId" (change)="change()" class="w-full text-left px-4 py-2 bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 border-t-0 rounded-b-md">
+          <option value="selectedClientId" selected>Anonym</option>
+          <option *ngFor="let client of clients" [value]="client.id">{{ client.nom }} {{ client.prenom }}</option>
+        </select>
+      </div>
     </div>
-    
-    <div>
-        <button class="bg-gray-600 text-white" (click)="validateCommande()">valider</button>
-    </div>
-    <div
-        class=" rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+  </div>
+  
+  <div>
+    <a
+      class="group hover:cursor-pointer relative inline-flex items-center overflow-hidden rounded bg-mainpurple px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
+      (click)="showAjouterProduit()"
+    >
+      <span
+        class="absolute left-0 -translate-x-full transition-transform group-hover:translate-x-4"
       >
-        <div
-        
-          class="py-1  bg-white"
-          role="menu"
-          aria-orientation="vertical"
-          aria-labelledby="options-menu"
+        <svg
+          class="h-5 w-5 fill-white"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
         >
-          <label class="w-full" for="supplier-search" class="sr-only">Search suppliers</label>
-          <input
-            id="clients-search"
-            type="text"
-            name="searchClient"
-            class="w-full px-2 py-2 border border-gray-300 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-            placeholder="Search CLIENTS"
-            (input)="searchClient()"
-            [(ngModel)]="searchInput"
+          <path
+            d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
           />
-          <div class="max-h-60 bg-white ">
-            <select name="supplier" [(ngModel)]="selectedClientId" (change)="change()">
-              <option [value]="selectedClientId" selected>anonym</option>
-              <option [value]="client.id"
-              *ngFor="let client of clients"
-              class="w-full text-left px-2 py-2 bg-white text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900"
-            >
-              {{ client.nom }} {{ client.prenom }}
-            </option>
-            </select>
-            
-          </div>
-        </div>
-    </div>
-    <div>
-      <button class="bg-gray-600 text-white" (click)="showAjouterProduit()">
-        ajouter produit
-      </button>
-    </div>
+        </svg>
+      </span>
+
+      <span
+        class="font-secondaryFont text-base font-medium transition-all group-hover:ml-4"
+      >
+        Ajouter produit
+      </span>
+    </a>
+  </div>
 </div>

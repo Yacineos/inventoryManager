@@ -4,6 +4,8 @@ import { FormControl, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { AuthService } from '../auth.service';
+import { CommandeService } from 'src/app/sell/commande/commande.service';
+import { EmployeeService } from 'src/app/employees/employee.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,7 @@ export class LoginComponent {
   public router1: Router;
   @Output() toggleSignup = new EventEmitter();
 
-  constructor(private router: Router, private rootComponent: AppComponent , private http: HttpClient , private authService:AuthService) {
+  constructor(private employeeService:EmployeeService ,private commandeService:CommandeService,private router: Router, private rootComponent: AppComponent , private http: HttpClient , private authService:AuthService) {
     this.router1=router;
   }
   ngOnInit() {
@@ -35,7 +37,12 @@ export class LoginComponent {
         this.authService.currentUser = body;
         this.authService.currentUserId = body.idEmployee;
         localStorage.setItem('currentUser', JSON.stringify(body.idEmployee));
-        this.router.navigate(['/dashboard']);
+        this.commandeService.addCommande(body.idEmployee,17).subscribe((data:any)=>{
+          console.log(data);
+          this.router.navigate(['/sell']);
+        }
+        );
+        
       } else {
         alert('Wrong username or password');
       }
