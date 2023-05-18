@@ -9,11 +9,10 @@ export class AuthService {
 
   constructor() {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}'); 
-      this.currentUserId = this.currentUser.idEmployee;
+      this.currentUserId = this.currentUser;
    }
 
     onInit() {
-      
     }
     
   isLoggedIn(): boolean {

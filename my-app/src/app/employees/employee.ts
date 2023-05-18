@@ -10,4 +10,5 @@ export interface Employee {
     nomRue: string;
     codePostal: number;
     ville: string;
+    id_manager: number;
 }

@@ -51,7 +51,8 @@ export class CartComponent {
   editProduct() {
     
   }
-  deleteProduct() {
+  deleteProduct(productId: number) {
+    this.contientService.deleteByIdCommandeAndIdProduit(this.currentCommandeId,productId);
   }
   
   /*

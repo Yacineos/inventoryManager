@@ -9,7 +9,7 @@ import { Product } from "./product";
     providedIn: 'root'
 })
 export class InventoryService {
-    private inventoryUrl = 'http://localhost:8080/product';
+    private inventoryUrl = 'https://cautious-fish-production.up.railway.app/product';
     product: Product = {
         id: 0,
         name: '',

@@ -15,7 +15,7 @@ export class FournitService {
       } , 
         qte_produit:0,
     };
-    fournitUrl = 'http://localhost:8080/fournit';
+    fournitUrl = 'https://cautious-fish-production.up.railway.app/fournit';
     constructor(private http: HttpClient) { }
     addFournit(fournit:Fournit):Observable<Fournit>{
         return this.http.post<Fournit>(`${this.fournitUrl}/add`,fournit,{

@@ -158,27 +158,6 @@
                 class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
               >
                 <div class="flex items-center gap-2">
-                  username
-  
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-gray-700 hover:cursor-pointer"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    (click)="nameOnClick()"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </th>
-              <th
-                class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
-              >
-                <div class="flex items-center gap-2">
                   Nom
   
                   <svg
@@ -257,27 +236,7 @@
                 </div>
               </th>
              
-              <th
-                class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
-              >
-                <div class="flex items-center gap-2">
-                  employee Since
-  
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-gray-700"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </th>
-  
+             
               <th
                 class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900"
               ></th>
@@ -305,9 +264,6 @@
                 {{ employee.idE }} 
               </td>
               <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                {{ employee.nomUtilisateur }} 
-              </td>
-              <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 {{ employee.name}}
               </td>
               <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
@@ -321,10 +277,6 @@
               </td>
               <td class="whitespace-nowrap px-4 py-2 text-gray-700">
                 {{ employee.numRue }} {{ employee.nomRue }} {{ employee.codePostal }}
-              </td>
-              
-              <td class="whitespace-nowrap px-4 py-2">
-                <!--{{ employee.employeeSince }}-->
               </td>
               <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 <span

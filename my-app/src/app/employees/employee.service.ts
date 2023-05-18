@@ -8,7 +8,7 @@ import { Employee } from "./employee";
 })
   export class EmployeeService {
   
-    private employeesUrl = 'http://localhost:8080/employee';
+    private employeesUrl = 'https://cautious-fish-production.up.railway.app/employee';
     employee: Employee = {
         idE: 0,
         name: '',
@@ -21,6 +21,7 @@ import { Employee } from "./employee";
         nomRue: '',
         codePostal: 0,
         ville: '',
+        id_manager: 0
         };
     constructor(private http: HttpClient) { }
     getAllEmployees(): Observable<any> {
@@ -38,15 +39,16 @@ import { Employee } from "./employee";
     getEmployeeOrderedByEmailDesc(): Observable<any> {
         return this.http.get<any>('http://localhost:8080/employee/all/emailDesc');
       }
-      findEmployeesByInput(searchInput:string): Observable<any> {
+    findEmployeesByInput(searchInput:string): Observable<any> {
          return this.http.get<any>('http://localhost:8080/employee/findEmployees/'+searchInput);
         } 
     getEmployeeRole(idE:number): Observable<number> {
         return this.http.get<number>(`http://localhost:8080/role/findRoleByIdEmployee/${idE}`);
       }
-    addEmployee(idE:number , password: string): Observable<any> {
+    addEmployee(idE:number , password: string , id_manager: number): Observable<any> {
         this.employee.idE = idE;
         this.employee.motDePasse = password;
+        this.employee.id_manager = id_manager;
             return this.http.post<Employee>(`${this.employeesUrl}/add`, this.employee);
         }
      modifyEmployee(employee:Employee): void{

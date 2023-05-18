@@ -75,6 +75,7 @@
   >
   </div>
   <div *ngIf="quantite > selectedProduitQte" class="p-5 text-red-500 text-md">Quantité disponible insuffisante</div>
+  <div *ngIf="quantite < 1" class="p-5 text-red-500 text-md">La quantité doit être strictement positive</div>
   <div class="flex flex-row justify-between">
     <div class="p-10">
       <button
@@ -92,7 +93,7 @@
       <button
         class="inline-block rounded bg-gradient-to-r from-mainpurple to-mainyellow p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
         type="submit"
-        [disabled]="quantite > selectedProduitQte"
+        [disabled]="quantite > selectedProduitQte || quantite < 1"
       >
         <span
           class="block rounded-sm bg-white px-10 py-4 text-sm font-medium hover:bg-transparent"

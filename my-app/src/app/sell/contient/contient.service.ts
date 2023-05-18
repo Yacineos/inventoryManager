@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 
 export class ContientService {
 
-    private contientUrl = 'http://localhost:8080/contient';
+    private contientUrl = 'https://cautious-fish-production.up.railway.app/contient';
     contient: Contient = {
         id:{
             idCommande: 0,
@@ -25,11 +25,23 @@ export class ContientService {
     getContientByIdCommande(id:number): Observable<any> {
         return this.http.get<Contient[]>(`${this.contientUrl}/findContientByIdCommande/${id}`);
     }
+
     addContient(idCommande:number , idProduit: number, qte_produit: number): Observable<any> {
         this.contient.id.idCommande = idCommande;
         this.contient.id.idProduit = idProduit;
         this.contient.qte_produit = qte_produit;   
         return this.http.post<Contient>(`${this.contientUrl}/addContient`,this.contient);
+    }
+    deleteByIdCommandeAndIdProduit(idCommande:number, idProduit:number): void{
+        this.http.delete(`${this.contientUrl}/deleteContientByIdCommandeAndIdProduit/${idCommande}/${idProduit}`).subscribe(data => {
+          console.log(data);
+          window.location.reload();
+        },
+        error => {
+          console.log('Error while deleting contient');
+          window.location.reload();
+        }
+        );
     }
     modifyContient(contient:Contient): void{
         this.http.post<Contient>(`${this.contientUrl}/update`, contient).subscribe(data => {

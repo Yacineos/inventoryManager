@@ -15,7 +15,6 @@ export class DashboardComponent {
     this.commandeService.getStatistics().subscribe(
       data => {
         this.statistics = data;
-        this.statistics[1]= 999999999;
       }
     );
   }

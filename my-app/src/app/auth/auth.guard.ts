@@ -10,6 +10,7 @@ export class AuthGuard implements CanActivate {
   constructor(private employeeService:EmployeeService,private authService: AuthService, private router: Router) {}
 
   canActivate(): boolean {
+    console.log("what is being fed : "+this.authService.currentUserId);
     const role = this.employeeService.getEmployeeRole(this.authService.currentUserId);
 
     if (this.authService.isLoggedIn()) {

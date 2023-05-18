@@ -25,6 +25,7 @@ export class EmployeesComponent {
     nomRue: '',
     codePostal: 0,
     ville: '',
+    id_manager: 0
   };
   employees: Employee[] = [];
   showModifyEmployee: boolean = false;

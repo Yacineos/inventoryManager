@@ -22,6 +22,7 @@ export class ModifyEmployeeComponent {
     nomRue: '',
     codePostal: 0,
     ville: '',
+    id_manager: 0
   };
 
   constructor(private employeeComponent:EmployeesComponent, private employeeService:EmployeeService) { }
