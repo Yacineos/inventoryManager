@@ -37,7 +37,7 @@ export class LoginComponent {
         this.authService.currentUser = body;
         this.authService.currentUserId = body.idEmployee;
         localStorage.setItem('currentUser', JSON.stringify(body.idEmployee));
-        this.commandeService.addCommande(body.idEmployee,17).subscribe((data:any)=>{
+        this.commandeService.addCommande(body.idEmployee,1).subscribe((data:any)=>{
           console.log(data);
           this.router.navigate(['/sell']);
         }
