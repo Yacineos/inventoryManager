@@ -47,7 +47,7 @@ export class FournisseursComponent {
     this.showAddFournisseur = true;
   }
   getAllFournisseur(): Observable<any>{
-    return this.http.get<any>('http://localhost:8080/fournisseur/all');
+    return this.http.get<any>('https://inventory-manager-mocha.vercel.app/fournisseur/all');
   }
   ModifyFournisseur(fournisseur: Fournisseur){
     this.fournisseur = fournisseur;
