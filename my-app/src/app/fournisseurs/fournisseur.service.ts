@@ -8,7 +8,7 @@ import { Fournisseur } from "./Fournisseur";
   })
 
 export class FournisseurService {
-  private fournisseursUrl = 'https://cautious-fish-production.up.railway.app/fournisseur';
+  private fournisseursUrl = 'http://localhost:8080/fournisseur';
     fournisseur: Fournisseur = {
         idF: 0,
         nomF: '',

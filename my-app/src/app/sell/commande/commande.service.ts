@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 
 export class CommandeService {
 
-    private commandeUrl = 'https://cautious-fish-production.up.railway.app/commande';
+    private commandeUrl = 'http://localhost:8080/commande';
     commande: Commande = {
         id_commande: 0,
         date_commande: new Date(),

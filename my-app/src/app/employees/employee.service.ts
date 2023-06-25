@@ -8,7 +8,7 @@ import { Employee } from "./employee";
 })
   export class EmployeeService {
   
-    private employeesUrl = 'https://cautious-fish-production.up.railway.app/employee';
+    private employeesUrl = 'http://localhost:8080/employee';
     employee: Employee = {
         idE: 0,
         name: '',

@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 
 export class ContientService {
 
-    private contientUrl = 'https://cautious-fish-production.up.railway.app/contient';
+    private contientUrl = 'http://localhost:8080/contient';
     contient: Contient = {
         id:{
             idCommande: 0,
