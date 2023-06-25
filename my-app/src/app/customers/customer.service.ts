@@ -10,7 +10,7 @@ import { AddCostumerComponent } from './add-costumer/add-costumer.component';
 })
 export class CustomerService {
 
-  private customersUrl = 'https://cautious-fish-production.up.railway.app/costumer';
+  private customersUrl = 'http://localhost:8080/costumer';
   customer: Customer = {
     id: 0,
     nom: '',

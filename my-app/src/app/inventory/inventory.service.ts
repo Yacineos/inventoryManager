@@ -9,7 +9,7 @@ import { Product } from "./product";
     providedIn: 'root'
 })
 export class InventoryService {
-    private inventoryUrl = 'https://cautious-fish-production.up.railway.app/product';
+    private inventoryUrl = 'http://localhost:8080/product';
     product: Product = {
         id: 0,
         name: '',
@@ -47,8 +47,12 @@ export class InventoryService {
         }
         );
     }
-    deleteProduct(id: number): Observable<any> {
-        return this.http.delete(`${this.inventoryUrl}/delete/${id}`);
+    deleteProduct(id: number): void {
+        this.http.delete(`${this.inventoryUrl}/delete/${id}`).subscribe(data => {
+            console.log(data);
+            window.location.reload();
+        }
+        );
     }
     findProductsByInput(searchInput: string): Observable<Product[]> {
         return this.http.get<Product[]>(`${this.inventoryUrl}/find/${searchInput}`);

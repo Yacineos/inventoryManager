@@ -179,8 +179,8 @@ export class InventoryComponent {
     return count;
   }
   */
-  deleteProduct() {
-    this.showDeleteConfirmation = true;
+  deleteProduct(id: number) {
+    this.inventoryService.deleteProduct(id);
   }
   /*
   updateIsChecked() {
