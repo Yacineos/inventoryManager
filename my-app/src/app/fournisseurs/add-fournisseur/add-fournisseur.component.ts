@@ -27,6 +27,7 @@ export class AddFournisseurComponent {
   addFournisseur(){
     this.fournisseurService.addFournisseur(this.fournisseur).subscribe(data => {
       this.fournisseurComponent.fournisseurs.push(data);
+      window.location.reload();
     }
     );
     this.hideAddFournisseur();

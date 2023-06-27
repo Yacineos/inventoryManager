@@ -87,6 +87,7 @@ export class FournisseursComponent {
   }
   deletefournisseur(fournisseurId: number){
     this.fournisseurService.deleteFournisseur(fournisseurId);
+    window.location.reload();
   }
   findFournisseurByInput(){
     if(this.searchInput == "" || this.searchInput == null) {

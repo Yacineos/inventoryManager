@@ -26,7 +26,7 @@ export class InventoryComponent {
   expireSoonProducts: number = 0;
   isChecked: boolean = false;
   constructor(private rootComponent:AppComponent , private http: HttpClient,private authService:AuthService,private inventoryService: InventoryService) {
-    this.allProducts = this.products.length;
+    
     //this.activeProducts = this.activeProductCount();
     this.inActiveProducts = this.allProducts - this.activeProducts;
     //this.lowStockProducts = this.lowStock();
@@ -35,6 +35,8 @@ export class InventoryComponent {
   ngOnInit() {
     this.getAllProducts().subscribe(data => {
       this.products = data;
+      this.allProducts = this.products.length;
+      this.lowStockProducts = this.lowStock();
     });
     this.rootComponent.loggedIn = true;
     this.showAddProduct = false;

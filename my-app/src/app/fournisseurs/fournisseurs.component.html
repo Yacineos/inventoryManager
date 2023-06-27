@@ -1,6 +1,6 @@
 <div class="flex flex-col w-full h-full">
   <app-header [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur  ?'blur(4px)':null" class="w-full"></app-header>
-    <div [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur  ?'blur(4px)':null" class="w-full py-8 flex justify-between">
+    <div [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur  ?'blur(4px)':null" class="w-full py-10 my-2 flex justify-between">
       <div class="ml-12 font-secondaryFont text-xl">Résumé fournisseurs</div>
       <div class="mr-10 hover:cursor-pointer">
         <a
@@ -29,7 +29,8 @@
         </a>
       </div>
     </div>
-    <div [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur  ?'blur(4px)':null" class="w-full flex justify-between">
+    
+    <div [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur  ?'blur(4px)':null" class="w-full flex justify-between hidden">
       <div class="w-[45%] flex flex-col ml-12 bg-mainpurple rounded-md">
         <div class="w-full mt-1 pb-2 flex flex-row justify-between">
           <div class="bg-black/20 rounded py-0 px-2 ml-5">
@@ -87,6 +88,7 @@
         </div>
       </div>
     </div>
+  
     <div [style.filter]="showAddFournisseur || showDeleteConfirmation || showModifyFournisseur ?'blur(4px)':null" class="py-5 w-full flex justify-center">
       <div
         class="w-20/21 overflow-hidden overflow-x-auto rounded-lg border bg-white border-gray-200"

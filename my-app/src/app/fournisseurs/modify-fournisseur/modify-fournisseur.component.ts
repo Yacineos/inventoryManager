@@ -30,6 +30,7 @@ export class ModifyFournisseurComponent {
     this.hideModifyFournisseur();
     this.fournisseurService.getAllFournisseur().subscribe(data => {
       this.fournisseurComponent.fournisseurs = data;
+      window.location.reload();
     }
     );
   }
